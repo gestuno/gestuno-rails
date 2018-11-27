@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="call-card">
+    <h3>Thank you for calling!</h3>
+    <p>Your interpreter was</p>
+    <p><strong>{interpreter name}</strong></p>
+    <img class="call-avatar" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+    <p><strong>Your call details</strong></p>
+    <p>Call duration: {time.total}</p>
+    <p>You paid: ${1.5 x time}</p>
+    <%= link_to "Go to My Profile", @new_user_registration_path, class: "btn-blue"  %>
+  </div>
+</div>
