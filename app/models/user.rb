@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :interpreter_profile
+  has_one :interpreter_profile # one or zero
 
   def interpreter?
     self.interpreter_profile.present?

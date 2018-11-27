@@ -7,12 +7,17 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= favicon_link_tag asset_path('gestuno.png'), :rel => 'icon', :type =>  'image/png' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
+    <header>
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+    </header>
+    <main class="container">
+      <%= yield %>
+    </main>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'homes#home'
+  root to: 'homes#home' # redirects to other pages depending on user type/login status
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   devise_for :users # includes [edit, new, create, update, destroy] for all types of profile
