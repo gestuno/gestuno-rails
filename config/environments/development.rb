@@ -62,17 +62,18 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  # Add Rack::LiveReload to the bottom of the middleware stack with the default options:
-  config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
-  # or, if you're using better_errors:
-  # config.middleware.insert_before Rack::Lock, Rack::LiveReload
+  # # Add Rack::LiveReload to the bottom of the middleware stack with the default options:
+  # config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
+  # # or, if you're using better_errors:
+  # # config.middleware.insert_before Rack::Lock, Rack::LiveReload
 
-  config.middleware.use(Rack::LiveReload,
-    min_delay: 500,    # default 1000
-    max_delay: 10_000, # default 60_000
-    # live_reload_port: 56789,  # default 35729
-    host: '127.0.0.1',
-    # ignore: [ %r{dont/modify\.html$} ]
-    # source: :livereload
-  )
+  # config.middleware.use(Rack::LiveReload,
+  #   min_delay: 500,    # default 1000
+  #   max_delay: 10_000, # default 60_000
+  #   # live_reload_port: 56789,  # default 35729
+  #   host: '127.0.0.1',
+  #   # ignore: [ %r{dont/modify\.html$} ]
+  #   # source: :livereload
+  # )
+
 end
