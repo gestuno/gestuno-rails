@@ -71,6 +71,9 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise_lastseenable (0.0.6)
+      devise
+      rails (>= 3.0.4)
     dotenv (2.5.0)
     dotenv-rails (2.5.0)
       dotenv (= 2.5.0)
@@ -214,6 +217,7 @@ DEPENDENCIES
   bootsnap
   bootstrap-sass (~> 3.3)
   devise
+  devise_lastseenable
   dotenv-rails
   faker!
   font-awesome-sass (~> 5.0.9)
