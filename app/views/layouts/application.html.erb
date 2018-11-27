@@ -7,9 +7,9 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <style>
-      body, html {
-          height: 100%;
-      }
+/*       body, html {
+    height: 100%;
+} */
     </style>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= favicon_link_tag asset_path('gestuno.png'), :rel => 'icon', :type =>  'image/png' %>
@@ -22,10 +22,11 @@
       <%= render 'shared/navbar', locals: { myclass: 'navbar-fixed-top' } %>
       <%= render 'shared/flashes' %>
     </header>
-    <!-- <main class="container"> -->
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
     <%= render 'shared/footer' %>
-    <!-- </main> -->
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
