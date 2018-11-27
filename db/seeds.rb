@@ -15,7 +15,7 @@ User.destroy_all
 puts 'creating new stuff'
 
 20.times do
-  User.create!(email: Faker::Internet.email, password: Faker::Internet.password(6, 6))
+  User.create!(email: Faker::Internet.email, password: Faker::Internet.password(12))
 end
 
 10.times do |idx|
@@ -25,13 +25,13 @@ end
 
 # test accounts must come last
 
-ti = User.create!(email: 'test@interpreter.com', password: '123123')
-InterpreterProfile.create!(bio: "fake bio", gender: 'female', online: false, user: ti)
+test_interpreter = User.create!(email: 'test@interpreter.com', password: '123123')
+InterpreterProfile.create!(bio: "fake bio", gender: 'female', online: false, user: test_interpreter)
 
-tc = User.create!(email: 'test@customer.com', password: '123123')
+test_customer = User.create!(email: 'test@customer.com', password: '123123')
 
 
 # call = Call.create!(interpreter: bojack, customer: alice)
 
 puts "created #{User.count} users, #{InterpreterProfile.count} interpreter profiles, and #{Call.count} calls."
-puts "your test accounts:\n#{[ti, tc].map { |acc| "#{acc.email}|#{acc.password}" }.join("\n")}"
+puts "your test accounts:\n#{[test_interpreter, test_customer].map { |acc| "#{acc.email}|#{acc.password}" }.join("\n")}"
