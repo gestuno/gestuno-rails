@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: d8fa7294f5410bc949e75c6d52524ed289b3a7a3
+  branch: master
+  specs:
+    faker (1.9.1)
+      i18n (>= 0.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -67,13 +75,34 @@ GEM
     dotenv-rails (2.5.0)
       dotenv (= 2.5.0)
       railties (>= 3.2, < 6.0)
+    em-websocket (0.5.1)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.6.0)
     erubi (1.7.1)
+    eventmachine (1.2.7)
     execjs (2.7.0)
     ffi (1.9.25)
     font-awesome-sass (5.0.13)
       sassc (>= 1.11)
+    formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    guard (2.15.0)
+      formatador (>= 0.2.4)
+      listen (>= 2.7, < 4.0)
+      lumberjack (>= 1.0.12, < 2.0)
+      nenv (~> 0.1)
+      notiffany (~> 0.0)
+      pry (>= 0.9.12)
+      shellany (~> 0.0)
+      thor (>= 0.18.1)
+    guard-compat (1.2.1)
+    guard-livereload (2.5.2)
+      em-websocket (~> 0.5)
+      guard (~> 2.8)
+      guard-compat (~> 1.0)
+      multi_json (~> 1.8)
+    http_parser.rb (0.6.0)
     i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.8.0)
@@ -85,6 +114,7 @@ GEM
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
+    lumberjack (1.0.13)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
@@ -96,9 +126,13 @@ GEM
     minitest (5.11.3)
     msgpack (1.2.4)
     multi_json (1.13.1)
+    nenv (0.3.0)
     nio4r (2.3.1)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
+    notiffany (0.1.1)
+      nenv (~> 0.1)
+      shellany (~> 0.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
     pry (0.12.2)
@@ -111,6 +145,8 @@ GEM
       pry (>= 0.10.4)
     puma (3.12.0)
     rack (2.0.6)
+    rack-livereload (0.3.17)
+      rack
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -161,6 +197,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    shellany (0.0.1)
     simple_form (4.1.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -207,13 +244,17 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3)
   devise
   dotenv-rails
+  faker!
   font-awesome-sass (~> 5.0.9)
+  guard
+  guard-livereload
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
   pg (~> 0.21)
   pry-byebug
   pry-rails
   puma
+  rack-livereload
   rails (= 5.2.1)
   redis
   sassc-rails
