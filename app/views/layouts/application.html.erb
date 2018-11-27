@@ -10,14 +10,14 @@
       body, html {
           height: 100%;
       }
-
+      
       .parallax {
           /* The image used */
           background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path 'banner_image.jpg'%>);
-
+      
           /* Full height */
           height: 100%;
-
+      
           /* Create the parallax scrolling effect */
           background-attachment: fixed;
           background-position: center;
@@ -33,11 +33,12 @@
   </head>
   <body>
     <header>
-      <%= render 'shared/navbar' %>
+      <%= render 'shared/navbar', locals: { myclass: 'navbar-fixed-top' } %>
       <%= render 'shared/flashes' %>
     </header>
     <!-- <main class="container"> -->
-      <%= yield %>
+    <%= yield %>
+    <%= render 'shared/footer' %>
     <!-- </main> -->
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

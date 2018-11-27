@@ -1,2 +1,7 @@
-<h1>Interpreters#index</h1>
-<p>Find me in app/views/interpreters/index.html.erb</p>
+<div class="container">
+  <div class="terp-button">
+    <i class="fas fa-circle"></i>
+    <h3> <%= @interpreters.count %>interpreters available now</h3>
+  </div>
+  <%= render 'shared/card' %>
+</div>

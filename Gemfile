@@ -31,7 +31,6 @@ group :development do
 
 
   # gem "rspec-rails"
-  gem 'guard'
   gem 'guard-livereload'
   gem 'rack-livereload'
   # gem "guard-rspec"
