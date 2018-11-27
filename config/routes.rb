@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'interpreters/show'
+  get 'interpreters/index'
+  get 'customers/show'
   root to: 'homes#home' # redirects to other pages depending on user type/login status
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -12,6 +15,6 @@ Rails.application.routes.draw do
   # get calls
   # get calls
 
-  resources :interpreter_profiles, only: []
+  # resources :interpreter_profiles, only: []
 
 end
