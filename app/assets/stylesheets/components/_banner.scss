@@ -1,37 +1,28 @@
+.top {
+  display: flex;
+}
+
 .banner {
-  text-align: center;
-  height: calc(100vh - 70px);
-  background-size: cover !important;
-  position: relative;
-  background-attachment: fixed;
-}
-
-.banner h1 {
-  font-size: 50px;
-  font-weight: bold;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-}
-
-.banner p {
-  font-size: 25px;
-  font-weight: lighter;
-  color: rgb(255, 255, 255);
-  opacity: 0.6;
-  margin-bottom: 30px;
-}
-
-.content-top {
-  top: 100px;
-  margin: 0px;
-  padding-top: 100px;
-}
-
-.content-bottom {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 0px;
-  padding-top: 4em;
+  justify-content: space-between;
+  text-align: center;
+  height: 60%;
+  width: 80%;
 }
 
+.banner-title {
+  margin-bottom: 50px;
+}
 
+.parallax {
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('banner_image.jpg');
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

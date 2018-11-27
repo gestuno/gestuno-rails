@@ -4,21 +4,22 @@
   border: 1px solid rgba(0,0,0,0.3);
   box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
   position: relative;
-  margin: 10px;
+  margin-bottom: 20px;
   height: 250px;
+  padding-right: 20px;
 }
 
 .card-description {
   color: black;
+  padding-left: 20px;
 }
 
-.card-description h2 {
+.card-description h3 {
   font-size: 24px;
 }
 .card-description p {
   font-size: 14px;
   opacity: 0.9;
-  font-weight: lighter;
 }
 
 .card-image {
@@ -27,4 +28,5 @@
   top: 10px;
   width: 30%;
   border-radius: 50%;
+  margin: 10px;
 }
