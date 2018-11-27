@@ -14,15 +14,22 @@ User.destroy_all
 
 puts 'creating new stuff'
 
-bojack = User.create!(email: 'bojack@horse.man', password: '123123')
-ozzy = User.create!(email: 'ozzy@the.osbournes', password: 'drowssap')
-alice = User.create!(email: 'alice@wonder.land', password: 'h4xx0r')
+ti = User.create!(email: 'test@interpreter.com', password: '123123', interpreter_profile: InterpreterProfile.create!(bio: "fake bio", gender: 'female', online: false))
+tc = User.create!(email: 'test@customer.com', password: '123123')
 
-profile = InterpreterProfile.create!(bio: "BoJack Horseman is an American adult animated comedy-drama series created by Raphael Bob-Waksberg. The series stars Will Arnett as the title character, with a supporting cast including Amy Sedaris, Alison Brie, Paul F. Tompkins, and Aaron Paul. The series' first season premiered on August 22, 2014, on Netflix, with a Christmas special premiering on December 19. The show is designed by the cartoonist Lisa Hanawalt, who had previously worked with Bob-Waksberg on the webcomic Tip Me Over, Pour Me Out.[7]", gender: 'male', online: false)
+20.times do
+  User.create!(email: Faker::Internet.email, password: Faker::Internet.password(6, 6))
+end
 
-bojack.interpreter_profile = profile
+10.times do
+  InterpreterProfile.create!(bio: Faker::Lorem.sentence, gender: Faker::Gender.binary_type, online: false)
+end
 
-call = Call.create!(interpreter: bojack, customer: alice)
+User.last(10).each.with_index do |user, idx|
+  user.interpreter_profile = InterpreterProfile.limit(1).offset(idx)[0]
+end
+
+# call = Call.create!(interpreter: bojack, customer: alice)
 
 puts "created #{User.count} users, #{InterpreterProfile.count} interpreter profiles, and #{Call.count} calls."
-
+puts "your test accounts:\n#{[ti, tc].map { |acc| "#{acc.email}|#{acc.password}" }.join("\n")}"
