@@ -14,22 +14,24 @@ User.destroy_all
 
 puts 'creating new stuff'
 
-ti = User.create!(email: 'test@interpreter.com', password: '123123', interpreter_profile: InterpreterProfile.create!(bio: "fake bio", gender: 'female', online: false))
-tc = User.create!(email: 'test@customer.com', password: '123123')
-
 20.times do
-  User.create!(email: Faker::Internet.email, password: Faker::Internet.password(6, 6))
+  User.create!(email: Faker::Internet.email, password: Faker::Internet.password(12))
 end
 
-10.times do
-  InterpreterProfile.create!(bio: Faker::Lorem.sentence, gender: Faker::Gender.binary_type, online: false)
+10.times do |idx|
+  InterpreterProfile.create!(bio: Faker::Lorem.sentence, gender: Faker::Gender.binary_type, online: false, user: User.limit(1).offset(idx)[0])
 end
 
-User.last(10).each.with_index do |user, idx|
-  user.interpreter_profile = InterpreterProfile.limit(1).offset(idx)[0]
-end
+
+# test accounts must come last
+
+test_interpreter = User.create!(email: 'test@interpreter.com', password: '123123')
+InterpreterProfile.create!(bio: "fake bio", gender: 'female', online: false, user: test_interpreter)
+
+test_customer = User.create!(email: 'test@customer.com', password: '123123')
+
 
 # call = Call.create!(interpreter: bojack, customer: alice)
 
 puts "created #{User.count} users, #{InterpreterProfile.count} interpreter profiles, and #{Call.count} calls."
-puts "your test accounts:\n#{[ti, tc].map { |acc| "#{acc.email}|#{acc.password}" }.join("\n")}"
+puts "your test accounts:\n#{[test_interpreter, test_customer].map { |acc| "#{acc.email}|#{acc.password}" }.join("\n")}"
