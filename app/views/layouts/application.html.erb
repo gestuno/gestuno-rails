@@ -22,10 +22,11 @@
       <%= render 'shared/navbar', locals: { myclass: 'navbar-fixed-top' } %>
       <%= render 'shared/flashes' %>
     </header>
-    <!-- <main class="container"> -->
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
     <%= render 'shared/footer' %>
-    <!-- </main> -->
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
