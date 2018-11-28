@@ -17,9 +17,11 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
-gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 
 gem 'devise_lastseenable'
+
+gem 'twilio-ruby', '~> 5.16.0'
 
 
 group :development do

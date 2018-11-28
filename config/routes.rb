@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'calls/twiliojwt'
   get 'interpreters/show'
   get 'interpreters/index'
   get 'customers/show'
@@ -12,10 +13,9 @@ Rails.application.routes.draw do
   resources :customers, only: [:show, :index]
   resources :interpreters, only: [:show, :index]
 
-  # resources :calls, only: []
+  get 'twiliojwt', to: 'calls#get_twilio_jwt'
 
-  # get calls
-  # get calls
+  get 'twiliotest', to: 'pages#twilio_test'
 
   # resources :interpreter_profiles, only: []
 
