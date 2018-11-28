@@ -6,4 +6,9 @@ class PagesController < ApplicationController
 
   def endcall
   end
+
+  def twilio_test
+    # render 'pages/index'
+  end
+
 end
