@@ -1,7 +1,13 @@
 <div class="container">
-  <div class="terp-button">
-    <i class="fas fa-circle"></i>
-    <h3> <%= @interpreters.count %> interpreters available now</h3>
-  </div>
-  <%= render 'shared/card' %>
+  <% if @interpreters.count == 0 %>
+    <div class="terp-button">
+      <h3> There are no interpreters available online</h3>
+    </div>
+  <% else %>
+    <div class="terp-button">
+      <i class="fas fa-circle"></i>
+      <h3> <%= @interpreters.count %> interpreters available now</h3>
+    </div>
+    <%= render 'shared/card' %>
+  <% end %>
 </div>
