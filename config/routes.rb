@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'calls/twiliojwt'
-
   # TODO - delete this temp route once code is in correct file
   get 'pages/endcall'
   root to: 'homes#home' # redirects to other pages depending on user type/login status
