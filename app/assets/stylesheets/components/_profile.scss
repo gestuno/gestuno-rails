@@ -1,4 +1,4 @@
-.call-card {
+.profile {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
@@ -8,14 +8,4 @@
   border: 1px solid rgba(0,0,0,0.3);
   box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
   padding: 20px;
-}
-
-.call-avatar {
-  margin: 10px;
-  width: 20%;
-  border-radius: 50%;
-}
-
-.call-card p {
-  margin: 0px;
 }
