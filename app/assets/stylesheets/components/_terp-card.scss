@@ -1,0 +1,40 @@
+.card {
+  background-color: white;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+  margin: 10px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.card:last-child {
+  margin-bottom: 70px;
+}
+
+.card-avatar {
+  width: 10%;
+  border-radius: 50%;
+}
+
+.card-title {
+  flex-grow: 1;
+  padding: 10px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.terp-button {
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+.fas.fa-circle {
+  color: #06D40E;
+  margin: 0px;
+  padding-top: 28px;
+  padding-right: 10px;
+}
+

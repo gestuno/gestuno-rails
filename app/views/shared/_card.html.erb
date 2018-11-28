@@ -1,0 +1,12 @@
+<% @interpreters.each do |interpreter| %>
+  <div class="card" style="background-color: white;">
+    <img class="card-avatar" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+    <div class="card-title">
+      <p><strong><%= interpreter.user.email.gsub(/@.+/, '').split(/[-_.]/).map { |word| word.capitalize } .join(' ') %></strong></p>
+      <p>{star ratings}</p>
+    </div>
+    <div>
+      <%= link_to "VIEW PROFILE", interpreters_show_path(@interpreter), class: "btn btn-primary"  %>
+    </div>
+  </div>
+<% end %>
