@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'interpreters/show'
+  # get 'interpreters/show'
   get 'interpreters/index'
   get 'customers/show'
   # TODO - delete this temp route once code is in correct file
