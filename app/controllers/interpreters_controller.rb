@@ -3,7 +3,8 @@ class InterpretersController < ApplicationController
 
   def show
     #InterpreterProfile.find(params[:id])
-    @interpreter = User.find(params[:id]) # TODO  ActiveRecord::RecordNotFound in InterpretersController#show | Couldn't find User without an ID
+    @interpreter = User.find(params[:id])
+    raise # TODO  ActiveRecord::RecordNotFound in InterpretersController#show | Couldn't find User without an ID
 
   end
 
