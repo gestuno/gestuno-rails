@@ -1,2 +1,12 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+<div class="container">
+  <div class="call-card">
+    <img class="call-avatar" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+    <h3>My Profile</h3>
+    <p>Randall Bilson</p>
+    <br>
+    <p><strong>Your language preferences</strong></p>
+    <p>Auslan (Australian Sign Language)</p>
+    <p>ASL (American Sign Language)</p>
+    <%= link_to "Update my information", @edit_user_registration_path, class: "btn-blue"  %>
+  </div>
+</div>
