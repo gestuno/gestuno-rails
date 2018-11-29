@@ -7,7 +7,6 @@
   let activeRoom;
   let previewTracks;
   let identity;
-  let roomName;
 
   // Attach the Tracks to the DOM.
   function attachTracks(tracks, container) {
@@ -54,11 +53,7 @@
     joinRoom();
 
     function joinRoom() {
-      roomName = "#{params[:room_name]}";
-      if (!roomName) {
-        alert('Please enter a room name.');
-        return;
-      }
+      const roomName = document.querySelector('#room-name').value; //hidden input, filled with auto-generated room UUID
 
       log("Joining room '" + roomName + "'...");
       const connectOptions = {
@@ -146,6 +141,9 @@
       activeRoom = null;
       // document.getElementById('button-join').style.display = 'inline';
       // document.getElementById('button-leave').style.display = 'none';
+
+      window.location.pathname = 'pages/endcall'; //TODO: replace with proper rerouting logic
+
     });
   }
 
