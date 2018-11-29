@@ -1,9 +1,13 @@
-.img.profile-image {
-  object-fit: cover;
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  image-overflow: hidden;
+.card-category {
+  border-radius: 6px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.profile-header {
+  display:flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .show-card {
@@ -23,3 +27,6 @@
   margin-bottom: 0px;
 }
 
+.upload-pic {
+  margin-top: 40px;
+}

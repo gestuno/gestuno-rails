@@ -2,24 +2,27 @@
   <div class="row">
     <div class="profile-header">
       <div class="col-xs-12 col-sm-6">
-        <div class="profile-image" style="width: 150px; height: 150px; overflow: hidden"><%= image_tag "//res.cloudinary.com/lionelrowe/image/upload/v1543488174/bill_zumslg.jpg", id: "thumbnail" %>
+        <div class="call-avatar" style="width: 150px; height: 150px; overflow: hidden"><%= image_tag "https://res.cloudinary.com/drgdpdviq/image/upload/v1543500513/zq7mhhcznsfkwbqqhebc.jpg", id: "thumbnail" %>
+
         </div>
       </div>
       <div class="col-xs-12 col-sm-6">
-        <h3>Upload a profile picture</h3>
+        <div class="upload-pic">
+        <h4>Upload a profile picture</h4>
         <button type="button" class="btn-circle"></button>
         <p>offline now</p>
+        </div>
       </div>
     </div>
   </div>
   <div class="form">
     <% if current_user.interpreter %>
       <%= simple_form_for @interpreter, as: :interpreter, method: :post, url: interpreters_path do |f| %>
-        <%= f.input :gender, collection: ["Male", "Female", "Other"]%>
-        <%= f.input :bio %>
-        <%= f.input :certifications, collection: ["NAATI Level 2", "NAATI Level 3"]%>
+        <%= f.input :gender, collection: ["Male", "Female", "Other"], placeholder: "male or female" %>
+        <%= f.input :bio, placeholder: "work experience" %>
+        <%= f.input :certifications, collection: ["NAATI Level 2", "NAATI Level 3"], placeholder: "Naati level 2" %>
         <%= f.input :language, collection: ["Auslan", "ASL"]%>
-        <%= f.button :submit %>
+        <%= f.button :submit, class: "btn-blue" %>
       <% end %>
     <% end %>
   </div>
