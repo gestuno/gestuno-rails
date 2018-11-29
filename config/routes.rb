@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   #   get 'profile', to: 'devise/registrations#edit'
   # end
 
-  resources :customers, only: [:show, :index]
+  resources :customers, only: [:index, :new, :create, :edit, :destroy, :edit, :show, :update]
   resources :interpreters, only: [:index, :new, :create, :edit, :destroy, :edit, :show, :update]
 
   get 'start/:room_name', to: 'calls#start'
