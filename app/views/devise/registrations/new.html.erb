@@ -18,8 +18,8 @@
       <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-      
-      <% f.input :interpreter, as: :boolean, checked_value: @user_type=='interpreter', unchecked_value: @user_type=='customer' %>
+      <%= f.input :interpreter, as: :hidden, input_html: { value: @user_type == 'interpreter' } %>
+
     </div>
     <div class="form-actions">
       <%= f.button :submit, "Sign up", class: "btn-blue" %>
