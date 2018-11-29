@@ -1,0 +1,41 @@
+@mixin call-button($base) {
+
+  $text: $off-white;
+
+  background: $base;
+  border: none;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-size: 1.5em;
+  color: $text !important;
+  text-decoration: none !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  margin: 0 auto;
+  padding: 0;
+  align-self: center;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    background: lighten($base, 7) !important;
+  }
+
+  &:hover {
+    background: lighten($base, 3);
+  }
+}
+
+.call-button-end {
+  @include call-button($red);
+}
+
+.call-button-start {
+  @include call-button($green);
+}
