@@ -7,6 +7,7 @@
   text-decoration: none;
   margin-top: 10px;
   transition: background 0.3s ease;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 .btn-blue:hover {
   opacity: 1;
@@ -22,6 +23,7 @@
   font-weight: bold;
   background: #F47645;
   transition: background 0.3s ease;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 .btn-orange:hover {
   opacity: 1;
@@ -70,5 +72,10 @@
 .btn-text {
   color: white;
   font-style: normal;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
 }
 
