@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="profile-header">
+      <div class="col-xs-12 col-sm-6">
+        <div class="profile-image" style="width: 150px; height: 150px; overflow: hidden"><%= image_tag "bill.jpeg", id: "thumbnail" %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <h3>Upload a profile picture</h3>
+        <button type="button" class="btn-circle"></button>
+        <p>offline now</p>
+      </div>
+    </div>
+  </div>
+  <div class="form">
+    <% if current_user.interpreter %>
+      <%= simple_form_for @interpreter, as: :interpreter, method: :post, url: interpreters_path do |f| %>
+        <%= f.input :gender %>
+        <%= f.input :bio %>
+        <%= f.input :certifications %>
+        <%= f.input :language, collection: ["Auslan", "ASL"]%>
+        <%= f.button :submit %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

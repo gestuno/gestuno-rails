@@ -20,6 +20,7 @@ puts 'creating new stuff'
 #   u.save!
 # end
 
+
 # 10.times do |idx|
 #   InterpreterProfile.create!(bio: Faker::Lorem.sentence, gender: Faker::Gender.binary_type, user: User.limit(1).offset(idx)[0])
 # end
@@ -28,7 +29,7 @@ puts 'creating new stuff'
 # test accounts must come last
 
 test_interpreter = User.create!(name: 'interpreter', email: 'test@interpreter.com', password: '123123', interpreter: true, last_seen: Time.now)
-InterpreterProfile.create!(bio: "fake bio", gender: 'female', user: test_interpreter)
+InterpreterProfile.create!(bio: "fake bio", gender: 'female', user: test_interpreter, language: 'Auslan', certifications: 'Naati level 2')
 
 test_customer = User.create!(name: 'customer', email: 'test@customer.com', password: '123123', last_seen: Time.now)
 
