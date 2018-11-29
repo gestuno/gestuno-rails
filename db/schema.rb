@@ -18,12 +18,21 @@ ActiveRecord::Schema.define(version: 2018_11_29_041509) do
   create_table "calls", force: :cascade do |t|
     t.datetime "start_time"
     t.datetime "end_time"
-    t.bigint "interpreter_id"
-    t.bigint "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_calls_on_customer_id"
-    t.index ["interpreter_id"], name: "index_calls_on_interpreter_id"
+    t.bigint "sender_id"
+    t.string "room_name"
+    t.string "twilio_sid"
+    t.index ["sender_id"], name: "index_calls_on_sender_id"
+  end
+
+  create_table "calls_users", force: :cascade do |t|
+    t.bigint "call_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["call_id"], name: "index_calls_users_on_call_id"
+    t.index ["user_id"], name: "index_calls_users_on_user_id"
   end
 
   create_table "interpreter_profiles", force: :cascade do |t|
@@ -33,31 +42,6 @@ ActiveRecord::Schema.define(version: 2018_11_29_041509) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_interpreter_profiles_on_user_id"
-  end
-
-  create_table "taggings", id: :serial, force: :cascade do |t|
-    t.integer "tag_id"
-    t.string "taggable_type"
-    t.integer "taggable_id"
-    t.string "tagger_type"
-    t.integer "tagger_id"
-    t.string "context", limit: 128
-    t.datetime "created_at"
-    t.index ["context"], name: "index_taggings_on_context"
-    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
-    t.index ["tag_id"], name: "index_taggings_on_tag_id"
-    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
-    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
-    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
-    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
-    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
-    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
-  end
-
-  create_table "tags", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.integer "taggings_count", default: 0
-    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|

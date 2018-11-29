@@ -1,0 +1,16 @@
+<div class="twilio-only">
+  <div class="bg"></div>
+  <div id="remote-media"></div>
+  <div id="controls">
+    <div id="local-media"></div>
+      <div id="room-controls">
+      <input id="room-name" type="text" placeholder="Enter a room name" value='<%= params[:room_name] %>' />
+      <button id='button-end-call' title='End call'><i class="fas fa-phone-slash"></i></button>
+    </div>
+    <div id="log"></div>
+  </div>
+
+  <script src="//media.twiliocdn.com/sdk/js/video/v1/twilio-video.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+</div>
