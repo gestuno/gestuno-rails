@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'homes#home' # redirects to other pages depending on user type/login status
 
   devise_for :users, controllers: { registrations: 'user/registrations' }  # includes [edit, new, create, update, destroy] for all types of profile
+
   # devise_scope :user do
   #   get 'profile', to: 'devise/registrations#edit'
   # end
@@ -12,17 +13,14 @@ Rails.application.routes.draw do
   resources :customers, only: [:show, :index]
   resources :interpreters, only: [:index, :new, :create, :edit, :destroy, :edit, :show, :update]
 
-  # PROFILE routes
-  # get 'interpreter_signup', to: 'devise/registrations#new'
-  # get 'customer_signup', to: 'devise/registrations#new'
+  get 'start/:room_name', to: 'calls#start'
+  get 'join/:room_name', to: 'calls#join'
 
-  # TWILIO routes
+  resources :calls, only: [:create] #, :update
+
   get 'twiliojwt', to: 'calls#get_twilio_jwt'
-  get 'twiliotest', to: 'pages#twilio_test'
 
   # TODO - delete this temp route once code is in correct file
   get 'pages/endcall'
-
-  # resources :interpreter_profiles, only: []
 
 end
