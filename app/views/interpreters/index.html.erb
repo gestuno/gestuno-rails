@@ -1,10 +1,10 @@
-<div class="container">
+<div class="page-buffer">
   <% if @interpreters.count == 0 %>
-    <div class="terp-button">
+    <div class="terp-button styled-dark">
       <h3> There are no interpreters available online</h3>
     </div>
   <% else %>
-    <div class="terp-button">
+    <div class="terp-button styled-darker">
       <i class="fas fa-circle"></i>
       <h3> <%= @interpreters.count %> interpreters available now</h3>
     </div>

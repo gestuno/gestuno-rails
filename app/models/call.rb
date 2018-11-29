@@ -1,7 +1,5 @@
 class Call < ApplicationRecord
   belongs_to :sender, class_name: "User"
-  has_many :call_recipients
-  # has_many :recipients, class_name: "User", through: :call_recipients # actually only 1 for now (length capped at 1)
 
   has_and_belongs_to_many :recipients, class_name: "User" # actually only 1 for now (length capped at 1)
 

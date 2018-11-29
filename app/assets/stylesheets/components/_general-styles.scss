@@ -4,7 +4,7 @@
 }
 
 .styled-dark {
-  color: black;
+  color: rgba(0,0,0,0.6);
   text-align: center;
 }
 
@@ -15,6 +15,13 @@
 
 .page-buffer {
   margin: 0px auto;
-  width: 970px;
+  background-color: #f6f6f6;
+  padding-bottom: 70px;
+  padding-top: 10px;
+}
+
+.styled-darker {
+  color: rgba(0,0,0,0.7);
+  text-align: center;
 }
 

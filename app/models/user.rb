@@ -4,17 +4,26 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :lastseenable
 
-  has_one :interpreter_profile # one or zero
+  has_one :interpreter_profile 
+  has_one :customer_profile
 
   has_and_belongs_to_many :received_calls, class_name: "Call"
 
+  def profile
+    interpreter_profile || customer_profile
+  end
+
   def interpreter?
     # self.interpreter_profile.present?
-    self.interpreter
+    interpreter
+  end
+
+  def role
+    interpreter ? 'interpreter' : 'customer'
   end
 
   def customer?
-    !self.interpreter?
+    !interpreter?
   end
 
   def online?
