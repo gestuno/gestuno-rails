@@ -3,8 +3,8 @@ class InterpretersController < ApplicationController
 
   def show
     #InterpreterProfile.find(params[:id])
-    @interpreter = User.find(params[:id])
-    raise # TODO  ActiveRecord::RecordNotFound in InterpretersController#show | Couldn't find User without an ID
+    @interpreter = InterpreterProfile.find(params[:user_id])
+    # raise # TODO  ActiveRecord::RecordNotFound in InterpretersController#show | Couldn't find User without an ID
 
   end
 
@@ -12,4 +12,10 @@ class InterpretersController < ApplicationController
     @interpreters = InterpreterProfile.all.select { |i| i.user.online? } # TODO improve performance
     # raise
   end
+
+  private
+
+
+
 end
+
