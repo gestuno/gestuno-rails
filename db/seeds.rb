@@ -10,6 +10,7 @@ puts 'destroying all your stuff, buckle up!'
 
 Call.destroy_all
 InterpreterProfile.destroy_all
+CustomerProfile.destroy_all
 User.destroy_all
 
 puts 'creating new stuff'
@@ -24,6 +25,9 @@ end
   InterpreterProfile.create!(bio: Faker::Lorem.sentence, gender: Faker::Gender.binary_type, user: User.limit(1).offset(idx)[0])
 end
 
+10.times do |idx|
+  CustomerProfile.create!(language: "Auslan (Australian Sign Language)", user: User.limit(1).offset(idx)[0])
+end
 
 # test accounts must come last
 
@@ -31,7 +35,7 @@ test_interpreter = User.create!(email: 'test@interpreter.com', password: '123123
 InterpreterProfile.create!(bio: "fake bio", gender: 'female', user: test_interpreter)
 
 test_customer = User.create!(email: 'test@customer.com', password: '123123')
-
+CustomerProfile.create!(language: "fake bio", user: test_customer)
 
 # call = Call.create!(interpreter: bojack, customer: alice)
 
