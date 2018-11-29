@@ -1,6 +1,6 @@
-class InterpretersController < ApplicationController
+ class InterpretersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
-  before_action :set_user, only: [:show, :edit, :create, :update]
+  before_action :set_user, only: [:show, :create, :update]
 
   def index
     @interpreters = InterpreterProfile.all.select { |i| i.user.online? } # TODO improve performance
@@ -14,13 +14,14 @@ class InterpretersController < ApplicationController
   end
 
   def edit
+    @interpreter = InterpreterProfile.new()
   end
 
   def create
-    # @interpreter = InterpreterProfile.new(interpreter_params)
-    # @interpreter.user = User.find(params(:user_id))
-    # @interpreter.save
-    # redirect_to
+    @interpreter = InterpreterProfile.new(interpreter_params)
+    @interpreter.user = current_user
+    @interpreter.save
+    render :edit
   end
 
   def update
