@@ -10,31 +10,32 @@ puts 'destroying all your stuff, buckle up!'
 
 Call.destroy_all
 InterpreterProfile.destroy_all
+CustomerProfile.destroy_all
 User.destroy_all
 
 puts 'creating new stuff'
-
-# 20.times do |idx|
-#   u = User.new(email: Faker::Internet.email(nil, '.'), password: Faker::Internet.password(12))
-#   u.last_seen = Time.now if idx.even?
-#   u.save!
-# end
-
 
 # 10.times do |idx|
 #   InterpreterProfile.create!(bio: Faker::Lorem.sentence, gender: Faker::Gender.binary_type, user: User.limit(1).offset(idx)[0])
 # end
 
+20.times do |idx|
+  u = User.new(email: Faker::Internet.email(nil, '.'), password: Faker::Internet.password(12))
+  u.last_seen = Time.now if idx.even?
+  u.save!
+end
+
+10.times do |idx|
+  CustomerProfile.create!(language: "Auslan (Australian Sign Language)", user: User.limit(1).offset(idx)[0])
+end
 
 # test accounts must come last
 
 test_interpreter = User.create!(name: 'interpreter', email: 'test@interpreter.com', password: '123123', interpreter: true, last_seen: Time.now)
 InterpreterProfile.create!(bio: "fake bio", gender: 'female', user: test_interpreter, language: 'Auslan', certifications: 'Naati level 2')
 
-test_customer = User.create!(name: 'customer', email: 'test@customer.com', password: '123123', last_seen: Time.now)
+test_customer = User.create!(name: 'customer', email: 'test@customer.com', password: '123123')
+CustomerProfile.create!(language: "fake bio", user: test_customer)
 
-
-# call = Call.create!(interpreter: bojack, customer: alice)
-
-puts "created #{User.count} users, #{InterpreterProfile.count} interpreter profiles, and #{Call.count} calls."
+puts "created #{CustomerProfile.count} customers, #{InterpreterProfile.count} interpreters, and #{Call.count} calls."
 puts "your test accounts:\n#{[test_interpreter, test_customer].map { |acc| "#{acc.email}|#{acc.password}" }.join("\n")}"
