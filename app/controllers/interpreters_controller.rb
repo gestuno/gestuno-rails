@@ -1,5 +1,4 @@
  class InterpretersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
   before_action :set_user, only: [:show, :create, :update]
 
   def index
