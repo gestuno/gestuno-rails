@@ -13,15 +13,13 @@
     </div>
   </div>
   <div class="form">
-    <% if current_user.interpreter %>
-      <%= simple_form_for @interpreter, as: :interpreter, method: :post, url: interpreters_path do |f| %>
+    <% if current_user.customer %>
+      <%= simple_form_for @customer, as: :customer, method: :post, url: customers_path do |f| %>
         <%= f.input :gender, collection: ["Male", "Female", "Other"]%>
         <%= f.input :bio %>
-        <%= f.input :certifications, collection: ["NAATI Level 2", "NAATI Level 2"]%>
         <%= f.input :language, collection: ["Auslan", "ASL"]%>
         <%= f.button :submit %>
       <% end %>
     <% end %>
   </div>
 </div>
-
