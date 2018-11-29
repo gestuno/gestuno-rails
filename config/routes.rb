@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   root to: 'homes#home' # redirects to other pages depending on user type/login status
   
-  devise_for :users, controllers: { registrations: 'users/registrations' }  # includes [edit, new, create, update, destroy] for all types of profile
+  devise_for :users, controllers: { registrations: 'user/registrations' }  # includes [edit, new, create, update, destroy] for all types of profile
   devise_scope :user do
     get 'profile', to: 'devise/registrations#edit'
   end
@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   resources :interpreters, only: [:show, :index]
   
   # PROFILE routes
-  get 'interpreter_signup', to: 'devise/registrations#new'
-  get 'customer_signup', to: 'devise/registrations#new'
+  # get 'interpreter_signup', to: 'devise/registrations#new'
+  # get 'customer_signup', to: 'devise/registrations#new'
   
   # TWILIO routes
   get 'twiliojwt', to: 'calls#get_twilio_jwt'

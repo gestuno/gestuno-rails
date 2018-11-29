@@ -27,10 +27,10 @@ puts 'creating new stuff'
 
 # test accounts must come last
 
-test_interpreter = User.create!(email: 'test@interpreter.com', password: '123123', interpreter: true)
+test_interpreter = User.create!(name: 'interpreter', email: 'test@interpreter.com', password: '123123', interpreter: true)
 InterpreterProfile.create!(bio: "fake bio", gender: 'female', user: test_interpreter)
 
-test_customer = User.create!(email: 'test@customer.com', password: '123123')
+test_customer = User.create!(name: 'customer', email: 'test@customer.com', password: '123123')
 
 
 # call = Call.create!(interpreter: bojack, customer: alice)

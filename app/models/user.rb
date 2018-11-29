@@ -5,14 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :lastseenable
 
   has_one :interpreter_profile # one or zero
-
+  
   def interpreter?
     # self.interpreter_profile.present?
-    self.interpreter?
+    self.interpreter
   end
 
   def customer?
-    # !self.interpreter?
+    !self.interpreter?
   end
 
   def online?
