@@ -23,7 +23,7 @@ class InterpretersController < ApplicationController
   end
 
   def update
-    # redirect_to
+    @interpreter.update(interpreter_params)
   end
 
   private

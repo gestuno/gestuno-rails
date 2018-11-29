@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # get 'interpreters/show'
+  #get 'interpreters/show'
   get 'interpreters/index'
   get 'customers/show'
   # TODO - delete this temp route once code is in correct file
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   devise_for :users # includes [edit, new, create, update, destroy] for all types of profile
   resources :customers, only: [:show, :index]
-  resources :interpreters, only: [:show, :index]
+  resources :interpreters, only: [:show, :index, :new, :create, :edit, :update]
 
   # resources :calls, only: []
 
