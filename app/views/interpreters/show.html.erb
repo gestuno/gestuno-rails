@@ -42,15 +42,14 @@
   </div>
  </div>
 
- <div class="btn-centered text-center">
-  <button type="button" class="btn-circle-XL">
-    <i class="btn-text">Off</i>
-  </button>
- <p>Click to start interpreting</p>
-</div>
+ <div class="btn-centered text-center" style='margin-top: 50px'>
+
+  <%= form_tag(controller: :calls, action: :create, method: :post) do %>
+    <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
+      <i class="fas fa-phone"></i>
+    <% end %>
+  <% end -%>
 
 </div>
 
-<%= form_tag(controller: :calls, action: :create, method: :post) do %>
-  <%= submit_tag 'CALL' %>
-<% end -%>
+</div>
