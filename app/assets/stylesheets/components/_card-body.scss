@@ -1,25 +1,24 @@
-.card-category {
-  border-radius: 6px;
-  margin-top: 20px;
+.img.profile-image {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  image-overflow: hidden;
+}
+
+.show-card {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-}
-
-.profile-header {
-  display:flex;
-  justify-content: space-between;
-}
-
-.profile-image {
+  margin: 20px;
   align-items: center;
-  padding-left: 40px;
-  margin-right: 80px;
-  border-radius: 6px
+  border: 1px solid rgba(0,0,0,0.3);
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+  padding: 20px;
+  background-color: white;
+  border-radius: 2px;
 }
 
-.profile-body {
-  display:flex;
-  background-color: #4DBAC7;
-  margin-top: 30px;
+.show-card h3 {
+  margin-bottom: 0px;
 }
-
-

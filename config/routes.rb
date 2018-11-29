@@ -7,13 +7,12 @@ Rails.application.routes.draw do
 
   devise_for :users  # includes [edit, new, create, update, destroy] for all types of profile
   devise_scope :user do
-    get 'profile', to: 'customers#show'
+    get 'profile', to: 'devise/registrations#edit'
   end
-  resources :customers, only: [:show, :index]
+  resources :customers, only: [:show, :index, :edit, :update]
   resources :interpreters, only: [:show, :index]
 
   get 'twiliojwt', to: 'calls#get_twilio_jwt'
-
   get 'twiliotest', to: 'pages#twilio_test'
 
   # resources :interpreter_profiles, only: []

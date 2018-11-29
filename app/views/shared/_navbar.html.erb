@@ -10,10 +10,10 @@
       <%= link_to "Profile", profile_path, class: "navbar-wagon-item btn-blue" %>
       <%#= link_to "Profile", edit_user_registration_path(current_user), class: "navbar-wagon-item" %>
       <%#= link_to "Settings", "#", class: "navbar-wagon-item" %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item btn-orange" %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item btn-plain" %>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item btn-orange" %>
+      <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item" %>
     <% end %>
   </div>
 </nav>

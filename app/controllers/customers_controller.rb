@@ -2,37 +2,30 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [ :show, :edit, :update]
 
   def index
-    @customers = User.all.select { |user| user.customer? && user.online? }
-    # raise
+    # @customers = CustomerProfile.all.select { |c| c.customer? && u.online? }
+    # TODO improve performance
+    # TODO - do not use this!
   end
 
   def show
-    @customer = User.find(set_customer)
   end
 
   def edit
-    @customer = User.find(set_customer)
   end
 
   def update
-    @customer = User.find(set_customer)
     @customer.update(user_params)
     redirect_to profile_path
   end
 
-  def create
-
-  end
-
-
   private
 
   def set_customer
-    @customer = User.find(params[:id])
+    @customer = current_user
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :language)
+    params.require(:user).permit(:language)
   end
 
 end
