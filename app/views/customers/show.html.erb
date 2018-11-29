@@ -1,13 +1,12 @@
-<div class="container">
-  <div class="call-card">
-    <img class="call-avatar" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+<div class="page-buffer">
+  <div class="show-card styled-darker">
     <h3>My Profile</h3>
-    <p>Randall Bilson</p>
+    <img class="call-avatar" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+    <h3>RANDALL BILSON</h3>
     <br>
-    <p><strong>Your language preferences</strong></p>
+    <%= link_to "Find An Interpreter", interpreters_path, class: "btn-round"  %>
+    <h3>LANGUAGE PREFERENCE</h3>
     <p>Auslan (Australian Sign Language)</p>
-    <p>ASL (American Sign Language)</p>
     <%= link_to "Update my information", edit_user_registration_path, class: "btn-blue"  %>
-    <%= link_to "Find An Interpreter", interpreters_path, class: "btn-blue"  %>
   </div>
 </div>
