@@ -4,7 +4,7 @@
       Book a sign-language interpreter anytime, anywhere.
     </h3>
     <div class="banner-info">
-      <%= link_to "JOIN", @new_user_registration_path, class: "btn-blue"  %>
+      <%= link_to "JOIN", new_user_registration_path, class: "btn-blue"  %>
       <h3 class="bottom styled">
         Learn More
       </h3>
@@ -12,35 +12,37 @@
     </div>
   </div>
 </div>
-<div class="container">
-  <div class="styled-dark">
-    <h2>How does it work?</h2>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div class="landing-card">
-        <div class="card-description">
-          <h3>Deaf Customer</h3>
-          <p>Need a Sign Language interpreter now?</p>
-          <p><strong>You can:</strong></p>
-          <p>See list of interpreters available online</p>
-          <p>Choose and call an interpreter</p>
-          <p>$1.50 per minute</p>
-          <p>Maximum 30 minutes per call</p>
+<div class="home-card">
+  <div class="page-buffer">
+    <div class="styled-dark">
+      <h2>How does it work?</h2>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="landing-card">
           <%= image_tag("https://res.cloudinary.com/lionelrowe/image/upload/c_scale,w_200/v1543314030/deaf_user_lou86y.jpg", class: "card-image") %>
+          <div class="card-description">
+            <h3>Deaf Customer</h3>
+            <p>Need a Sign Language interpreter now?</p>
+            <p><strong>You can:</strong></p>
+            <p>See list of interpreters available online</p>
+            <p>Choose and call an interpreter</p>
+            <p>$1.50 per minute</p>
+            <p>Maximum 30 minutes per call</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-      <div class="landing-card">
-        <div class="card-description">
-          <h3>Interpreter</h3>
-          <p>Available but no interpreting jobs?</p>
-          <p><strong>You can:</strong></p>
-          <p>Choose your availability</p>
-          <p>$1 per minute</p>
-          <p>Maximum 30 minutes per call</p>
+      <div class="col-xs-12 col-sm-6">
+        <div class="landing-card">
           <%= image_tag("https://res.cloudinary.com/lionelrowe/image/upload/c_scale,w_200/v1543314042/interpreter_xyzqdp.jpg", class: "card-image") %>
+          <div class="card-description">
+            <h3>Interpreter</h3>
+            <p>Available but no interpreting jobs?</p>
+            <p><strong>You can:</strong></p>
+            <p>Choose your availability</p>
+            <p>$1 per minute</p>
+            <p>Maximum 30 minutes per call</p>
+          </div>
         </div>
       </div>
     </div>
