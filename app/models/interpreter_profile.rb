@@ -1,4 +1,4 @@
 class InterpreterProfile < ApplicationRecord
-  belongs_to :user # exactly one
-  validates :user, presence: :true
+  belongs_to :user # exactly one user - UNIQUE
+  validates :user, presence: :true, uniqueness: :true
 end

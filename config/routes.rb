@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   devise_for :users  # includes [edit, new, create, update, destroy] for all types of profile
   devise_scope :user do
-    get 'profile', to: 'devise/registrations#edit'
+    get 'profile', to: 'customers#show'
   end
   resources :customers, only: [:show, :index]
   resources :interpreters, only: [:show, :index]
