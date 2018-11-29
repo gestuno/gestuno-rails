@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   resources :customers, only: [:show, :index]
   resources :interpreters, only: [:show, :index]
 
-  get 'call/:room_name', to: 'calls#show'
-  resources :calls, only: [:create, :update]
+  get 'start/:room_name', to: 'calls#start'
+  get 'join/:room_name', to: 'calls#join'
 
-  # get 'twiliojwt', to: 'calls#get_twilio_jwt'
+  resources :calls, only: [:create] #, :update
+
+  get 'twiliojwt', to: 'calls#get_twilio_jwt'
 
   get 'twiliotest', to: 'pages#twilio_test'
 
