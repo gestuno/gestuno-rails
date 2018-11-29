@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  #get 'interpreters/show'
+  get 'interpreters/index'
+  get 'customers/show'
   # TODO - delete this temp route once code is in correct file
   get 'pages/endcall'
   root to: 'homes#home' # redirects to other pages depending on user type/login status
@@ -10,7 +13,7 @@ Rails.application.routes.draw do
     get 'profile', to: 'devise/registrations#edit'
   end
   resources :customers, only: [:show, :index]
-  resources :interpreters, only: [:show, :index]
+  resources :interpreters, only: [:show, :index, :new, :create, :edit, :update]
 
   get 'twiliojwt', to: 'calls#get_twilio_jwt'
 
