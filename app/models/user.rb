@@ -7,11 +7,12 @@ class User < ApplicationRecord
   has_one :interpreter_profile # one or zero
 
   def interpreter?
-    self.interpreter_profile.present?
+    # self.interpreter_profile.present?
+    self.interpreter?
   end
 
   def customer?
-    !self.interpreter?
+    # !self.interpreter?
   end
 
   def online?

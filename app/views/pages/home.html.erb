@@ -4,7 +4,8 @@
       Book a sign-language interpreter anytime, anywhere.
     </h3>
     <div class="banner-info">
-      <%= link_to "JOIN", new_user_registration_path, class: "btn-blue"  %>
+      <%= link_to "JOIN Customer", new_user_registration_path + '?user_type=customer', class: "btn-blue"  %>
+      <%= link_to "JOIN Interpreter", new_user_registration_path + '?user_type=interpreter', class: "btn-blue"  %>
       <h3 class="bottom styled">
         Learn More
       </h3>

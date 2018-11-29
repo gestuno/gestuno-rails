@@ -14,20 +14,20 @@ User.destroy_all
 
 puts 'creating new stuff'
 
-20.times do |idx|
-  u = User.new(email: Faker::Internet.email(nil, '.'), password: Faker::Internet.password(12))
-  u.last_seen = Time.now if idx.even?
-  u.save!
-end
+# 20.times do |idx|
+#   u = User.new(email: Faker::Internet.email(nil, '.'), password: Faker::Internet.password(12))
+#   u.last_seen = Time.now if idx.even? 
+#   u.save!
+# end
 
-10.times do |idx|
-  InterpreterProfile.create!(bio: Faker::Lorem.sentence, gender: Faker::Gender.binary_type, user: User.limit(1).offset(idx)[0])
-end
+# 10.times do |idx|
+#   InterpreterProfile.create!(bio: Faker::Lorem.sentence, gender: Faker::Gender.binary_type, user: User.limit(1).offset(idx)[0])
+# end
 
 
 # test accounts must come last
 
-test_interpreter = User.create!(email: 'test@interpreter.com', password: '123123')
+test_interpreter = User.create!(email: 'test@interpreter.com', password: '123123', interpreter: true)
 InterpreterProfile.create!(bio: "fake bio", gender: 'female', user: test_interpreter)
 
 test_customer = User.create!(email: 'test@customer.com', password: '123123')

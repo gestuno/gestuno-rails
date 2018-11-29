@@ -14,6 +14,8 @@
       <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+      <%= f.input :interpreter, as: :boolean, checked_value: true, :label => 'I am an interpreter' %>
+      <%#= f.check_box :interpreter %>
     </div>
     <div class="form-actions">
       <%= f.button :submit, "Sign up", class: "btn-blue" %>
