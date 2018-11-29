@@ -17,7 +17,7 @@
       <%= simple_form_for @interpreter, as: :interpreter, method: :post, url: interpreters_path do |f| %>
         <%= f.input :gender, collection: ["Male", "Female", "Other"]%>
         <%= f.input :bio %>
-        <%= f.input :certifications, collection: ["NAATI Level 2", "NAATI Level 2"]%>
+        <%= f.input :certifications, collection: ["NAATI Level 2", "NAATI Level 3"]%>
         <%= f.input :language, collection: ["Auslan", "ASL"]%>
         <%= f.button :submit %>
       <% end %>

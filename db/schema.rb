@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_11_29_113716) do
 
   create_table "customer_profiles", force: :cascade do |t|
     t.text "bio"
-    t.text "langauge"
+    t.text "language"
     t.string "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

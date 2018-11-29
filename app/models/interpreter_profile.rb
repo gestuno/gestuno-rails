@@ -4,7 +4,7 @@ class InterpreterProfile < ApplicationRecord
 
 #   validates :certifications, presence: :true
 #   validates :language, presence: :true
-  #validates :stars, inclusion: {in [1, 2, 3, 4, 5] }
+#   validates :stars, inclusion: {in [1, 2, 3, 4, 5] }
 
 
 end

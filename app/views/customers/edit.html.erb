@@ -13,13 +13,13 @@
     </div>
   </div>
   <div class="form">
-    <% if current_user.customer %>
-      <%= simple_form_for @customer, as: :customer, method: :post, url: customers_path do |f| %>
-        <%= f.input :gender, collection: ["Male", "Female", "Other"]%>
-        <%= f.input :bio %>
-        <%= f.input :language, collection: ["Auslan", "ASL"]%>
-        <%= f.button :submit %>
-      <% end %>
+
+    <%= simple_form_for @customer, as: :customer, method: :post, url: customers_path do |f| %>
+      <%= f.input :gender, collection: ["Male", "Female", "Other"]%>
+      <%= f.input :bio %>
+      <%= f.input :language, collection: ["Auslan", "ASL"] %>
+      <%= f.button :submit %>
     <% end %>
+
   </div>
 </div>
