@@ -1,21 +1,38 @@
 class InterpretersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
-
-  def show
-    #InterpreterProfile.find(params[:id])
-    @interpreter = InterpreterProfile.find(params[:user_id])
-    # raise # TODO  ActiveRecord::RecordNotFound in InterpretersController#show | Couldn't find User without an ID
-
-  end
+  before_action :set_interpreter, only: [:show, :edit, :update]
 
   def index
     @interpreters = InterpreterProfile.all.select { |i| i.user.online? } # TODO improve performance
-    # raise
+  end
+
+  def show
+  end
+
+  def new
+    @interpreter = InterpreterProfile.new
+  end
+
+  def edit
+  end
+
+  def create
+    @interpreter = InterpreterProfile.new(interpreter_params)
+    @interpreter.save
+    # redirect_to
+  end
+
+  def update
+    # redirect_to
   end
 
   private
 
+  def set_interpreter
+    @interpreter = current_user
+  end
 
-
+  def interpreter_params
+    params.require(:interpreter).permit(:language, :certifications, :bio, :gender)
+  end
 end
-

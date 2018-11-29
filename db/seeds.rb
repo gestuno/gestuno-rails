@@ -21,14 +21,14 @@ puts 'creating new stuff'
 end
 
 10.times do |idx|
-  InterpreterProfile.create!(bio: Faker::Lorem.sentence, gender: Faker::Gender.binary_type, user: User.limit(1).offset(idx)[0])
+  InterpreterProfile.create!(bio: Faker::Lorem.sentence, gender: Faker::Gender.binary_type, user: User.limit(1).offset(idx)[0], certifications: Faker::Lorem.sentence, language: 'Auslan')
 end
 
 
 # test accounts must come last
 
 test_interpreter = User.create!(email: 'test@interpreter.com', password: '123123')
-InterpreterProfile.create!(bio: "fake bio", gender: 'female', user: test_interpreter)
+InterpreterProfile.create!(bio: "fake bio", gender: 'female', user: test_interpreter, language: 'Auslan', certifications: 'Naati level 2')
 
 test_customer = User.create!(email: 'test@customer.com', password: '123123')
 
