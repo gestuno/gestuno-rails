@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_one :interpreter_profile # one or zero
 
+  has_and_belongs_to_many :received_calls, class_name: "Call"
+
   def interpreter?
     self.interpreter_profile.present?
   end

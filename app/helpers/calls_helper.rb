@@ -1,7 +1,7 @@
-module CallsHelper
-  AccessToken = Twilio::JWT::AccessToken
-  VideoGrant = AccessToken::VideoGrant
+AccessToken = Twilio::JWT::AccessToken
+VideoGrant = AccessToken::VideoGrant
 
+module CallsHelper
   def self.get_twilio_jwt
     identity = "#{Faker::Name.name}@#{Time.new.to_f.to_s.gsub(/\./, '')}"
 
@@ -22,6 +22,11 @@ module CallsHelper
     }
   end
 
-  AccessToken = Twilio::JWT::AccessToken
-  VideoGrant = AccessToken::VideoGrant
+  def self.get_twilio_room_info(room_sid)
+    account_sid = ENV['TWILIO_ACCOUNT_SID']
+    auth_token = ENV['TWILIO_AUTH_TOKEN']
+    @client = Twilio::REST::Client.new(account_sid, auth_token)
+
+    @client.video.rooms(room_sid).fetch
+  end
 end

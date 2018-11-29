@@ -29,6 +29,8 @@ group :development do
   # gem 'guard-livereload'
   # gem 'rack-livereload'
 
+  gem 'railroady'
+
 end
 
 group :development, :test do
