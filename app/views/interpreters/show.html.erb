@@ -1,55 +1,28 @@
-<div class="container" >
-  <div class= "row">
-    <div class="profile-header">
-      <div class="col-xs-12 col-sm-6">
-        <div class="profile-image" style="width: 200px; height: 200px; overflow: hidden"><%= image_tag "//res.cloudinary.com/lionelrowe/image/upload/v1543488174/bill_zumslg.jpg", id: "thumbnail" %>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-        <h3>{Name of the interpreter}</h3>
-        <button type="button" class="btn-circle"></button>
-        <p>offline now</p>
-      </div>
-    </div>
-  </div>
-
- <div class="row">
-  <div class="profile-body">
-    <div class="col-xs-12 col-sm-6">
-      <div class="card-category">
-        <h3>Languages</h3>
-        <h3>Certifications</h3>
-        <h3>Reviews</h3>
-        <p>{432} rated you</p>
-      </div>
-    </div>
-
-  <div class="col-xs-12 col-sm-6">
-    <div class= "card-desc">
-      <h4>{Auslan, ASL, CSL}</h4>
+<div class="page-buffer" >
+  <div class="show-card">
+    <div class="styled-darker">
+      <h3>BILL VICAR</h3>
       <br>
-      <h4>{Naati level} 2</h4>
-      <br>
+      <%= image_tag "bill.jpeg", class: "img profile-image" %>
+      <h3>CERTIFICATION</h3>
+      <p>NAATI Level 2</p>
+      <h3>LANGUAGES</h3>
+      <p>Auslan (Australian Sign Language)</p>
+      <h3>REVIEWS</h3>
+      <p>132 customers have rated your service:</p>
       <div class="ratings">
-        <i class="fas fa-star checked"></i>
-        <i class="fas fa-star checked"></i>
-        <i class="fas fa-star checked"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
+        <i class="fas fa-star fa-2x checked"></i>
+        <i class="fas fa-star fa-2x checked"></i>
+        <i class="fas fa-star fa-2x checked"></i>
       </div>
     </div>
   </div>
-  </div>
- </div>
+</div>
 
- <div class="btn-centered text-center" style='margin-top: 50px'>
-
+<div class="btn-centered text-center" style='margin-top: 50px'>
   <%= form_tag(controller: :calls, action: :create, method: :post) do %>
     <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
       <i class="fas fa-phone"></i>
     <% end %>
   <% end -%>
-
-</div>
-
 </div>
