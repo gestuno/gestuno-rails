@@ -3,7 +3,8 @@
     <div class="styled-darker">
       <h3>BILL VICAR</h3>
       <br>
-      <%= image_tag "bill.jpeg", class: "img profile-image" %>
+      <%= image_tag "//res.cloudinary.com/lionelrowe/image/upload/v1543488174/bill_zumslg.jpg", class: "img profile-image" %>
+
       <h3>CERTIFICATION</h3>
       <p>NAATI Level 2</p>
       <h3>LANGUAGES</h3>
@@ -17,12 +18,12 @@
       </div>
     </div>
   </div>
-</div>
+  <div class="btn-centered text-center">
+    <%= form_tag(controller: :calls, action: :create, method: :post) do %>
+      <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
+        <i class="fas fa-phone"></i>
+      <% end %>
+    <% end -%>
+  </div>
 
-<div class="btn-centered text-center" style='margin-top: 50px'>
-  <%= form_tag(controller: :calls, action: :create, method: :post) do %>
-    <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
-      <i class="fas fa-phone"></i>
-    <% end %>
-  <% end -%>
 </div>
