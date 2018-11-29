@@ -1,32 +1,53 @@
 <div class="container" >
-  <div class= "card-body">
-  <%= image_tag "bill.jpeg", id: "thumbnail"%>
-  <div class="card-user">
-  <h2>Bill Vicars</h2>
-    <button type="button" class="btn btn-primary"></button>
-    <p>offline now</p>
-  </div>
- </div>
-</div>
- <div class="row">
-  <div class="col-md-4">
-  <h2>Languages</h2>
-  <h2>Certifications</h2>
-   <h2>Reviews</h2>
-     <p>432 rated you</p>
-  </div>
- <div class="col-md-4">
-  <h3>Auslan, ASL, CSL</h3>
-  <h3>Naati level 2</h3>
-  <h2>Star Rating</h2>
-  <div class="ratings">
-    <i class="fas fa-star checked"></i>
-    <i class="fas fa-star checked"></i>
-    <i class="fas fa-star checked"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
+  <div class= "row">
+    <div class="profile-header">
+      <div class="col-xs-12 col-sm-6">
+        <div class="profile-image" style="width: 200px; height: 200px; overflow: hidden"><%= image_tag "bill.jpeg", id: "thumbnail" %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <h3>{Name of the interpreter}</h3>
+        <button type="button" class="btn-circle"></button>
+        <p>offline now</p>
+      </div>
+    </div>
   </div>
 
+ <div class="row">
+  <div class="profile-body">
+    <div class="col-xs-12 col-sm-6">
+      <div class="card-category">
+        <h3>Languages</h3>
+        <h3>Certifications</h3>
+        <h3>Reviews</h3>
+        <p>{432} rated you</p>
+      </div>
+    </div>
+
+  <div class="col-xs-12 col-sm-6">
+    <div class= "card-desc">
+      <h4>{Auslan, ASL, CSL}</h4>
+      <br>
+      <h4>{Naati level} 2</h4>
+      <br>
+      <div class="ratings">
+        <i class="fas fa-star checked"></i>
+        <i class="fas fa-star checked"></i>
+        <i class="fas fa-star checked"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+    </div>
+  </div>
+  </div>
  </div>
+
+ <div class="btn-centered text-center">
+  <button type="button" class="btn-circle-XL">
+    <i class="btn-text">Off</i>
+  </button>
+ <p>Click to start interpreting</p>
+</div>
+
 </div>
 
