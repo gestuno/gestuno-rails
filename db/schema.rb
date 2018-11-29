@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_125906) do
+ActiveRecord::Schema.define(version: 2018_11_29_042227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 2018_11_27_125906) do
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_calls_on_customer_id"
     t.index ["interpreter_id"], name: "index_calls_on_interpreter_id"
+  end
+
+  create_table "customer_profiles", force: :cascade do |t|
+    t.string "language"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_customer_profiles_on_user_id"
   end
 
   create_table "interpreter_profiles", force: :cascade do |t|
@@ -48,5 +56,6 @@ ActiveRecord::Schema.define(version: 2018_11_27_125906) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "customer_profiles", "users"
   add_foreign_key "interpreter_profiles", "users"
 end
