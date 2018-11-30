@@ -16,12 +16,12 @@
     </div>
   </div>
   <div class="form">
-    <% if current_user.interpreter %>
+    <% if current_user.interpreter? %>
       <%= simple_form_for @interpreter, as: :interpreter, method: :post, url: interpreters_path do |f| %>
         <%= f.input :gender, collection: ["Male", "Female", "Other"], placeholder: "male or female" %>
         <%= f.input :bio, placeholder: "work experience" %>
         <%= f.input :certifications, collection: ["NAATI Level 2", "NAATI Level 3"], placeholder: "Naati level 2" %>
-        <%= f.input :language, collection: ["Auslan", "ASL"]%>
+        <%= f.input :language, collection: ["Auslan", "ASL"] %>
         <%= f.button :submit, class: "btn-blue" %>
       <% end %>
     <% end %>

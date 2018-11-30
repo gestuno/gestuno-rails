@@ -1,4 +1,7 @@
  class InterpretersController < ApplicationController
+
+  # TODO: DRY up with base user controller class
+
   before_action :set_user, only: [:show, :create, :update]
 
   def index

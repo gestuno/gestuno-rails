@@ -1,41 +1,34 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 puts 'destroying all your stuff, buckle up!'
 
-Call.destroy_all
-InterpreterProfile.destroy_all
-CustomerProfile.destroy_all
 User.destroy_all
 
 puts 'creating new stuff'
 
-# 10.times do |idx|
-#   InterpreterProfile.create!(bio: Faker::Lorem.sentence, gender: Faker::Gender.binary_type, user: User.limit(1).offset(idx)[0])
-# end
-
 20.times do |idx|
-  u = User.new(email: Faker::Internet.email(nil, '.'), password: Faker::Internet.password(12))
-  u.last_seen = Time.now if idx.even?
-  u.save!
+  user = User.new(email: Faker::Internet.email(nil, '.'), password: Faker::Internet.password(12))
+  user.interpreter = idx < 10
+  user.last_seen = Time.now if idx.even?
+
+  user.save!
 end
 
-10.times do |idx|
-  CustomerProfile.create!(language: "Auslan (Australian Sign Language)", user: User.limit(1).offset(idx)[0])
+User.all.each do |user|
+  if user.interpreter?
+    user.profile.update!(bio: Faker::Lorem.sentence, gender: Faker::Gender.binary_type, language: 'Auslan', certifications: "Naati level #{[2, 3].sample}")
+  else
+    user.profile.update!(language: 'Auslan')
+  end
 end
 
 # test accounts must come last
 
 test_interpreter = User.create!(name: 'interpreter', email: 'test@interpreter.com', password: '123123', interpreter: true, last_seen: Time.now)
-InterpreterProfile.create!(bio: "fake bio", gender: 'female', user: test_interpreter, language: 'Auslan', certifications: 'Naati level 2')
+test_interpreter.profile.update!(bio: "fake bio", gender: 'female', language: 'Auslan', certifications: 'Naati level 2')
 
 test_customer = User.create!(name: 'customer', email: 'test@customer.com', password: '123123')
-CustomerProfile.create!(language: "fake bio", user: test_customer)
+test_customer.profile.update!(language: "Auslan")
 
-puts "created #{CustomerProfile.count} customers, #{InterpreterProfile.count} interpreters, and #{Call.count} calls."
-puts "your test accounts:\n#{[test_interpreter, test_customer].map { |acc| "#{acc.email}|#{acc.password}" }.join("\n")}"
+test_accounts = [test_interpreter, test_customer]
+
+puts "created #{User.count} users, #{CustomerProfile.count} customer profiles, #{InterpreterProfile.count} interpreter profiles."
+puts "your test accounts:\n#{test_accounts.map { |acc| "#{acc.email} | #{acc.password}" }.join("\n")}"
