@@ -9,3 +9,10 @@
   box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
   padding: 20px;
 }
+
+.profile-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}

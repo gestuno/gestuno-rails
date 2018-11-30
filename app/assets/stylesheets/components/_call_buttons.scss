@@ -32,10 +32,18 @@
   }
 }
 
+.call-action {
+  position: relative;
+  padding-bottom: 10px;
+}
+
 .call-button-end {
   @include call-button($red);
 }
 
 .call-button-start {
   @include call-button($green);
+  position: absolute;
+  bottom: 0px;
+  right: 40px;
 }

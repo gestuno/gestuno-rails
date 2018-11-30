@@ -6,6 +6,7 @@ class CustomersController < ApplicationController
   end
 
   def show
+    @profile = CustomerProfile.find_by(user_id: current_user.id)
   end
 
   def new
