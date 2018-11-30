@@ -1,30 +1,27 @@
-<div class="container">
+<div class="page-buffer" >
   <div class="row">
-    <div class="profile-header">
-      <div class="col-xs-12 col-sm-6">
-        <div class="call-avatar" style="width: 150px; height: 150px; overflow: hidden"><%= image_tag "https://res.cloudinary.com/drgdpdviq/image/upload/v1543500513/zq7mhhcznsfkwbqqhebc.jpg", id: "thumbnail" %>
-
+    <div class="show-card-create">
+      <div class="styled-darker">
+        <div class="card-avatar" style="width: 150px; height: 150px; overflow: hidden"><%= image_tag "https://res.cloudinary.com/drgdpdviq/image/upload/v1543500513/zq7mhhcznsfkwbqqhebc.jpg"%>
         </div>
-      </div>
-      <div class="col-xs-12 col-sm-6">
         <div class="upload-pic">
         <h4>Upload a profile picture</h4>
-        <button type="button" class="btn-circle"></button>
-        <p>offline now</p>
+        <button type="button" class="btn btn-circle btn-xl-orange"><i class="fas fa-plus"></i></button>
+        </div>
+        <div class="form">
+          <% if current_user.interpreter %>
+            <%= simple_form_for @interpreter, as: :interpreter, method: :post, url: interpreters_path do |f| %>
+              <%= f.input :gender, collection: ["Male", "Female", "Other"] %>
+              <%= f.input :certifications, collection: ["NAATI Level 2", "NAATI Level 3"] %>
+              <%= f.input :language, collection: ["Auslan", "ASL"]%>
+              <%= f.input :bio, placeholder: "A few words on your work experience" %>
+              <div class="btn-centered text-center">
+                <%= f.button :submit, class: "btn-blue" %>
+              </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-  <div class="form">
-    <% if current_user.interpreter %>
-      <%= simple_form_for @interpreter, as: :interpreter, method: :post, url: interpreters_path do |f| %>
-        <%= f.input :gender, collection: ["Male", "Female", "Other"], placeholder: "male or female" %>
-        <%= f.input :bio, placeholder: "work experience" %>
-        <%= f.input :certifications, collection: ["NAATI Level 2", "NAATI Level 3"], placeholder: "Naati level 2" %>
-        <%= f.input :language, collection: ["Auslan", "ASL"]%>
-        <%= f.button :submit, class: "btn-blue" %>
-      <% end %>
-    <% end %>
-  </div>
 </div>
-
