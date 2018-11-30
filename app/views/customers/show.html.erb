@@ -1,12 +1,12 @@
 <div class="page-buffer">
   <div class="show-card styled-darker">
     <h3>My Profile</h3>
-    <img class="call-avatar" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-    <h3>RANDALL BILSON</h3>
+    <%= image_tag "https://res.cloudinary.com/drgdpdviq/image/upload/v1543500513/zq7mhhcznsfkwbqqhebc.jpg", class: "img profile-avatar"%>
+    <h3><%= @customer.name %></h3>
     <br>
     <%= link_to "Find An Interpreter", interpreters_path, class: "btn-round"  %>
     <h3>LANGUAGE PREFERENCE</h3>
-    <p>Auslan (Australian Sign Language)</p>
-    <%= link_to "Update my information", edit_user_registration_path, class: "btn-blue"  %>
+    <p><%= @customer.profile.language %></p>
+    <%= link_to "Update my information", edit_customer_path, class: "btn-blue"  %>
   </div>
 </div>
