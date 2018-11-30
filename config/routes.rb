@@ -10,15 +10,22 @@ Rails.application.routes.draw do
   #   get 'profile', to: 'devise/registrations#edit'
   # end
 
-  resources :customers, only: [:index, :new, :create, :edit, :destroy, :edit, :show, :update]
-  resources :interpreters, only: [:index, :new, :create, :edit, :destroy, :edit, :show, :update]
+  resources :customers, only: [:index, :edit, :show, :update]
+  resources :interpreters, only: [:index, :edit, :show, :update]
 
   get 'start/:room_name', to: 'calls#start'
   get 'join/:room_name', to: 'calls#join'
 
   resources :calls, only: [:create] #, :update
 
-  get 'twiliojwt', to: 'calls#get_twilio_jwt'
+  get 'api/v1/twiliojwt', to: 'calls#get_twilio_jwt'
+
+  # TODO: fix with proper namespacing
+  # namespace :api do
+  #   namespace :v1 do
+  #     get 'twiliojwt', to: 'calls#get_twilio_jwt'
+  #   end
+  # end
 
   # TODO - delete this temp route once code is in correct file
   get 'pages/endcall'
