@@ -1,14 +1,14 @@
 <div class="page-buffer" >
   <div class="show-card">
     <div class="styled-darker">
-      <h3>BILL VICAR</h3>
+      <h3><%= Utils.email_to_name(@interpreter.email) %></h3>
       <br>
       <%= image_tag "//res.cloudinary.com/lionelrowe/image/upload/v1543488174/bill_zumslg.jpg", class: "img profile-image" %>
 
       <h3>CERTIFICATION</h3>
-      <p>NAATI Level 2</p>
+      <p><%= @interpreter.profile.certifications %></p>
       <h3>LANGUAGES</h3>
-      <p>Auslan (Australian Sign Language)</p>
+      <p><%= @interpreter.profile.language %></p>
       <h3>REVIEWS</h3>
       <p>132 customers have rated your service:</p>
       <div class="ratings">
@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="btn-centered text-center">
-    <%= form_tag(controller: :calls, action: :create, method: :post) do %>
+    <%= form_tag(controller: :calls, action: :create, method: :post, recipient: @interpreter) do %>
       <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
         <i class="fas fa-phone"></i>
       <% end %>

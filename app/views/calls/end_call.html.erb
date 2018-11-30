@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="call-card">
+    <h3>Thank you for calling!</h3>
+    <p>Your interpreter was</p>
+    <p><strong><%= Utils.email_to_name(@recipient.email) %></strong></p>
+    <img class="call-avatar" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+    <p><strong>Your call details</strong></p>
+    <!-- TODO un-hardcode duration -->
+    <p>Call duration: <%= @duration %> minutes</p>
+    <!-- TODO un-hardcode duration -->
+    <p>You paid: <%= number_to_currency @price %></p>
+    <%= link_to "Home", :root, class: "btn-blue"  %>
+  </div>
+</div>

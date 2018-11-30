@@ -28,6 +28,6 @@ Rails.application.routes.draw do
   # end
 
   # TODO - delete this temp route once code is in correct file
-  get 'pages/endcall'
+  get 'endcall', to: 'calls#end_call'
 
 end

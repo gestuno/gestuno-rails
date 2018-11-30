@@ -2,7 +2,7 @@
   <div class="card" style="background-color: white;">
     <img class="card-avatar" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
     <div class="card-title styled-darker">
-      <p><strong><%= user.email.gsub(/@.+/, '').split(/[-_.]/).map { |word| word.capitalize } .join(' ') %></strong></p>
+      <p><strong><%= Utils.email_to_name(user.email) %></strong></p>
       <div class="ratings">
         <i class="fas fa-star checked"></i>
         <i class="fas fa-star checked"></i>
