@@ -14,10 +14,12 @@
   </div>
   <div class="form">
 
-    <%= simple_form_for @customer, as: :customer, method: :post, url: customers_path do |f| %>
-      <%= f.input :gender, collection: ["Male", "Female", "Other"]%>
-      <%= f.input :bio %>
-      <%= f.input :language, collection: ["Auslan", "ASL"] %>
+    <%= simple_form_for @customer, as: :customer, method: :put, url: customer_path do |f| %>
+      <%= f.simple_fields_for :profile do |profile| %>
+        <%= profile.input :gender, collection: ["Male", "Female", "Other"]%>
+        <%= profile.input :bio %>
+        <%= profile.input :language, collection: ["Auslan", "ASL"] %>
+      <% end %>
       <%= f.button :submit %>
     <% end %>
 

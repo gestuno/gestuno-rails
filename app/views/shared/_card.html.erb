@@ -1,8 +1,8 @@
-<% @interpreters.each do |interpreter| %>
+<% @interpreters.each do |user| %>
   <div class="card" style="background-color: white;">
     <img class="card-avatar" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
     <div class="card-title styled-darker">
-      <p><strong><%= interpreter.user.email.gsub(/@.+/, '').split(/[-_.]/).map { |word| word.capitalize } .join(' ') %></strong></p>
+      <p><strong><%= user.email.gsub(/@.+/, '').split(/[-_.]/).map { |word| word.capitalize } .join(' ') %></strong></p>
       <div class="ratings">
         <i class="fas fa-star checked"></i>
         <i class="fas fa-star checked"></i>
@@ -10,7 +10,7 @@
       </div>
     </div>
     <div>
-      <%= link_to "VIEW PROFILE", interpreter_path(interpreter.user), class: "btn-round"  %>
+      <%= link_to "VIEW PROFILE", interpreter_path(user), class: "btn-round"  %>
     </div>
   </div>
 <% end %>

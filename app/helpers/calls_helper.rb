@@ -3,7 +3,7 @@ VideoGrant = AccessToken::VideoGrant
 
 module CallsHelper
   def self.get_twilio_jwt
-    identity = "#{Faker::Name.name}@#{Time.new.to_f.to_s.gsub(/\./, '')}"
+    identity = "#{Faker::Name.name}@#{Time.new.to_f.to_s.gsub(/\./, '')}" # TODO: use actual user email
 
     token = AccessToken.new(
       ENV['TWILIO_ACCOUNT_SID'],

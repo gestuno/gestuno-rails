@@ -9,7 +9,7 @@ class CallsController < ApplicationController
   def create
     room_name = SecureRandom.uuid
 
-    @call = Call.create(sender: User.first, recipients: [User.second], room_name: room_name, twilio_sid: room_name + 'twilio')
+    @call = Call.create(sender: User.first, recipients: [User.second], room_name: room_name, twilio_sid: room_name + '_twilio') # TODO: un-hardcode data
 
     session[:call_id] = @call.id
 
