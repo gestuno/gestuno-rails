@@ -10,7 +10,7 @@
       <%#= link_to "Profile", profile_path, class: "navbar-wagon-item" %>
       <%#= link_to "Edit Profile", self.send("edit_#{current_user.role}_path", current_user.id) , class: "navbar-wagon-item" %>
       <%= link_to "Profile", self.send("#{current_user.role}_path", current_user.id) , class: "navbar-wagon-item btn-blue" %>
-      <%= link_to "Profile", self.send("edit_#{current_user.role}_path", current_user.id) , class: "navbar-wagon-item btn-blue" %>
+      <%= link_to "Edit Profile", self.send("edit_#{current_user.role}_path", current_user.id) , class: "navbar-wagon-item btn-blue" %>
       <%#= link_to "Profile", edit_user_registration_path(current_user), class: "navbar-wagon-item" %>
       <%#= link_to "Settings", "#", class: "navbar-wagon-item" %>
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item btn-plain" %>

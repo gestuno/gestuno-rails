@@ -8,6 +8,6 @@ class CustomersController < BaseUsersController
 
   def allowed_params
     # params.require(:customer).permit(:language, :bio, :gender)
-    params.require(:customer).permit(:gender)
+    params.require(:customer).permit(:gender, :language)
   end
 end

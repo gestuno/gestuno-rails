@@ -1,25 +1,19 @@
-<div class="container">
-  <div class="row">
-    <div class="profile-header">
-      <div class="col-xs-12 col-sm-6">
-        <div class="profile-image" style="width: 150px; height: 150px; overflow: hidden"><%= image_tag "//res.cloudinary.com/lionelrowe/image/upload/v1543488174/bill_zumslg.jpg", id: "thumbnail" %>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-        <h3>Upload a profile picture</h3>
-        <button type="button" class="btn-circle"></button>
-        <p>offline now</p>
-      </div>
+<div class="page-buffer">
+  <div class="show-card">
+    <div class="styled-darker">
+      <%= image_tag "https://res.cloudinary.com/drgdpdviq/image/upload/v1543500513/zq7mhhcznsfkwbqqhebc.jpg", class: "img profile-avatar"%>
     </div>
-  </div>
-  <div class="form">
-    <%= simple_form_for @customer, as: :customer, method: :put, url: customer_path do |f| %>
-      <%= f.simple_fields_for :profile do |profile| %>
-        <%= profile.input :gender, collection: ["Male", "Female", "Other"]%>
-        <%= profile.input :bio %>
-        <%= profile.input :language, collection: ["Auslan", "ASL"] %>
+    <h3>Upload a profile picture</h3>
+    <button type="button" class="btn btn-circle btn-xl-orange"><i class="fas fa-plus"></i></button>
+    <div class="form">
+      <%= simple_form_for @customer, as: :customer, method: :put, url: customer_path do |f| %>
+        <%= f.simple_fields_for :profile do |profile| %>
+          <%= profile.input :gender, collection: ["Male", "Female", "Other"]%>
+          <%= profile.input :bio %>
+          <%= profile.input :language, collection: ["Auslan", "ASL"] %>
+        <% end %>
+        <%= f.button :submit %>
       <% end %>
-      <%= f.button :submit %>
-    <% end %>
+    </div>
   </div>
 </div>

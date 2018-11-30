@@ -14,9 +14,13 @@
         </div>
       </div>
       <h3>CERTIFICATION</h3>
-      <p>NAATI Level 2</p>
-      <h3>LANGUAGES</h3>
-      <p>Auslan (Australian Sign Language)</p>
+      <p><%= @interpreter.profile.certifications %></p>
+      <h3>LANGUAGE</h3>
+      <p><%= @interpreter.profile.language %></p>
+      <h3>BIOGRAPHY</h3>
+      <p><%= @interpreter.profile.bio %></p>
+      <h3>GENDER</h3>
+      <p><%= @interpreter.profile.gender %></p>
       <h3>REVIEWS</h3>
       <p>132 customers have rated your service:</p>
       <div class="ratings">
