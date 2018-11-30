@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   has_and_belongs_to_many :received_calls, class_name: 'Call'
 
-  after_save :__dangerously_attach_profile! # triggers infinite loop if before_save
+  after_create :__dangerously_attach_profile! # triggers infinite loop if before_save
 
   before_destroy :__dangerously_destroy_own_profile!
 
@@ -59,4 +59,11 @@ class User < ApplicationRecord
     super
   end
 
+  def delete # forbidden
+    raise
+  end
+
+  def delete! # forbidden
+    raise
+  end
 end

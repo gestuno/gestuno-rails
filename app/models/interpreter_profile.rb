@@ -26,7 +26,19 @@ class InterpreterProfile < ApplicationRecord
     super val
   end
 
-  def destroy!
+  def destroy! # allowed
     super
+  end
+
+  def destroy # allowed
+    super
+  end
+
+  def delete # forbidden
+    raise
+  end
+
+  def delete! # forbidden
+    raise
   end
 end

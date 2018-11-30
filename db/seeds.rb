@@ -1,8 +1,12 @@
-puts 'destroying all your stuff, buckle up!'
+def puts_para(str)
+  puts "#{str}\n\n"
+end
+
+puts_para "destroying all your stuff, buckle up!"
 
 User.destroy_all
 
-puts 'creating new stuff'
+puts_para "creating new stuff"
 
 20.times do |idx|
   user = User.new(email: Faker::Internet.email(nil, '.'), password: Faker::Internet.password(12))
@@ -30,5 +34,5 @@ test_customer.profile.update!(language: "Auslan")
 
 test_accounts = [test_interpreter, test_customer]
 
-puts "created #{User.count} users, #{CustomerProfile.count} customer profiles, #{InterpreterProfile.count} interpreter profiles."
-puts "your test accounts:\n#{test_accounts.map { |acc| "#{acc.email} | #{acc.password}" }.join("\n")}"
+puts_para "created #{User.count} users, #{CustomerProfile.count} customer profiles, #{InterpreterProfile.count} interpreter profiles."
+puts_para "your test accounts:\n#{test_accounts.map { |acc| "#{acc.email} | #{acc.password}" }.join("\n")}"

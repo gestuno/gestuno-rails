@@ -41,7 +41,7 @@
   window.addEventListener('beforeunload', leaveRoomIfJoined);
 
   // Obtain a token from the server in order to connect to the Room.
-  $.getJSON('/twiliojwt', function(data) {
+  $.getJSON('/api/v1/twiliojwt', function(data) {
     identity = data.identity;
     // document.getElementById('room-controls').style.display = 'block';
 
