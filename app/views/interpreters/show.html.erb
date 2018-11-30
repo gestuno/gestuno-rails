@@ -1,10 +1,17 @@
 <div class="page-buffer" >
   <div class="show-card">
     <div class="styled-darker">
-      <h3><%= Utils.email_to_name(@interpreter.email) %></h3>
+      <h3><%= Utils.user_to_name(@interpreter) %></h3>
       <br>
       <div class="call-action">
-        <%= image_tag "//res.cloudinary.com/lionelrowe/image/upload/v1543488174/bill_zumslg.jpg", class: "img profile-avatar"%>
+
+        <%= render 'shared/avatar', user: @interpreter, scale: 1.8 %>
+
+        <!-- <%= image_tag "//res.cloudinary.com/lionelrowe/image/upload/v1543488174/bill_zumslg.jpg", class: "img profile-avatar"%> -->
+
+
+
+
         <div class="btn-centered text-center">
           <%= form_tag(controller: :calls, action: :create, method: :post, recipient: @interpreter) do %>
             <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>

@@ -1,0 +1,42 @@
+
+<%
+
+scale_mappings = {
+  xs: 1.0/3,
+  small: 0.5,
+  medium: 1,
+  large: 2
+}
+
+scale = scale_mappings[scale] || scale || 1
+
+# photo = user.photo
+photo = nil
+
+if photo.nil?
+
+  name = Utils.user_to_name(user)
+  initials = Utils.user_to_initials(user)
+  colors = Utils.str_to_bg_and_fg_color(user.email)
+  bg = colors[:bg]
+  fg = colors[:fg]
+  style = <<~CSS
+    background: #{bg};
+    color: #{fg};
+    width: #{(scale * 120).to_i}px;
+    height: #{(scale * 120).to_i}px;
+    font-size: #{(scale * 4).to_i}em;
+  CSS
+%>
+
+  <div title="<%= name %>" class='avatar' style="<%= style %>">
+    <%= initials %>
+  </div>
+
+<% else %>
+
+  <div title="<%= name %>" class='avatar' style="background: url(<%= photo %>); background-size: cover;">
+    <%= initials %>
+  </div>
+
+<% end %>
