@@ -1,10 +1,19 @@
-<div class="twilio-only">
+<div class="call-page">
   <div class="bg"></div>
   <div id="remote-media"></div>
   <div id="controls">
     <div id="local-media"></div>
-      <div id="room-controls">
-      <input id="room-name" type="text" placeholder="Enter a room name" value='<%= params[:room_name] %>' />
+    <div id="hud">
+      <div>
+        <span class="time">00:00</span>
+      </div>
+      <div>
+        <span class="interlocutor-name"><%= Utils.email_to_name(@recipient.email) %></span>
+      </div>
+    </div>
+
+    <div id="room-controls">
+      <input id="room-name" type="text" placeholder="Enter a room name" value='<%= params[:room_name] %>'>
       <a class='call-button-end' id='button-end-call' title='End call'><i class="fas fa-phone-slash"></i></a>
     </div>
     <div id="log"></div>

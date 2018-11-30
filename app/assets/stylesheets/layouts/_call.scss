@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);
 
-.twilio-only {
+.call-page {
+
   padding: 0;
   margin: 0;
 
@@ -143,11 +144,11 @@
   #remote-media {
     display: flex;
     position: fixed;
-    top: 70px;
+    top: $navbar-height;
     left: 0;
     bottom: 0;
     right: 0;
-    height: calc(100vh - 120px);
+    height: calc(100vh - #{$shrink-height});
     width: 100vw;
     margin: 0;
     background: transparent;
@@ -162,7 +163,7 @@
 
       width: 100vw;
       margin: 0;
-      height: calc(100vh - 120px);
+      height: calc(100vh - #{$shrink-height});
     }
   }
 
@@ -174,7 +175,7 @@
     // bottom: 50px;
     // right: 0;
 
-    top: 70px;
+    top: $navbar-height;
     left: 0;
 
     width: 50vw;
@@ -190,6 +191,40 @@
     }
   }
 
+  #hud {
+    // display: flex;
+    // align-items: flex-start;
+    // justify-content: flex-start;
+    position: fixed;
+    // bottom: 50px;
+    // right: 0;
+
+    top: $navbar-height;
+    right: 0;
+
+    width: 50vw;
+    height: 20vh;
+
+    margin: 0;
+    background: transparent;
+    text-align: right;
+    z-index: 1500000;
+    padding: 5px;
+
+    .time, .interlocutor-name {
+      background: rgba(255,255,255,0.3);
+      padding: 2px 5px;
+    }
+
+    .time {
+      font-size: 2em;
+    }
+
+    .interlocutor-name {
+      font-size: 1.5em;
+    }
+  }
+
   #room-name, #log, #button-join, #button-leave, #button-preview {
     display: none;
   }
@@ -198,7 +233,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    height: calc(100vh - 70px - 50px);
+    height: calc(100vh - #{$shrink-height});
   }
 
 }
