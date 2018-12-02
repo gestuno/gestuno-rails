@@ -45,9 +45,12 @@
             width: 100%;
             margin: 0 auto;
             @include transform-translate-y(-50%);
+
+            // position: relative;
+            // margin-top: -80px;
         }
         .name{
-            margin-top: -80px;
+            // margin-top: -80px;
         }
     }
     .follow{

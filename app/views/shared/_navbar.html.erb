@@ -14,7 +14,7 @@
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto">        
+      <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <!-- Links when logged in -->
           <li class="nav-item"><%= link_to "DashBoard", root_path, class: "nav-link" %></li>
@@ -24,9 +24,10 @@
           </a>
         </li>
         <li class="dropdown nav-item">
-          <a href="#pablo" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
+          <a href="#" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
             <div class="profile-photo-small">
-              <img src="https://res.cloudinary.com/dyocdwgu9/image/upload/v1543548100/gestuno/profile1.jpg" alt="Circle Image" class="rounded-circle img-fluid">
+              <!-- <img src="https://res.cloudinary.com/dyocdwgu9/image/upload/v1543548100/gestuno/profile1.jpg" alt="Circle Image" class="rounded-circle img-fluid"> -->
+              <%= render 'shared/avatar', user: current_user, scale: :xs %>
             </div>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
