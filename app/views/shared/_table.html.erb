@@ -1,0 +1,42 @@
+<div class="col-md-8 col-md-offset-2">
+    <div class="table-responsive">
+        <table class="table table-shopping">
+            <thead>
+                <tr>
+                    <th class="text-center"></th>
+                    <th >Interpreter</th>
+                    <th class="th-description">Language</th>
+                    <th class="th-description">Rating</th>
+                    <th class="text-left">Profile</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @interpreters.each do |user| %>
+                <tr>
+                    <td>
+                        <div class="img-container">
+                            <%= render 'shared/avatar', user: user, scale: :small %>
+                        </div>
+                    </td>
+                    <td class="td-name">
+                        <p><strong><%= Utils.user_to_name(user) %></strong></p>
+                    </td>
+                    <td>
+                        LANGUAGE
+                    </td>
+                    <td>
+                        <i class="fas fa-star checked"></i>
+                        <i class="fas fa-star checked"></i>
+                        <i class="fas fa-star checked"></i>
+                    </td>
+                    <td class="td-name">
+                        <%= link_to "VIEW PROFILE", interpreter_path(user), class: "nav-item"  %>
+                        <br /><small>BUTTON??</small>
+                    </td>
+                </tr>    
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

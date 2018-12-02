@@ -1,23 +1,51 @@
-<nav class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "GESTUNO_LOGO_WHITE.jpg", height: 50 %>
-  <% end %>
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right">
-    <% if user_signed_in? %>
-      <!-- Links when logged in -->
-      <%#= link_to "Profile", profile_path, class: "navbar-wagon-item" %>
-      <%#= link_to "Edit Profile", self.send("edit_#{current_user.role}_path", current_user.id) , class: "navbar-wagon-item" %>
-      <%= link_to "Profile", self.send("#{current_user.role}_path", current_user.id) , class: "navbar-wagon-item btn-blue" %>
-      <%= link_to "Edit Profile", self.send("edit_#{current_user.role}_path", current_user.id) , class: "navbar-wagon-item btn-blue" %>
-      <%#= link_to "Profile", edit_user_registration_path(current_user), class: "navbar-wagon-item" %>
-      <%#= link_to "Settings", "#", class: "navbar-wagon-item" %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item btn-plain" %>
-    <% else %>
-      <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "navbar-wagon-item" %>
-    <% end %>
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-translate">
+      <%= link_to root_path, class: "navbar-wagon-brand" do %>
+            <%= image_tag "GESTUNO_LOGO_NOBCK.png", height: 30 %>
+          <% end %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">        
+        <% if user_signed_in? %>
+          <!-- Links when logged in -->
+          <li class="nav-item"><%= link_to "DashBoard", root_path, class: "nav-link" %></li>
+        <li class="nav-item">
+          <a href="#" class="btn btn-rose btn-raised btn-fab btn-round" data-toggle="dropdown">
+            <i class="material-icons">email</i>
+          </a>
+        </li>
+        <li class="dropdown nav-item">
+          <a href="#pablo" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
+            <div class="profile-photo-small">
+              <img src="https://res.cloudinary.com/dyocdwgu9/image/upload/v1543548100/gestuno/profile1.jpg" alt="Circle Image" class="rounded-circle img-fluid">
+            </div>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <%= link_to "My Profile", edit_interpreter_path(current_user.id) , class: "dropdown-item" %>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+        <% else %>
+          <!-- Login link (when logged out) -->
+          <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">How it works</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Interpreters</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+          <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "nav-link" %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </nav>
-<div class="navbar-padding"></div>
+
+
+

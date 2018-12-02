@@ -1,45 +1,68 @@
-<div class="page-buffer" >
-  <div class="show-card">
-    <div class="styled-darker">
-      <h3><%= Utils.user_to_name(@interpreter) %></h3>
-      <br>
-      <div class="call-action">
 
-        <%= render 'shared/avatar', user: @interpreter, scale: 1.8 %>
-
-        <!-- <%= image_tag "//res.cloudinary.com/lionelrowe/image/upload/v1543488174/bill_zumslg.jpg", class: "img profile-avatar"%> -->
-
-
-
-
-        <div class="btn-centered text-center">
-          <%= form_tag(controller: :calls, action: :create, method: :post, recipient: @interpreter) do %>
-            <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
-              <i class="fas fa-phone"></i>
-            <% end %>
-          <% end -%>
+<div class="profile-page sidebar-collapse">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549512/gestuno/bkg2.jpg');"></div>
+  <div class="main main-raised">
+    <div class="profile-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto">
+            <div class="profile">
+              <div class="avatar">
+                <%= render 'shared/avatar', user: @interpreter, scale: 1.8, class: "img-raised rounded-circle img-fluid"%>
+                <%# <img src="../assets/img/faces/christian.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid"> %>
+              </div>
+              <div class="name">
+                <h3><%= Utils.user_to_name(@interpreter) %></h3>
+                <h6>Interpreter</h6>
+                <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a>
+                <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#pablo" class="btn btn-just-icon btn-link btn-pinterest"><i class="fab fa-pinterest"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="description text-center">
+          <p><%#= @interpreter.profile.bio %></p>
+          <p>An artist of considerable range, Chet Faker &#x2014; the name taken by Melbourne-raised, Brooklyn-based Nick Murphy &#x2014; writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+        </div>
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto">
+            <div class="profile-tabs">
+              <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                <li class="nav-item">
+                    <p>Languages</p>
+                    <p><%= @interpreter.profile.language %></p>
+                </li>
+                <li class="nav-item">
+                  <p>Certifications</p>
+                   <p><%= @interpreter.profile.certifications %></p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <p>Gender</p>
+                   <p><%= @interpreter.profile.gender %></p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <%= form_tag(controller: :calls, action: :create, method: :post, recipient: @interpreter) do %>
+              <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
+                <i class="fas fa-phone"></i>
+              <% end %>
+            <% end -%>
+          </div>
         </div>
       </div>
-      <h3>CERTIFICATION</h3>
-      <p><%= @interpreter.profile.certifications %></p>
+    </div>
+  </div>
+  
+</div>
 
-      <h3>LANGUAGE</h3>
-      <p><%= @interpreter.profile.language %></p>
-      <h3>BIOGRAPHY</h3>
-      <p><%= @interpreter.profile.bio %></p>
-      <h3>GENDER</h3>
-      <p><%= @interpreter.profile.gender %></p>
-
-      <h3>REVIEWS</h3>
+      <%# <h3>REVIEWS</h3>
       <p>132 customers have rated your service:</p>
       <div class="ratings">
         <i class="fas fa-star fa-2x checked"></i>
         <i class="fas fa-star fa-2x checked"></i>
         <i class="fas fa-star fa-2x checked"></i>
-      </div>
-      <br>
-    </div>
-  </div>
-
-</div>
+      </div> %>
 

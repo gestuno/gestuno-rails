@@ -1,61 +1,166 @@
-<div class="parallax">
-  <div class="banner">
-    <h3 class="banner-title styled">
-      Book a sign-language interpreter anytime, anywhere.
-    </h3>
-    <div class="banner-info">
-      <%= link_to "JOIN Customer", new_user_registration_path + '?user_type=customer', class: "btn-blue"  %>
-      <%= link_to "JOIN Interpreter", new_user_registration_path + '?user_type=interpreter', class: "btn-blue"  %>
-      <h3 class="bottom styled">
-        Learn More
-      </h3>
-      <i class="fas fa-angle-down fa-3x styled"></i>
-    </div>
-  </div>
-</div>
-<div class="home-card">
-  <div class="page-buffer">
-    <div class="styled-dark">
-      <h2>How does it work?</h2>
-    </div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('https://res.cloudinary.com/dyocdwgu9/image/upload/v1543550218/gestuno/bck.jpg')">
+  <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <div class="landing-card">
-          <%= image_tag("https://res.cloudinary.com/lionelrowe/image/upload/c_scale,w_200/v1543314030/deaf_user_lou86y.jpg", class: "card-image") %>
-          <div class="card-description">
-            <h3>Deaf Customer</h3>
-            <p>Need a Sign Language interpreter now?</p>
-            <p><strong>You can:</strong></p>
-            <p>See list of interpreters available online</p>
-            <p>Choose and call an interpreter</p>
-            <p>$1.50 per minute</p>
-            <p>Maximum 30 minutes per call</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-        <div class="landing-card">
-          <%= image_tag("https://res.cloudinary.com/lionelrowe/image/upload/c_scale,w_200/v1543314042/interpreter_xyzqdp.jpg", class: "card-image") %>
-          <div class="card-description">
-            <h3>Interpreter</h3>
-            <p>Available but no interpreting jobs?</p>
-            <p><strong>You can:</strong></p>
-            <p>Choose your availability</p>
-            <p>$1 per minute</p>
-            <p>Maximum 30 minutes per call</p>
-          </div>
-        </div>
+      <div class="col-md-6">
+        <h1 class="title">Anywhere, Anytime.</h1>
+        <h4>Find an interpreter .........</h4>
+        <br>
+        <%# <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
+          <i class="fa fa-play"></i> Watch video
+        </a> %>
+        <%= link_to "I want an interpreter", new_user_registration_path + '?user_type=customer', class: "btn btn-info btn-lg"  %>
+        <%= link_to "I am an interpreter", new_user_registration_path + '?user_type=interpreter', class: "btn btn-primary btn-link"  %>
       </div>
     </div>
   </div>
 </div>
-<div class="parallax">
-  <div class="styled">
-    <h3>FAQs</h3>
-    <p>Q1</p>
-    <p>Q2</p>
-    <p>Q3</p>
-    <p>Q4</p>
-    <p>Q5</p>
+<div class="main main-raised">
+  <div class="container">
+    <div class="section text-center">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <h2 class="title">Let&apos;s talk product</h2>
+          <h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn&apos;t scroll to get here. Add a button if you want the user to see more.</h5>
+        </div>
+      </div>
+      <div class="features">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="info">
+              <div class="icon icon-info">
+                <i class="material-icons">chat</i>
+              </div>
+              <h4 class="info-title">Free Chat</h4>
+              <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info">
+              <div class="icon icon-success">
+                <i class="material-icons">verified_user</i>
+              </div>
+              <h4 class="info-title">Verified Users</h4>
+              <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info">
+              <div class="icon icon-danger">
+                <i class="material-icons">fingerprint</i>
+              </div>
+              <h4 class="info-title">Fingerprint</h4>
+              <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section text-center">
+      <h2 class="title">Meet Interpreters</h2>
+      <div class="team">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="team-player">
+              <div class="card card-plain">
+                <div class="col-md-6 ml-auto mr-auto">
+                  <img src="https://res.cloudinary.com/dyocdwgu9/image/upload/v1543548100/gestuno/profile1.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                </div>
+                <h4 class="card-title">Gigi Hadid
+                  <br>
+                  <small class="card-description text-muted">Model</small>
+                </h4>
+                <div class="card-body">
+                  <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
+                    <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                </div>
+                <div class="card-footer justify-content-center">
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-twitter"></i></a>
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-instagram"></i></a>
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-facebook-square"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="team-player">
+              <div class="card card-plain">
+                <div class="col-md-6 ml-auto mr-auto">
+                  <img src="https://res.cloudinary.com/dyocdwgu9/image/upload/v1543548100/gestuno/profile1.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                </div>
+                <h4 class="card-title">Christian Louboutin
+                  <br>
+                  <small class="card-description text-muted">Designer</small>
+                </h4>
+                <div class="card-body">
+                  <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
+                    <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                </div>
+                <div class="card-footer justify-content-center">
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-twitter"></i></a>
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="team-player">
+              <div class="card card-plain">
+                <div class="col-md-6 ml-auto mr-auto">
+                  <img src="https://res.cloudinary.com/dyocdwgu9/image/upload/v1543548100/gestuno/profile1.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                </div>
+                <h4 class="card-title">Kendall Jenner
+                  <br>
+                  <small class="card-description text-muted">Model</small>
+                </h4>
+                <div class="card-body">
+                  <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
+                    <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                </div>
+                <div class="card-footer justify-content-center">
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-twitter"></i></a>
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-instagram"></i></a>
+                  <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-facebook-square"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section section-contacts">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <h2 class="text-center title">Get in Touch</h2>
+          <h4 class="text-center description">Write a few lines, we will get back to you in a couple of hours.</h4>
+          <form class="contact-form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Your Name</label>
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Your Email</label>
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleMessage" class="bmd-label-floating">Your Message</label>
+              <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
+            </div>
+            <div class="row">
+              <div class="col-md-4 ml-auto mr-auto text-center">
+                <button class="btn btn-primary btn-raised">
+                  Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
