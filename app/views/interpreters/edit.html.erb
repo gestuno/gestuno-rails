@@ -8,7 +8,7 @@
         <button type="button" class="btn btn-circle btn-xl-orange"><i class="fas fa-plus"></i></button>
       </div>
       <div class="form">
-        <% if current_user.interpreter %>
+        <% if current_user.interpreter? %>
           <%= simple_form_for @interpreter, as: :interpreter, method: :post, url: interpreters_path do |f| %>
             <%= f.input :gender, collection: ["Male", "Female", "Other"] %>
             <%= f.input :certifications, collection: ["NAATI Level 2", "NAATI Level 3"] %>

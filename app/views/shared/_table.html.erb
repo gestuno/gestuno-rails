@@ -20,7 +20,7 @@
                         </div>
                     </td>
                     <td class="td-name">
-                        <p><strong><%= Utils.user_to_name(user) %></strong></p>
+                        <p><strong><%= user.name %></strong></p>
                     </td>
                     <td>
                         LANGUAGE
@@ -34,7 +34,7 @@
                         <%= link_to "VIEW PROFILE", interpreter_path(user), class: "nav-item"  %>
                         <br /><small>BUTTON??</small>
                     </td>
-                </tr>    
+                </tr>
                 <% end %>
             </tbody>
         </table>
