@@ -9,7 +9,9 @@ class CallsController < ApplicationController
   def create
     room_name = SecureRandom.uuid
 
-    @call = Call.create(sender: current_user, recipients: [User.find(params[:recipient])], room_name: room_name, twilio_sid: room_name + '_twilio') # TODO: un-hardcode data
+    @call = Call.create(sender: current_user, recipients: [User.find(params[:recipient])], room_name: room_name) # TODO: un-hardcode data
+
+    #, twilio_sid: room_name + '_twilio'
 
     session[:call_id] = @call.id
 
@@ -18,16 +20,17 @@ class CallsController < ApplicationController
 
   def start
     @call = Call.find(session[:call_id])
-    @recipient = @call.recipients.first
+    @interlocutor = @call.recipients.first
   end
 
   def join
     @call = Call.find(session[:call_id]) # TODO - is this correct logic?
+    @interlocutor = @call.sender
   end
 
   def end_call
     @call = Call.find(session[:call_id])
-    @recipient = @call.recipients.first
+    @interlocutor = @call.recipients.first
 
     @duration = 5 # TODO un-hardcode duration
     @price = @duration * 1.5

@@ -23,6 +23,12 @@ gem 'devise_lastseenable'
 gem 'twilio-ruby', '~> 5.16.0'
 gem "pundit"
 
+
+gem 'cloudinary', '1.9.0'
+gem 'carrierwave', '~> 1.2'
+gem 'rest-client', '>= 2'
+
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 

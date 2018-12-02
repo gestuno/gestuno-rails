@@ -8,12 +8,11 @@
         <span class="time">00:00</span>
       </div>
       <div>
-        <span class="interlocutor-name"><%= Utils.user_to_name(@recipient) %></span>
+        <span class="interlocutor-name"><%= @interlocutor.name %></span>
       </div>
     </div>
 
     <div id="room-controls">
-      <input id="room-name" type="text" placeholder="Enter a room name" value='<%= params[:room_name] %>'>
       <a class='call-button-end' id='button-end-call' title='End call'><i class="fas fa-phone-slash"></i></a>
     </div>
     <div id="log"></div>

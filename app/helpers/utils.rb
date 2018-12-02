@@ -2,14 +2,12 @@ module Utils
 
   class << self
 
-    def user_to_name(user)
-      user.email.gsub(/@.+/, '').split(/[-_.]/).map { |word| word.capitalize } .join(' ')
-    end
+    # def email_to_name(email)
+    #   email.gsub(/@.+/, '').split(/[-_.]/).map { |word| word.capitalize } .join(' ')
+    # end
 
-    def user_to_initials(user)
-      user_name = self.user_to_name(user)
-
-      user_name.split(/\s+/).map { |word| word[0].upcase } .join('')[0..2]
+    def name_to_initials(name)
+      name.split(/\s+/).map { |word| word[0].upcase } .join('')[0..2]
     end
 
     def str_to_bg_and_fg_color(str)
