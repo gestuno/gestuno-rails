@@ -10,8 +10,14 @@ scale_mappings = {
 
 scale = scale_mappings[scale] || scale || 1
 
-# photo = user.photo
-photo = nil
+filename = user.profile.avatar.filename
+
+photo = (filename && "#{ENV['CLOUDINARY_PUBLIC_PATH']}/g_face/#{filename}") || user.profile.external_avatar
+
+style = <<~CSS
+  width: #{(scale * 120).to_i}px;
+  height: #{(scale * 120).to_i}px;
+CSS
 
 if photo.nil?
 
@@ -20,23 +26,26 @@ if photo.nil?
   colors = Utils.str_to_bg_and_fg_color(name)
   bg = colors[:bg]
   fg = colors[:fg]
-  style = <<~CSS
+  text_content = initials
+  style += <<~CSS
     background: #{bg};
     color: #{fg};
-    width: #{(scale * 120).to_i}px;
-    height: #{(scale * 120).to_i}px;
     font-size: #{(scale * 4).to_i}em;
   CSS
+
+else
+
+  text_content = ''
+
+  style += <<~CSS
+    background: url(#{photo});
+    background-size: cover;
+  CSS
+
+end
+
 %>
 
-  <div title="<%= name %>" class='avatar' style="<%= style %>">
-    <%= initials %>
-  </div>
-
-<% else %>
-
-  <div title="<%= name %>" class='avatar' style="background: url(<%= photo %>); background-size: cover;">
-    <%= initials %>
-  </div>
-
-<% end %>
+<div title="<%= name %>" class="gu-avatar" style="<%= style %>">
+  <%= text_content %>
+</div>

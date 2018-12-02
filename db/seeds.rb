@@ -1,10 +1,13 @@
+
+# TODO: seed random
+
 def puts_para(str)
   puts "#{str}\n\n"
 end
 
 users = JSON.parse(File.read(File.join(__dir__, 'seed_data/users.json')), symbolize_names: true)[:results]
 
-# debugger
+user_images = JSON.parse(File.read(File.join(__dir__, 'seed_data/user_images.json')), symbolize_names: true)
 
 puts_para "destroying all your stuff, buckle up!"
 
@@ -13,27 +16,32 @@ User.destroy_all
 puts_para "creating new stuff"
 
 20.times do |idx|
-  user = users[idx]
+  u_data = users[idx]
 
-  gender = user[:gender]
+  gender = u_data[:gender]
 
   names = []
-  names << user[:name][:first].capitalize
-  names << Faker::Name.middle_name.capitalize if rand > 0.8
-  names << user[:name][:last].capitalize
+  names << u_data[:name][:first].capitalize
+  # names << Faker::Name.middle_name.capitalize if rand > 0.8
+  names << u_data[:name][:last].capitalize
 
   name = names.join(' ')
+  email = u_data[:email]
 
-  user = User.new(name: name, email: user[:email], password: Faker::Internet.password(12))
-  user.interpreter = idx < 10
-  user.last_seen = Time.now if idx.even?
+  user = User.new(name: name, email: email, password: Faker::Internet.password(12))
+  user.interpreter = idx.odd?
+  user.last_seen = Time.now if idx < 10
 
   user.save!
 
+  avatar = Rails.root.join("db/seed_data/images/#{u_data[:picture][:large].match(/[^\/]+$/).to_s}").open
+
+  # external_avatar = user_images.find { |r| r[:email] == email } [:pic]
+
+  user.profile.update!(language: 'Auslan', avatar: avatar)
+
   if user.interpreter?
-    user.profile.update!(bio: Faker::Lorem.sentence, gender: gender, language: 'Auslan', certifications: "Naati level #{[2, 3].sample}")
-  else
-    user.profile.update!(language: 'Auslan')
+    user.profile.update!(bio: Faker::Lorem.sentence, gender: gender, certifications: "Naati level #{[2, 3].sample}")
   end
 end
 

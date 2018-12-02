@@ -7,11 +7,6 @@
 
         <%= render 'shared/avatar', user: @interpreter, scale: :large %>
 
-        <!-- <%= image_tag "//res.cloudinary.com/lionelrowe/image/upload/v1543488174/bill_zumslg.jpg", class: "img profile-avatar"%> -->
-
-
-
-
         <div class="btn-centered text-center">
           <%= form_tag(controller: :calls, action: :create, method: :post, recipient: @interpreter) do %>
             <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
@@ -31,7 +26,7 @@
       <p><%= @interpreter.profile.gender %></p>
 
       <h3>REVIEWS</h3>
-      <p>132 ratings:</p>
+      <p>132 ratings</p>
       <div class="ratings">
         <i class="fas fa-star fa-2x checked"></i>
         <i class="fas fa-star fa-2x checked"></i>

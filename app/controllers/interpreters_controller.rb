@@ -7,6 +7,6 @@ class InterpretersController < BaseUsersController
   end
 
   def allowed_params
-    params.require(:interpreter).permit(:language, :certifications, :bio, :gender)
+    params.require(:interpreter).permit(:language, :certifications, :bio, :gender, :avatar)
   end
 end
