@@ -12,3 +12,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+# Fili - Material Kit is in JS and asset pipeline, this is need to precompile JS
+Rails.application.config.assets.precompile += %w( material-kit.js )
