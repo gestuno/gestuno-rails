@@ -1,6 +1,8 @@
 class InterpreterProfile < ApplicationRecord
   # TODO - DRY up w. BaseProfile class
 
+  mount_uploader :avatar, AvatarUploader
+
   private_class_method :create, :create!, :destroy_all
 
   belongs_to :user # exactly one unique user

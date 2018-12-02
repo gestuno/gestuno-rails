@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_29_141344) do
+ActiveRecord::Schema.define(version: 2018_12_02_082720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2018_11_29_141344) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "external_avatar"
+    t.string "avatar"
     t.index ["user_id"], name: "index_customer_profiles_on_user_id"
   end
 
@@ -53,6 +55,8 @@ ActiveRecord::Schema.define(version: 2018_11_29_141344) do
     t.bigint "user_id"
     t.string "certifications"
     t.string "language"
+    t.string "external_avatar"
+    t.string "avatar"
     t.index ["user_id"], name: "index_interpreter_profiles_on_user_id"
   end
 
