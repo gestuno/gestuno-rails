@@ -1,11 +1,11 @@
 <div class="page-buffer" >
   <div class="show-card">
     <div class="styled-darker">
-      <h3><%= Utils.user_to_name(@interpreter) %></h3>
+      <h3><%= @interpreter.name %></h3>
       <br>
       <div class="call-action">
 
-        <%= render 'shared/avatar', user: @interpreter, scale: 1.8 %>
+        <%= render 'shared/avatar', user: @interpreter, scale: :large %>
 
         <!-- <%= image_tag "//res.cloudinary.com/lionelrowe/image/upload/v1543488174/bill_zumslg.jpg", class: "img profile-avatar"%> -->
 
@@ -31,7 +31,7 @@
       <p><%= @interpreter.profile.gender %></p>
 
       <h3>REVIEWS</h3>
-      <p>132 customers have rated your service:</p>
+      <p>132 ratings:</p>
       <div class="ratings">
         <i class="fas fa-star fa-2x checked"></i>
         <i class="fas fa-star fa-2x checked"></i>

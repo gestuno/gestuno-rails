@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_one :interpreter_profile
   has_one :customer_profile
 
-  # validates :interpreter, # bool
+  validates :name, presence: true
+  # before_create :generate_name_if_absent
 
   has_and_belongs_to_many :received_calls, class_name: 'Call'
 
@@ -37,6 +38,10 @@ class User < ApplicationRecord
   end
 
   private
+
+  # def generate_name_if_absent
+  #   self.name = Utils.email_to_name(self.email)
+  # end
 
   def __dangerously_attach_profile!
     profile_class = self.interpreter? ? InterpreterProfile : CustomerProfile

@@ -5,7 +5,7 @@ scale_mappings = {
   xs: 1.0/3,
   small: 0.5,
   medium: 1,
-  large: 2
+  large: 1.8
 }
 
 scale = scale_mappings[scale] || scale || 1
@@ -15,9 +15,9 @@ photo = nil
 
 if photo.nil?
 
-  name = Utils.user_to_name(user)
-  initials = Utils.user_to_initials(user)
-  colors = Utils.str_to_bg_and_fg_color(user.email)
+  name = user.name
+  initials = Utils.name_to_initials(name)
+  colors = Utils.str_to_bg_and_fg_color(name)
   bg = colors[:bg]
   fg = colors[:fg]
   style = <<~CSS

@@ -1,5 +1,11 @@
 <script>
 
+  const vars = JSON.parse(document.querySelector('#vars').dataset.vars);
+
+  window.vars = vars; //TODO: remove global
+
+  // alert(JSON.stringify(window.vars));
+
   'use strict';
 
   const Video = Twilio.Video;
@@ -53,7 +59,7 @@
     joinRoom();
 
     function joinRoom() {
-      const roomName = document.querySelector('#room-name').value; //hidden input, filled with auto-generated room UUID
+      const roomName = vars.roomName;
 
       log("Joining room '" + roomName + "'...");
       const connectOptions = {

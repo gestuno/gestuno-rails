@@ -6,5 +6,6 @@ class Call < ApplicationRecord
   validates :sender, presence: true
   validates :recipients, presence: true, length: { is: 1, message: 'must be exactly 1 user' }
   validates :room_name, presence: true, uniqueness: true
-  validates :twilio_sid, presence: true, uniqueness: true # can find all other twilio info using this
+
+  validates :twilio_sid, uniqueness: true, allow_nil: true # can find all other twilio info using this
 end
