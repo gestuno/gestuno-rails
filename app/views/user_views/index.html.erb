@@ -14,14 +14,14 @@
       <div class="container">
         <div class="row">
           <div class="description text-center">
-            <% if @interpreters.count == 0 %>
+            <% if @users.count == 0 %>
               <div class="terp-button styled-dark">
-                <h3>There are no interpreters available online.</h3>
+                <h3>There are no <%= @user_type %>s available online.</h3>
               </div>
             <% else %>
               <div class="terp-button styled-darker">
                 <i class="fas fa-circle"></i>
-                <h3> <%= @interpreters.count %> interpreters available now</h3>
+                <h3> <%= @users.count %> <%= @user_type %>s available now</h3>
               </div>
           </div>
         </div>

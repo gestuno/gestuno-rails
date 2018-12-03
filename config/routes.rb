@@ -6,20 +6,16 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'user/registrations' }  # includes [edit, new, create, update, destroy] for all types of profile
 
-  # devise_scope :user do
-  #   get 'profile', to: 'devise/registrations#edit'
-  # end
-
-  resources :customers, only: [:index, :edit, :show, :update]
-  resources :interpreters, only: [:index, :edit, :show, :update]
+  get 'interpreters', to: 'user_views#index'
+  get 'customers', to: 'user_views#index'
+  get 'users/:id', to: 'user_views#show'
 
   get 'start', to: 'calls#start'
   get 'join', to: 'calls#join'
 
   resources :calls, only: [:create]
 
-  patch 'calls/:call_id/attach_twilio_sid', to: 'calls#attach_twilio_sid'
-  # get 'calls/:call_id/append_twilio_info', to: 'calls#join'
+  patch 'calls/:call_id/attachtwiliosid', to: 'calls#attach_twilio_sid'
 
   get 'api/v1/twiliojwt', to: 'calls#get_twilio_jwt'
 
@@ -30,7 +26,6 @@ Rails.application.routes.draw do
   #   end
   # end
 
-  # TODO - delete this temp route once code is in correct file
   get 'endcall', to: 'calls#end_call'
 
 end

@@ -12,8 +12,8 @@ scale_mappings = {
 }
 
 scale = scale_mappings[scale] || scale || 1
-filename = user.profile.avatar.filename
-photo = (filename && "#{ENV['CLOUDINARY_PUBLIC_PATH']}/g_face/#{filename}") || user.profile.external_avatar
+filename = user.avatar.filename
+photo = (filename && "#{ENV['CLOUDINARY_PUBLIC_PATH']}/g_face/#{filename}") || user.external_avatar
 style = <<~CSS
   width: #{(scale * 120).to_i}px;
   height: #{(scale * 120).to_i}px;
