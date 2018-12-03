@@ -31,7 +31,7 @@
             </div>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to "My Profile", edit_interpreter_path(current_user.id) , class: "dropdown-item" %>
+            <%= link_to "My Profile", self.send("edit_#{current_user.role}_path", current_user.id), class: "dropdown-item" %>
             <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
