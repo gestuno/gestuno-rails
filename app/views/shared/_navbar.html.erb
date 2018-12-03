@@ -31,7 +31,8 @@
             </div>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to "My Profile", edit_interpreter_path(current_user.id) , class: "dropdown-item" %>
+
+            <%= link_to "My Profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

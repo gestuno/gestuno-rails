@@ -4,21 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :lastseenable
 
-  has_one :interpreter_profile
-  has_one :customer_profile
+  mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true
-  # before_create :generate_name_if_absent
 
   has_and_belongs_to_many :received_calls, class_name: 'Call'
-
-  after_create :__dangerously_attach_profile! # triggers infinite loop if before_save
-
-  before_destroy :__dangerously_destroy_own_profile!
-
-  def profile
-    self.interpreter_profile || self.customer_profile
-  end
 
   def interpreter?
     interpreter
@@ -38,27 +28,6 @@ class User < ApplicationRecord
   end
 
   private
-
-  # def generate_name_if_absent
-  #   self.name = Utils.email_to_name(self.email)
-  # end
-
-  def __dangerously_attach_profile!
-    profile_class = self.interpreter? ? InterpreterProfile : CustomerProfile
-    profile_class.__dangerously_spawn!(self)
-  end
-
-  def __dangerously_destroy_own_profile!
-    self.profile.__dangerously_destroy_self!
-  end
-
-  def interpreter_profile=
-    raise 'Cannot manually attach a profile'
-  end
-
-  def customer_profile=
-    raise 'Cannot manually attach a profile'
-  end
 
   def interpreter # must be checked with question mark
     super

@@ -5,7 +5,7 @@
     <div id="local-media"></div>
     <div id="hud">
       <div>
-        <span class="time">00:00</span>
+        <span id='timer' class="time">00:00</span>
       </div>
       <div>
         <span class="interlocutor-name"><%= @interlocutor.name %></span>
@@ -18,6 +18,7 @@
     <div id="log"></div>
   </div>
 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
   <script src="//media.twiliocdn.com/sdk/js/video/v1/twilio-video.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 

@@ -2,8 +2,8 @@ AccessToken = Twilio::JWT::AccessToken
 VideoGrant = AccessToken::VideoGrant
 
 module CallsHelper
-  def self.get_twilio_jwt
-    identity = "#{Faker::Name.name}@#{Time.new.to_f.to_s.gsub(/\./, '')}" # TODO: use actual user email
+  def self.get_twilio_jwt(current_user)
+    identity = current_user.email
 
     token = AccessToken.new(
       ENV['TWILIO_ACCOUNT_SID'],
