@@ -8,4 +8,7 @@ class Call < ApplicationRecord
   validates :room_name, presence: true, uniqueness: true
 
   validates :twilio_sid, uniqueness: true, allow_nil: true # can find all other twilio info using this
+  # # GLOBAL VARIABLE - STRIPE now charges AUD$1.50 flat rate
+  # RATE = 150
+
 end

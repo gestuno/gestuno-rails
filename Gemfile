@@ -31,6 +31,8 @@ gem 'cloudinary', '1.9.0'
 gem 'carrierwave', '~> 1.2'
 gem 'rest-client', '>= 2'
 
+# STRIPE INTEGRATION
+gem 'stripe'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

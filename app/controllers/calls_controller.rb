@@ -31,9 +31,9 @@ class CallsController < ApplicationController
   def end_call
     @call = Call.find(session[:call_id])
     @interlocutor = @call.recipients.first
-
-    @duration = 5 # TODO un-hardcode duration
-    @price = @duration * 1.5
+    # TODO - commenting this out to test STRIPE
+    # @duration = 5 # TODO un-hardcode duration
+    # @price = @duration * 1.5
   end
 
   # def update
