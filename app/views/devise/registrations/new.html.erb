@@ -1,124 +1,77 @@
-<div class="page-header header-filter" filter-color="purple" style="background-image: url('https://res.cloudinary.com/dyocdwgu9/image/upload/v1543550218/gestuno/bck.jpg'); background-size: cover; background-position: top center;">
-    	<div class="container">
-			<div class="row">
-    			<div class="col-md-10 ml-auto mr-auto">
-					<div class="card card-signup">
-						<h2 class="card-title text-center"><%#= @user_type.capitalize %> Sign Up</h2>
-						<div class="card-body">
-							<div class="row">
-								
-								<div class="col-md-5 ml-auto">
-									<div class="info info-horizontal">
-										<div class="icon icon-rose">
-											<i class="material-icons">timeline</i>
-										</div>
-										<div class="description">
-											<h4 class="info-title">Marketing</h4>
-											<p class="description">
-												We've created the marketing campaign of the website. It was a very interesting collaboration.
-											</p>
-										</div>
-									</div>
-
-									<div class="info info-horizontal">
-										<div class="icon icon-primary">
-											<i class="material-icons">code</i>
-										</div>
-										<div class="description">
-											<h4 class="info-title">Fully Coded in HTML5</h4>
-											<p class="description">
-												We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
-											</p>
-										</div>
-									</div>
-
-									<div class="info info-horizontal">
-										<div class="icon icon-info">
-											<i class="material-icons">group</i>
-										</div>
-										<div class="description">
-											<h4 class="info-title">Built Audience</h4>
-											<p class="description">
-												There is also a Fully Customizable CMS Admin Dashboard for this product.
-											</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-md-5 mr-auto">
-									<div class="form">
-                  					<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                  					<%= f.error_notification %>
-										<div class="form-group">
-											<div class="input-group">
-												<span class="input-group-addon">
-													<i class="material-icons">face</i>
-												</span>
-												<%= f.input :name,
-												required: true,
-												autofocus: true ,
-												input_html: { autocomplete: "name" }%>
-											</div>
-										</div>
-
-										<div class="form-group">
-											<div class="input-group">
-												<span class="input-group-addon">
-													<i class="material-icons">email</i>
-												</span>
-												<%= f.input :email,
-													required: true,
-													autofocus: true ,
-													input_html: { autocomplete: "email" }%>
-											</div>
-										</div>
-
-										<div class="form-group">
-											<div class="input-group">
-												<span class="input-group-addon">
-													<i class="material-icons">lock_outline</i>
-												</span>
-												<%= f.input :password,
-												required: true,
-												hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-												input_html: { autocomplete: "new-password" } %>
-											</div>
-										</div>
-
-                    					<div class="form-group">
-											<div class="input-group">
-												<span class="input-group-addon">
-													<i class="material-icons">lock_outline</i>
-												</span>
-												<%= f.input :password_confirmation,
-                          							required: true,
-                          							input_html: { autocomplete: "new-password" } %>
-                        						<%= f.input :interpreter, as: :hidden, input_html: { value: @user_type == 'interpreter' } %>
-											</div>
-										</div>
-
-										<div class="form-check">
-											<label class="form-check-label">
-												<input class="form-check-input" type="checkbox" value="" checked>
-												<span class="form-check-sign">
-													<span class="check"></span>
-												</span>
-												I agree to the <a href="#something">terms and conditions</a>.
-											</label>
-										</div>
-										<div class="text-center">
-                      						<%= f.button :submit, "Sign up", class: "btn btn-warning btn-round" %>
-										</div>
-										<div class="text-center">
-                      						<p class="description text-center"><%= render "devise/shared/links" %></p>
-										</div>
-										<% end %>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+  <div class="page-header header-filter" style="background-image: url('https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549510/gestuno/bck1.jpg'); background-size: cover; background-position: top center;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+          <div class="card card-login">
+            <div class="form">
+              <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">Sign Up</h4>
+              </div>
+              <div class="card-body">
+              	<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            	<%= f.error_notification %>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">face</i>
+                    </span>
+                  </div>
+                  <%= f.input :name,
+					required: true,
+					autofocus: true ,
+					input_html: { autocomplete: "name" }%>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">email</i>
+                    </span>
+                  </div>
+                  <%= f.input :email,
+					required: true,
+					autofocus: true ,
+					input_html: { autocomplete: "email" }%>
+                </div>
+				<div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock-outline</i>
+                    </span>
+                  </div>
+                  <%= f.input :password,
+					required: true,
+					hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+					input_html: { autocomplete: "new-password" } %>
+                </div>
+				<div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock-outline</i>
+                    </span>
+                  </div>
+                  <%= f.input :password_confirmation,
+					required: true,
+					input_html: { autocomplete: "new-password" } %>
+				<%= f.input :interpreter, as: :hidden, input_html: { value: @user_type == 'interpreter' } %>
+                </div>
+				<div class="form-check">
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" value="" checked>
+						<span class="form-check-sign">
+							<span class="check"></span>
+						</span>
+						I agree to the <a href="#something">terms and conditions</a>.
+					</label>
+				</div>
+              </div>
+              <div class="footer text-center">
+              <%# <p class="description text-center"><%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %></p>
+              <%= f.button :submit, "Sign up", class: "btn btn-warning btn-round" %>
+              <p class="description text-center"><%= render "devise/shared/links" %></p>
+              </div>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
-		</div>
-		
+    </div>
