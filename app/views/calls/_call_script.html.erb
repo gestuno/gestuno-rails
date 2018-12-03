@@ -1,17 +1,32 @@
 <script>
-  const vars = JSON.parse(document.querySelector('#vars').dataset.vars);
-  
-  window.vars = vars; //TODO: remove global
-  
-  // alert(JSON.stringify(window.vars));
-  
   'use strict';
+  
+  const vars = JSON.parse(document.querySelector('#vars').dataset.vars);
+  // window.vars = vars; //TODO: remove global
+  
+  const timer = document.querySelector('#timer');
   
   const Video = Twilio.Video;
   
   let activeRoom;
   let previewTracks;
   let identity;
+  
+  const startCallTimer = () => {
+  
+    const startTime = new Date();
+  
+    setInterval(() => {
+      const duration = moment.duration(new Date() - startTime);
+  
+      const units = [duration.minutes(), duration.seconds()];
+      if (duration.hours()) units.unshift(duration.hours());
+  
+      const timeDisplay = units.map(unit => unit.toString(10).padStart(2, '0')).join(':');
+  
+      timer.textContent = timeDisplay;
+    }, 100); //sub-second to ensure reasonable accuracy accounting for lag over time
+  }
   
   // Attach the Tracks to the DOM.
   function attachTracks(tracks, container) {
@@ -91,6 +106,9 @@
     window.room = activeRoom = room;
   
     log("Joined as '" + identity + "'");
+  
+    startCallTimer();
+  
     // document.getElementById('button-join').style.display = 'none';
     // document.getElementById('button-leave').style.display = 'inline';
   
