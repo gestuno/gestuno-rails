@@ -9,7 +9,7 @@
       </div>
       <div class="form">
         <% if current_user.interpreter? %>
-          <%= simple_form_for @interpreter, as: :interpreter, method: :post, url: interpreters_path do |f| %>
+          <%= simple_form_for @interpreter, as: :interpreter, method: :patch, url: interpreter_path(@interpreter) do |f| %>
             <%= f.input :gender, collection: ["Male", "Female", "Other"] %>
             <%= f.input :certifications, collection: ["NAATI Level 2", "NAATI Level 3"] %>
             <%= f.input :language, collection: ["Auslan", "ASL"]%>

@@ -60,10 +60,6 @@ class User < ApplicationRecord
     raise 'Cannot manually attach a profile'
   end
 
-  def interpreter # must be checked with question mark
-    super
-  end
-
   def delete # forbidden
     raise
   end
