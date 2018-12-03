@@ -10,7 +10,7 @@ class CustomersController < BaseUsersController
   end	
   
   def new	
-    @customer = customerProfile.new	
+    @customer = CustomerProfile.new	
   end	
   
   def edit	
@@ -19,7 +19,7 @@ class CustomersController < BaseUsersController
   end	
 
   def create	
-    @customer = customerProfile.new(customer_params)	
+    @customer = CustomerProfile.new(customer_params)	
     @customer.user = current_user	
     @customer.save	
     redirect_to :root	
