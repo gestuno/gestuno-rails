@@ -1,11 +1,16 @@
 
 <%
+
+class_list = 'gu-avatar '
+class_list += (local_assigns[:classes] || '') # ???
+
 scale_mappings = {
   xs: 1.0/3,
   small: 0.5,
   medium: 1,
   large: 1.8
 }
+
 scale = scale_mappings[scale] || scale || 1
 filename = user.profile.avatar.filename
 photo = (filename && "#{ENV['CLOUDINARY_PUBLIC_PATH']}/g_face/#{filename}") || user.profile.external_avatar
@@ -32,7 +37,8 @@ else
     background-size: cover;
   CSS
 end
+
 %>
-<div title="<%= name %>" class="gu-avatar" style="<%= style %>">
+<div title="<%= name %>" class="<%= class_list %>" style="<%= style %>">
   <%= text_content %>
 </div>

@@ -6,11 +6,22 @@
         <div class="row">
           <div class="col-md-6 ml-auto mr-auto">
             <div class="profile">
-              <div class="avatar">
+              <div class="avatar gu-avatar-container">
 
-                <%= render 'shared/avatar', user: @interpreter, scale: :large, class: "img-raised rounded-circle img-fluid" %>
+                <%= render 'shared/avatar', user: @interpreter, scale: :large, classes: "img-raised img-fluid gu-raised-avatar" %>
+
+    <!-- margin: -110px 0 20px 0; -->
+
+                <%= form_tag(controller: :calls, action: :create, method: :post, recipient: @interpreter) do %>
+                  <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
+                    <i class="fas fa-phone"></i>
+                  <% end %>
+                <% end -%>
+
 
               </div>
+
+
               <div class="name">
                 <h3><%= @interpreter.name %></h3>
                 <h6>Interpreter</h6>
@@ -22,8 +33,8 @@
           </div>
         </div>
         <div class="description text-center">
-          <p><%#= @interpreter.profile.bio %></p>
-          <p>An artist of considerable range, Chet Faker &#x2014; the name taken by Melbourne-raised, Brooklyn-based Nick Murphy &#x2014; writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+          <p><%= @interpreter.profile.bio %></p>
+          <!-- <p>An artist of considerable range, Chet Faker &#x2014; the name taken by Melbourne-raised, Brooklyn-based Nick Murphy &#x2014; writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p> -->
         </div>
         <div class="row">
           <div class="col-md-6 ml-auto mr-auto">
@@ -45,11 +56,6 @@
                 </li>
               </ul>
             </div>
-            <%= form_tag(controller: :calls, action: :create, method: :post, recipient: @interpreter) do %>
-              <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
-                <i class="fas fa-phone"></i>
-              <% end %>
-            <% end -%>
           </div>
         </div>
       </div>
