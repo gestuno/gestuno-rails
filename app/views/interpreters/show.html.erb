@@ -12,12 +12,17 @@
 
     <!-- margin: -110px 0 20px 0; -->
 
-                <%= form_tag(controller: :calls, action: :create, method: :post, recipient: @interpreter) do %>
-                  <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
-                    <i class="fas fa-phone"></i>
-                  <% end %>
-                <% end -%>
-
+                <% if @interpreter.online? %>
+                  <%= form_tag(controller: :calls, action: :create, method: :post, recipient: @interpreter) do %>
+                    <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
+                      <i class="fas fa-phone"></i>
+                    <% end %>
+                  <% end -%>
+                <% else %>
+                  <div class='call-button-offline' title='Offline'>
+                    <i class="material-icons">do_not_disturb</i>
+                  </div>
+                <% end %>
 
               </div>
 
