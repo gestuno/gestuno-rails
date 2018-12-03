@@ -1,18 +1,21 @@
 // Import your components CSS files here.
-@import "alert";
-@import "navbar";
-@import "banner";
-@import "tab";
-@import "card";
-@import "general-styles";
-@import "footer";
-@import "terp-card";
-@import "button";
-@import "form";
+@import "gu-avatar";
 @import "call-card";
+@import "call_buttons";
+@import "general-styles";
 @import "ratings";
-@import "card-body";
 @import "toggle";
-@import "profile";
-@import 'components/call_buttons';
-@import 'components/gu-avatar';
+@import "gu-clickable-table-row";
+
+// deprecated Components
+// @import "deprecated/alert";
+// @import "deprecated/banner";
+// @import "deprecated/button";
+// @import "deprecated/card-body";
+// @import "deprecated/card";
+// @import "deprecated/footer";
+// @import "deprecated/form";
+// @import "deprecated/navbar";
+// @import "deprecated/profile";
+// @import "deprecated/tab";
+// @import "deprecated/terp-card";

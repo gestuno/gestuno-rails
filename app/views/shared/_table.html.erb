@@ -1,0 +1,40 @@
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="table-responsive">
+    <table class="table table-shopping">
+      <thead>
+        <tr>
+        <th class="text-center"></th>
+        <th>Name</th>
+        <th class="th-description">Language</th>
+        <th class="th-description">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @interpreters.each do |user| %>
+          <tr
+            class="gu-clickable-table-row"
+            data-link="<%= interpreter_path(user) %>"
+            onclick="window.location = this.dataset.link"
+          >
+            <td>
+              <div class="img-container">
+                <%= render 'shared/avatar', user: user, scale: :small %>
+              </div>
+            </td>
+            <td class="td-name">
+              <p><strong><%= user.name %></strong></p>
+            </td>
+            <td>
+              <%= user.profile.language %>
+            </td>
+            <td>
+              <i class="fas fa-star checked"></i>
+              <i class="fas fa-star checked"></i>
+              <i class="fas fa-star checked"></i>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

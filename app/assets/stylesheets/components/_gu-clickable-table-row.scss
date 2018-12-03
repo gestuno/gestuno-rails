@@ -1,0 +1,12 @@
+
+.gu-clickable-table-row {
+  $bg: #fff;
+
+  cursor: pointer;
+  background: $bg;
+  transition: background 0.8s;
+
+  &:hover {
+    background: darken($bg, 7);
+  }
+}

@@ -44,6 +44,7 @@
 .call-button-start {
   @include call-button($green);
   position: absolute;
-  bottom: 0px;
-  right: 40px;
+
+  bottom: 0;
+  right: 25%;
 }

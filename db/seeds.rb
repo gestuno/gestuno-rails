@@ -7,7 +7,7 @@ end
 
 users = JSON.parse(File.read(File.join(__dir__, 'seed_data/users.json')), symbolize_names: true)[:results]
 
-user_images = JSON.parse(File.read(File.join(__dir__, 'seed_data/user_images.json')), symbolize_names: true)
+# user_images = JSON.parse(File.read(File.join(__dir__, 'seed_data/user_images.json')), symbolize_names: true)
 
 puts_para "destroying all your stuff, buckle up!"
 

@@ -1,6 +1,9 @@
 
 <%
 
+class_list = 'gu-avatar '
+class_list += (local_assigns[:classes] || '') # ???
+
 scale_mappings = {
   xs: 1.0/3,
   small: 0.5,
@@ -9,18 +12,13 @@ scale_mappings = {
 }
 
 scale = scale_mappings[scale] || scale || 1
-
 filename = user.profile.avatar.filename
-
 photo = (filename && "#{ENV['CLOUDINARY_PUBLIC_PATH']}/g_face/#{filename}") || user.profile.external_avatar
-
 style = <<~CSS
   width: #{(scale * 120).to_i}px;
   height: #{(scale * 120).to_i}px;
 CSS
-
 if photo.nil?
-
   name = user.name
   initials = Utils.name_to_initials(name)
   colors = Utils.str_to_bg_and_fg_color(name)
@@ -32,20 +30,15 @@ if photo.nil?
     color: #{fg};
     font-size: #{(scale * 4).to_i}em;
   CSS
-
 else
-
   text_content = ''
-
   style += <<~CSS
     background: url(#{photo});
     background-size: cover;
   CSS
-
 end
 
 %>
-
-<div title="<%= name %>" class="gu-avatar" style="<%= style %>">
+<div title="<%= name %>" class="<%= class_list %>" style="<%= style %>">
   <%= text_content %>
 </div>
