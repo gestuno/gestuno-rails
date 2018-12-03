@@ -28,32 +28,31 @@ puts_para "creating new stuff"
   name = names.join(' ')
   email = u_data[:email]
 
-  user = User.new(name: name, email: email, password: Faker::Internet.password(12))
-  user.interpreter = idx.odd?
+  user = User.new(
+    name: name,
+    email: email,
+    password: Faker::Internet.password(12),
+    interpreter: idx.odd?,
+    language: 'Auslan',
+    avatar: Rails.root.join("db/seed_data/images/#{u_data[:picture][:large].match(/[^\/]+$/).to_s}").open
+  )
+
   user.last_seen = Time.now if idx < 10
 
   user.save!
 
-  avatar = Rails.root.join("db/seed_data/images/#{u_data[:picture][:large].match(/[^\/]+$/).to_s}").open
-
-  # external_avatar = user_images.find { |r| r[:email] == email } [:pic]
-
-  user.profile.update!(language: 'Auslan', avatar: avatar)
-
   if user.interpreter?
-    user.profile.update!(bio: Faker::Lorem.sentence, gender: gender, certifications: "Naati level #{[2, 3].sample}")
+    user.update!(bio: Faker::Lorem.sentence, gender: gender, certifications: "Naati level #{[2, 3].sample}")
   end
 end
 
 # test accounts must come last
 
-test_interpreter = User.create!(name: 'Interpreter', email: 'test@interpreter.com', password: '123123', interpreter: true, last_seen: Time.now)
-test_interpreter.profile.update!(bio: "fake bio", gender: 'female', language: 'Auslan', certifications: 'Naati level 2')
+test_interpreter = User.create!(name: 'Interpreter', email: 'test@interpreter.com', password: '123123', interpreter: true, last_seen: Time.now, bio: "fake bio", gender: 'female', language: 'Auslan', certifications: 'Naati level 2')
 
-test_customer = User.create!(name: 'Customer', email: 'test@customer.com', password: '123123')
-test_customer.profile.update!(language: "Auslan")
+test_customer = User.create!(name: 'Customer', email: 'test@customer.com', password: '123123', language: "Auslan")
 
 test_accounts = [test_interpreter, test_customer]
 
-puts_para "created #{User.count} users, #{CustomerProfile.count} customer profiles, #{InterpreterProfile.count} interpreter profiles."
+puts_para "created #{User.count} users, including #{User.where(interpreter: false).count} customer profiles and #{User.where(interpreter: true).count} interpreter profiles."
 puts_para "your test accounts:\n#{test_accounts.map { |acc| "#{acc.email} | #{acc.password}" }.join("\n")}"

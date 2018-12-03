@@ -10,10 +10,10 @@
         </tr>
       </thead>
       <tbody>
-        <% @interpreters.each do |user| %>
+        <% @users.each do |user| %>
           <tr
             class="gu-clickable-table-row"
-            data-link="<%= interpreter_path(user) %>"
+            data-link="<%= '/users/' + user.id.to_s %>"
             onclick="window.location = this.dataset.link"
           >
             <td>
@@ -25,7 +25,7 @@
               <p><strong><%= user.name %></strong></p>
             </td>
             <td>
-              <%= user.profile.language %>
+              <%= user.language %>
             </td>
             <td>
               <i class="fas fa-star checked"></i>
