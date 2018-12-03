@@ -10,8 +10,7 @@ gem 'rails', '5.2.1'
 gem 'redis'
 
 gem 'autoprefixer-rails'
-gem 'bootstrap',     '4.1.1'
-gem 'material-sass', '4.1.1'
+gem 'bootstrap',     '4.1.2'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'popper_js', '~> 1.14', '>= 1.14.5'
 
@@ -26,11 +25,9 @@ gem 'devise_lastseenable'
 gem 'twilio-ruby', '~> 5.16.0'
 gem "pundit"
 
-
 gem 'cloudinary', '1.9.0'
 gem 'carrierwave', '~> 1.2'
 gem 'rest-client', '>= 2'
-
 
 group :development do
   gem 'web-console', '>= 3.3.0'
