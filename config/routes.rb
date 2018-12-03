@@ -13,10 +13,13 @@ Rails.application.routes.draw do
   resources :customers, only: [:index, :edit, :show, :update]
   resources :interpreters, only: [:index, :edit, :show, :update]
 
-  get 'start/:room_name', to: 'calls#start'
-  get 'join/:room_name', to: 'calls#join'
+  get 'start', to: 'calls#start'
+  get 'join', to: 'calls#join'
 
-  resources :calls, only: [:create] #, :update
+  resources :calls, only: [:create]
+
+  patch 'calls/:call_id/attach_twilio_sid', to: 'calls#attach_twilio_sid'
+  # get 'calls/:call_id/append_twilio_info', to: 'calls#join'
 
   get 'api/v1/twiliojwt', to: 'calls#get_twilio_jwt'
 
