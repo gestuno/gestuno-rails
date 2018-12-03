@@ -11,6 +11,8 @@ class Call < ApplicationRecord
   # validates :twilio_sid, uniqueness: true, allow_nil: true # can find all other twilio info using this
 
   def broadcast
-    ActionCable.server.broadcast "NotificationsChannel", { call_id: id }
+    data = {}
+
+    ActionCable.server.broadcast "NotificationsChannel", data
   end
 end
