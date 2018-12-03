@@ -29,6 +29,8 @@ class CustomersController < BaseUsersController
     @customer.update(customer_params)	
     redirect_to :root
   end
+  
+  private
 
   def set_user
     @customer = current_user.customer_profile
