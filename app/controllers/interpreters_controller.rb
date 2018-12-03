@@ -30,6 +30,8 @@ class InterpretersController < BaseUsersController
     redirect_to :root
   end
 
+  private
+  
   def set_user
     @interpreter = current_user.interpreter_profile
   end
