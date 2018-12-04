@@ -6,14 +6,16 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    @user_type = params[:user_type] == 'interpreter' ? 'interpreter' : 'customer'
+    session[:will_sign_up_as_user_type] = params[:user_type] == 'interpreter' ? 'interpreter' : 'customer'
+    @user_type = session[:will_sign_up_as_user_type]
     super
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @user_type = session[:will_sign_up_as_user_type]
+    super
+  end
 
   # GET /resource/edit
   # def edit

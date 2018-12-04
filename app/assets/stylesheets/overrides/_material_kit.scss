@@ -5,3 +5,26 @@
     }
   }
 }
+
+.navbar .dropdown-menu .dropdown-item {
+  margin-left: inherit !important;
+  margin-right: inherit !important;
+}
+
+.navbar .dropdown.show .dropdown-menu, .navbar .dropdown .dropdown-menu {
+  background-color: #fff !important;
+  border: 1px solid rgba(0, 0, 0, .15) !important;
+  padding-bottom: inherit !important;
+  transition: inherit !important;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .15) !important;
+  -webkit-transform: inherit !important;
+  transform: inherit !important;
+  width: inherit !important;
+  margin-bottom: inherit !important;
+  padding-top: inherit !important;
+  height: inherit !important;
+  -webkit-animation: inherit !important;
+  animation: inherit !important;
+  opacity: inherit !important;
+  overflow-y: inherit !important;
+}
