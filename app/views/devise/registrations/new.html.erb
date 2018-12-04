@@ -1,6 +1,9 @@
- <div class="signup-page"> 
-  <div class="page-header header-filter" filter-color="purple" style="background-image: url('https://res.cloudinary.com/dyocdwgu9/image/upload/v1543550218/gestuno/bck.jpg'); background-size: cover; background-position: top center;">
-    	<div class="container">
+ <div class="signup-page">
+
+
+  <%= render 'shared/page_banner', bg_img: 'https://res.cloudinary.com/dyocdwgu9/image/upload/v1543550218/gestuno/bck.jpg', height: '100vh', parallax: false, style: 'background-size: cover; background-position: top center;' do %>
+
+  	<div class="container">
 			<div class="row">
     			<div class="col-md-10 ml-auto mr-auto">
 					<div class="card card-signup">
@@ -122,12 +125,12 @@
         		</div>
       		</div>
 		</div>
-  </div>
-  
-  
-  
-  
-  
-  
-  
-  
+  <% end %>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+<%
+  content_for(:page_banner?) { 'Je pense, donc je suis' }
+
+  bg_img ||= 'https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549512/gestuno/bkg2.jpg'
+  height ||= '380px'
+  parallax = true if parallax.nil?
+  style ||= ''
+  filter_color ||= nil
+
+  inline_styles = <<~CSS
+    background-image: url(#{bg_img});
+    height: #{height};
+  CSS
+
+  inline_styles << style
+%>
+
+<div class="page-header header-filter" data-parallax="<%= parallax %>" style="<%= inline_styles %>">
+  <%= yield %>
+</div>

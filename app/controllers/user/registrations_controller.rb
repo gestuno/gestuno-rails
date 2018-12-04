@@ -6,7 +6,7 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    @user_type = params[:user_type]
+    @user_type = params[:user_type] == 'interpreter' ? 'interpreter' : 'customer'
     super
   end
 
