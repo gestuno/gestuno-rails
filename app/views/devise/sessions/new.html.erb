@@ -1,8 +1,9 @@
-  <div class="login-page">
-  <div class="page-header header-filter" style="background-image: url('https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549510/gestuno/bck1.jpg'); background-size: cover; background-position: center;">
+<div class="login-page">
+  <%= render 'shared/page_banner', bg_img: 'https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549510/gestuno/bck1.jpg', height: '100vh', parallax: false do %>
+
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 ml-auto mr-auto">
           <div class="card card-login">
             <div class="form">
               <div class="card-header card-header-primary text-center">
@@ -10,31 +11,37 @@
               </div>
               <div class="card-body">
               <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <div class="input-group">
-                  <div class="input-group-prepend">
+                <div class="input-group" style="display: flex">
+                  <div class="input-group-prepend" style="flex: 0 0 0; width: 56px;">
                     <span class="input-group-text">
                       <i class="material-icons">mail</i>
                     </span>
                   </div>
-                  <%= f.input :email,
-                    required: false,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" } %>
+                  <div style="flex: 1 1 auto">
+                    <%= f.input :email,
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }
+                    %>
+                  </div>
                 </div>
-                <div class="input-group">
-                  <div class="input-group-prepend">
+                <div class="input-group" style="display: flex">
+                  <div class="input-group-prepend" style="flex: 0 0 0; width: 56px;">
                     <span class="input-group-text">
                       <i class="material-icons">lock_outline</i>
                     </span>
                   </div>
-                  <%= f.input :password,
-                    required: false,
-                    input_html: { autocomplete: "current-password" } %>
+                  <div style="flex: 1 1 auto">
+                    <%= f.input :password,
+                      required: false,
+                      input_html: { autocomplete: "current-password" }
+                    %>
+                  </div>
                 </div>
               </div>
               <div class="footer text-center">
               <%# <p class="description text-center"><%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %></p>
-              <%= f.button :submit, "Login", class: "btn btn-warning btn-round" %>
+              <%= f.button :submit, "Login", class: "btn btn-warning" %>
               <p class="description text-center"><%= render "devise/shared/links" %></p>
               </div>
               <% end %>
@@ -42,5 +49,9 @@
           </div>
         </div>
       </div>
+
     </div>
-  </div>
+
+  <% end %>
+
+</div>

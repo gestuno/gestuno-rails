@@ -1,57 +1,47 @@
-<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top" color-on-scroll="100" id="sectionsNav">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-translate">
+    <div>
       <%= link_to root_path, class: "navbar-wagon-brand" do %>
-            <%= image_tag "GESTUNO_LOGO_NOBCK.png", height: 30 %>
-          <% end %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <%= image_tag "GESTUNO_LOGO_NOBCK.png", height: 30 %>
+      <% end %>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
-          <!-- Links when logged in -->
-          <li class="nav-item"><%= link_to "DashBoard", root_path, class: "nav-link" %></li>
-        <li class="nav-item">
-          <a href="#" class="btn btn-rose btn-raised btn-fab btn-round" data-toggle="dropdown">
-            <i class="material-icons">email</i>
-          </a>
-        </li>
-        <li class="dropdown nav-item">
-          <a href="#" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
-            <div class="profile-photo-small">
-              <!-- <img src="https://res.cloudinary.com/dyocdwgu9/image/upload/v1543548100/gestuno/profile1.jpg" alt="Circle Image" class="rounded-circle img-fluid"> -->
-              <%= render 'shared/avatar', user: current_user, scale: :xs %>
-            </div>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right">
 
-            <%= link_to "My Profile", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+    <ul class="navbar-nav ml-auto" style="display: flex; flex-direction: row;">
+      <% if user_signed_in? %>
+        <!-- Links when logged in -->
+      <li class="nav-item">
+        <a href="#" class="btn btn-rose btn-raised btn-fab btn-round" data-toggle="dropdown">
+          <i class="material-icons">email</i>
+        </a>
+      </li>
+      <li class="dropdown nav-item">
+        <a href="#" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
+          <div class="profile-photo-small">
+            <%= render 'shared/avatar', user: current_user, scale: :xs %>
           </div>
-        </li>
-        <% else %>
-          <!-- Login link (when logged out) -->
-          <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">How it works</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Interpreters</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-          <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "nav-link" %></li>
-        <% end %>
-      </ul>
-    </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" style="position: absolute;">
+          <%= link_to "My Profile", edit_user_registration_path, class: "dropdown-item" %>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </li>
+      <% else %>
+        <!-- Login link (when logged out) -->
+        <li><%= link_to t(".sign_in", default: "Log in"), new_user_session_path, class: "btn btn-primary" %></li>
+      <% end %>
+    </ul>
+
   </div>
 </nav>
 
 
+  <% if !content_for?(:page_banner?) %>
 
+    <div class='navbar navbar-color-on-scroll fixed-top navbar-transparent' style='position: relative; opacity: 0; z-index: -1000000'>
+      <div style='height: 41px;'></div>
+    </div>
 
-
-
+  <% end %>
 

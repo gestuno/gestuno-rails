@@ -15,10 +15,7 @@
  */
 
 // Graphical variables
-@import "config/fonts";
-@import "config/colors";
-// @import "config/bootstrap_variables"; // LEAVE OFF unless we know what variables we want overridden
-@import "config/variables";
+@import "config/index";
 
 // External libraries
 // @import "bootstrap-sprockets"; // LEAVE OFF - NO longer needed
@@ -28,7 +25,8 @@
 
 // Your CSS partials
 @import "layouts/index";
-@import "components/index"; // DEPRACTED components have been moved to a subfolder and no longer called
+@import "components/index"; // DEPRECATED components have been moved to a subfolder and no longer called
 @import "material-kit/index"; // CALLING IN Material Kit components
 @import "pages/index";
 
+@import "overrides/index";
