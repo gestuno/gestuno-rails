@@ -46,9 +46,6 @@ function authorize(){
 }
 
 
-
-
-
 function SubscribeChannel(){
   App.cable.subscriptions.create({ channel: 'NotificationsChannel' },
   {
@@ -56,7 +53,7 @@ function SubscribeChannel(){
       // if (confirm(`Incoming call from ${data.senderName}. Accept?`)) {
       //   window.location = `/join?room=${data.roomName}`;
       // }
-
+      blast( `Incoming call from ${data.senderName}. Accept?`);
       swal({
         title: "Incoming call",
         text: `Incoming call from ${data.senderName}. Accept?`,
