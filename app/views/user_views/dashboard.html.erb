@@ -1,69 +1,112 @@
-<%# CURRENTLY SET TO REGISTRATION EDIT PAGE CODE %>
-  <div class="signup-page">
-  <div class="page-header header-filter" style="background-image: url('https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549510/gestuno/bck1.jpg'); background-size: cover; background-position: top center;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
-          <div class="card card-login">
-            <div class="form">
-              <div class="card-header card-header-primary text-center">
-                <h4 class="card-title">Edit Details</h4>
-              </div>
-              <div class="card-body">
-              	<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-                <%= f.error_notification %>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">email</i>
-                    </span>
+<div class="profile-page ">
+  <div class="profile-page sidebar-collapse">
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549512/gestuno/bkg2.jpg');"></div>
+      <div class="main main-raised">
+        <div class="profile-content">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 ml-auto mr-auto">
+                <div class="profile">
+                  <div class="avatar gu-avatar-container">
+
+                    <%= render 'shared/avatar', user: @user, scale: :large, classes: "img-raised img-fluid gu-raised-avatar" %>
+                      <!-- margin: -110px 0 20px 0; -->
                   </div>
-                  <p>Update your email here:</p>
-                    <%= f.input :email, required: true, autofocus: true %>
-                    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+                  <div class="name">
+                    <h3><%= @user.name %></h3>
+                    <h6><%= @user.role.capitalize %></h6>
+                    <a href="#" class="btn btn-just-icon btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a>
+                    <a href="#" class="btn btn-just-icon btn-link btn-twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-just-icon btn-link btn-pinterest"><i class="fab fa-pinterest"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="description text-center">
+              <p><%= @user.bio %></p>
+              <!-- <p>An artist of considerable range, Chet Faker &#x2014; the name taken by Melbourne-raised, Brooklyn-based Nick Murphy &#x2014; writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p> -->
+            </div>
+            <div class="row">
+              <div class="col-md-6 ml-auto mr-auto">
+                <div class="profile-tabs">
+                  <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                    <li class="nav-item">
+                        <p>Languages</p>
+                        <p><%= @user.language %></p>
+                    </li>
+                    <% if @user.interpreter? %>
+                      <li class="nav-item">
+                        <p>Certifications</p>
+                        <p><%= @user.certifications %></p>
+                        </a>
+                      </li>
                     <% end %>
-                </div>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">lock-outline</i>
-                    </span>
-                  </div>
-                  <%= f.input :password,
-                    hint: "leave it blank if you don't want to change it",
-                    required: false,
-                    input_html: { autocomplete: "new-password" } %>
-                </div>
-				        <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">lock-outline</i>
-                    </span>
-                  </div>
-                  <%= f.input :password_confirmation,
-                    required: false,
-                    input_html: { autocomplete: "new-password" } %>
-                </div>
-				        <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">lock-outline</i>
-                    </span>
-                  </div>
-                  <%= f.input :current_password,
-                    hint: "We need your current password to confirm your changes",
-                    required: true,
-                    input_html: { autocomplete: "current-password" } %>
+                    <li class="nav-item">
+                      <p>Gender</p>
+                      <p><%= @user.gender %></p>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
-              <div class="footer text-center">
-              <%# <p class="description text-center"><%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %></p>
-              <%= f.button :submit, "Update", class: "btn btn-warning btn-round" %>
-              <% end %>
-              <div class="description text-center">
-              <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn-blue" %>
-              <%#= link_to "Go Back", profile_path, class: "btn-blue" %>
+            </div>
+
+            <div id="nav-tabs">
+            <h3>User Dashboard</h3>
+            <div class="row">
+              <div class="col-md-10 ">
+                <h3>
+                  <small>Check the cards</small>
+                </h3>
+                <!-- Tabs with icons on Card -->
+                <div class="card card-nav-tabs">
+                  <div class="card-header card-header-primary">
+                    <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                    <div class="nav-tabs-navigation">
+                      <div class="nav-tabs-wrapper">
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                          <li class="nav-item">
+                            <a class="nav-link active" href="#profile" data-toggle="tab">
+                              <i class="material-icons">face</i> Profile
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#payments" data-toggle="tab">
+                              <i class="material-icons">chat</i> Payments
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#historical" data-toggle="tab">
+                              <i class="material-icons">build</i> History
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#blank" data-toggle="tab">
+                              <i class="material-icons">build</i> blank
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body ">
+                    <div class="tab-content text-center">
+                      <div class="tab-pane active" id="profile">
+                        <%= render 'shared/edit_profile' %>
+                      </div>
+                      <div class="tab-pane" id="payments">
+                        <%= render 'shared/payment' %>
+                      </div>
+                      <div class="tab-pane" id="historical">
+                        <%= render 'shared/history' %>
+                      </div>
+                      <div class="tab-pane" id="blank">
+                        <p></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Tabs with icons on Card -->
               </div>
             </div>
           </div>
@@ -71,3 +114,4 @@
       </div>
     </div>
   </div>
+</div>
