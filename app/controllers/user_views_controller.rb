@@ -1,3 +1,4 @@
+
 class UserViewsController < ApplicationController
 
   def show

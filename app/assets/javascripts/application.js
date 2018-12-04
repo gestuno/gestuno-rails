@@ -12,6 +12,42 @@
 // notifications_#{current_user.id}"
 
 // const swal = require('sweetalert');
+function blast(text){
+  if (window.Notification && Notification.permission === "granted") {
+    var n = new Notification(text);
+  } else if (window.Notification && Notification.permission !== "denied") {
+    Notification.requestPermission(function (status) {
+      if (Notification.permission !== status) {
+        Notification.permission = status;
+      }
+
+      if (status === "granted") {
+        var n = new Notification(text);
+      } else {
+        alert(text);
+      }
+    });
+  } else {
+    alert(text);
+  }
+}
+
+
+function authorize(){
+  window.addEventListener('load', function () {
+    if (window.Notification && Notification.permission !== "granted") {
+      Notification.requestPermission(function (status) {
+        if (Notification.permission !== status) {
+          Notification.permission = status;
+        }
+      });
+    }
+  });
+}
+
+
+
+
 
 function SubscribeChannel(){
   App.cable.subscriptions.create({ channel: 'NotificationsChannel' },
@@ -35,3 +71,5 @@ function SubscribeChannel(){
     }
   });
 }
+
+authorize();
