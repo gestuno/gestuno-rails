@@ -1,12 +1,14 @@
 <% if notice %>
   <div class="alert alert-success alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= notice %>
+    <span class="material-icons">check_circle_outline</span>
+    <span class="alert-inner"><%= notice %></span>
   </div>
 <% end %>
 <% if alert %>
   <div class="alert alert-warning alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= alert %>
+    <span class="material-icons">error_outline</span>
+    <span class="alert-inner"><%= alert %></span>
   </div>
 <% end %>

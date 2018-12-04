@@ -1,136 +1,43 @@
- <div class="signup-page">
 
+<%= render 'devise/shared/centered_form', page_title: "#{@user_type.capitalize} Sign Up", bg_img: 'https://res.cloudinary.com/dyocdwgu9/image/upload/v1543550218/gestuno/bck.jpg' do %>
 
-  <%= render 'shared/page_banner', bg_img: 'https://res.cloudinary.com/dyocdwgu9/image/upload/v1543550218/gestuno/bck.jpg', height: '100vh', parallax: false, style: 'background-size: cover; background-position: top center;' do %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-  	<div class="container">
-			<div class="row">
-    			<div class="col-md-10 ml-auto mr-auto">
-					<div class="card card-signup">
-						<h2 class="card-title text-center"><%= @user_type.capitalize %> Sign Up</h2>
-						<div class="card-body">
-							<div class="row">
+    <%= f.error_notification %>
 
-								<div class="col-md-5 ml-auto">
-									<div class="info info-horizontal">
-										<div class="icon icon-rose">
-											<i class="material-icons">timeline</i>
-										</div>
-										<div class="description">
-											<h4 class="info-title">Marketing</h4>
-											<p class="description">
-												We've created the marketing campaign of the website. It was a very interesting collaboration.
-											</p>
-										</div>
-									</div>
+    <%= render 'devise/shared/input_group', icon: 'face' do %>
+      <%= f.input :name, required: true, autofocus: true, input_html: { autocomplete: "name" } %>
+    <% end %>
 
-									<div class="info info-horizontal">
-										<div class="icon icon-primary">
-											<i class="material-icons">code</i>
-										</div>
-										<div class="description">
-											<h4 class="info-title">Fully Coded in HTML5</h4>
-											<p class="description">
-												We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
-											</p>
-										</div>
-									</div>
+    <%= render 'devise/shared/input_group', icon: 'email' do %>
+      <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" } %>
+    <% end %>
 
-									<div class="info info-horizontal">
-										<div class="icon icon-info">
-											<i class="material-icons">group</i>
-										</div>
-										<div class="description">
-											<h4 class="info-title">Built Audience</h4>
-											<p class="description">
-												There is also a Fully Customizable CMS Admin Dashboard for this product.
-											</p>
-										</div>
-									</div>
-								</div>
+    <%= render 'devise/shared/input_group', icon: 'lock_outline' do %>
+      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" } %>
+    <% end %>
 
-								<div class="col-md-5 mr-auto">
-									<div class="form">
-                  					<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                  					<%= f.error_notification %>
-										<div class="form-group">
-											<div class="input-group">
-												<span class="input-group-addon">
-													<i class="material-icons">face</i>
-												</span>
-												<%= f.input :name,
-												required: true,
-												autofocus: true ,
-												input_html: { autocomplete: "name" }%>
-											</div>
-										</div>
+    <%= render 'devise/shared/input_group', icon: 'lock_outline' do %>
+      <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" } %>
+    <% end %>
 
-										<div class="form-group">
-											<div class="input-group">
-												<span class="input-group-addon">
-													<i class="material-icons">email</i>
-												</span>
-												<%= f.input :email,
-													required: true,
-													autofocus: true ,
-													input_html: { autocomplete: "email" }%>
-											</div>
-										</div>
+    <%= f.input :interpreter, as: :hidden, input_html: { value: @user_type == 'interpreter' } %>
 
-										<div class="form-group">
-											<div class="input-group">
-												<span class="input-group-addon">
-													<i class="material-icons">lock_outline</i>
-												</span>
-												<%= f.input :password,
-												required: true,
-												hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-												input_html: { autocomplete: "new-password" } %>
-											</div>
-										</div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" checked>
+        <span class="form-check-sign">
+          <span class="check"></span>
+        </span>
+        I agree to the <a href="#">terms and conditions</a>.
+       </label>
+    </div>
 
-                    					<div class="form-group">
-											<div class="input-group">
-												<span class="input-group-addon">
-													<i class="material-icons">lock_outline</i>
-												</span>
-												<%= f.input :password_confirmation,
-                          							required: true,
-                          							input_html: { autocomplete: "new-password" } %>
-                        						<%= f.input :interpreter, as: :hidden, input_html: { value: @user_type == 'interpreter' } %>
-											</div>
-										</div>
+    <div class="footer text-center">
+      <%= f.button :submit, "Sign up", class: "btn btn-warning" %>
+      <p class="description text-center"><%= render "devise/shared/links" %></p>
+    </div>
 
-										<div class="form-check">
-											<label class="form-check-label">
-												<input class="form-check-input" type="checkbox" value="" checked>
-												<span class="form-check-sign">
-													<span class="check"></span>
-												</span>
-												I agree to the <a href="#something">terms and conditions</a>.
-											</label>
-										</div>
-										<div class="text-center">
-                      						<%= f.button :submit, "Sign up", class: "btn btn-primary btn-link btn-wd btn-lg" %>
-										</div>
-										<div class="text-center">
-                      						<p class="description text-center"><%= render "devise/shared/links" %></p>
-										</div>
-										<% end %>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-        		</div>
-      		</div>
-		</div>
   <% end %>
-</div>
 
-
-
-
-
-
-
+<% end %>

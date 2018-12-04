@@ -1,0 +1,24 @@
+<div>
+  <%= render 'shared/page_banner', bg_img: bg_img, height: '100vh', parallax: false do %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 ml-auto mr-auto">
+          <div class="card card-login">
+            <div class="form">
+              <div class="card-header card-header-primary text-center">
+                <h2 class="card-title"><%= page_title %></h2>
+              </div>
+              <div class="card-body">
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  <% end %>
+
+</div>
