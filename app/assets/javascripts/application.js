@@ -72,8 +72,14 @@ function SubscribeChannel() {
         confirmButtonText: 'Accept',
         cancelButtonText: 'Decline'
       })
-      .then(accepted => {
-         if (accepted) window.location = `/join?room=${data.roomName}`;
+      .then(action => {
+
+        /*
+          on confirm: `{value: true}`
+          on cancel: `{dismiss: "cancel" || "overlay" || "esc"}`
+        */
+
+         if (action.value) window.location = `/join?room=${data.roomName}`;
       });
 
     }
