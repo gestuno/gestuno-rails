@@ -20,7 +20,7 @@
       const duration = moment.duration(new Date() - startTime);
 
       const units = [duration.minutes(), duration.seconds()];
-      if (duration.hours()) units.unshift(duration.hours());
+      if (duration.hours()) units.unshift(Math.floor(duration.asHours()));
 
       const timeDisplay = units.map(unit => unit.toString(10).padStart(2, '0')).join(':');
 
