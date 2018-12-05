@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get 'start', to: 'calls#start'
   get 'join', to: 'calls#join'
 
+  get 'dashboard', to: 'user_views#dashboard', as: 'dashboard'
+  patch 'dashboard', to: 'user_views#update', as: 'dash_update'
+
   resources :calls, only: [:create]
 
   patch 'calls/:call_id/attachtwiliosid', to: 'calls#attach_twilio_sid'
@@ -33,5 +36,7 @@ Rails.application.routes.draw do
   # end
 
   get 'endcall', to: 'calls#end_call'
+
+  get "icons/star_:pct", to: "icons#star", format: :svg
 
 end

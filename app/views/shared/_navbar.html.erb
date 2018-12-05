@@ -23,7 +23,8 @@
           </div>
         </a>
         <div class="dropdown-menu dropdown-menu-right" style="position: absolute;">
-          <%= link_to "My Profile", edit_user_registration_path, class: "dropdown-item" %>
+          <%= link_to "My profile", dashboard_path, class: "dropdown-item" %>
+          <%= link_to "Edit my account", edit_user_registration_path, class: "dropdown-item" %>
           <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
