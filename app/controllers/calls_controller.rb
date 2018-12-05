@@ -25,7 +25,8 @@ class CallsController < ApplicationController
   # end
 
   def attach_twilio_sid
-    headers
+    @call = Call.find(params[:call_id])
+    @call.twilio_sid = headers[:twilio_sid]
   end
 
   def join # TODO - handle call already finished

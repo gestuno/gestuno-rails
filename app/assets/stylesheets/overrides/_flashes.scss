@@ -1,0 +1,58 @@
+
+.alert {
+  position: fixed !important;
+  z-index: 5 !important;
+  top: 100px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  min-width: 75% !important;
+  border-radius: 8px !important;
+  background: rgba(0,0,0,0.5) !important;
+  border: 0 !important;
+  text-align: center !important;
+  margin: 0 !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .close {
+    position: absolute;
+    right: 0;
+
+    &:hover, &:active {
+      color: #f55 !important;
+    }
+  }
+
+  .material-icons {
+    padding: 0 10px;
+    display: inline-block;
+    width: 44px;
+    overflow: hidden;
+  }
+
+  -webkit-animation: fadeinout 5s forwards; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadeinout 5s forwards; /* Firefox < 16 */
+      -ms-animation: fadeinout 5s forwards; /* Internet Explorer */
+       -o-animation: fadeinout 5s forwards; /* Opera < 12.1 */
+          animation: fadeinout 5s forwards;
+
+}
+
+.alert-success .material-icons {
+  color: $green;
+}
+
+.alert-warning .material-icons {
+  color: $red;
+}
+
+@keyframes fadeinout {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+
+

@@ -1,0 +1,70 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-md-10">
+            <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">Edit Profile</h4>
+                <p class="card-category">Complete your profile</p>
+            </div>
+            <div class="card-body">
+                <form>
+                <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                <div class="row">
+                    <div class="col-md-5">
+                    <div class="form-group">
+                        <%# <label class="bmd-label-floating">Name</label> %>
+                        <%= f.input :name %>
+                    </div>
+                    </div>
+                    <div class="col-md-5">
+                    <div class="form-group">
+                        <%# <label class="bmd-label-floating">Email address</label> %>
+                        <%= f.input :email, disabled: true, hint: 'You cannot change your username.' %>
+                    </div>
+                    </div>
+                    <div class="col-md-2">
+                    <div class="form-group">
+                        <%# <label class="bmd-label-floating">Gender</label> %>
+                        <%= f.input :gender, collection: ["Male", "Female", "Other"] %>
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                    <div class="form-group">
+                        <%# <label class="bmd-label-floating">Language</label> %>
+                        <%= f.input :language, collection: ["Auslan", "ASL"]%>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                        <%# <label class="bmd-label-floating">Certification</label> %>
+                        <%= f.input :certifications, collection: ["NAATI Level 2", "NAATI Level 3"] %>
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                    <div class="form-group">
+                        <%# <label class="bmd-label-floating">About me</label> %>
+                        <%= f.input :bio, placeholder: "A few words on your work experience" %>
+                    </div>
+                    </div>
+                </div>
+                <%= f.button :submit, "Update", class: "btn btn-primary btn-link btn-wd btn-lg" %>
+                <div class="clearfix"></div>
+                <% end %>
+                </form>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+      <%# <div class="upload-pic">
+        <h4>Upload a profile picture</h4>
+        <button type="button" class="btn btn-circle btn-xl-orange"><i class="fas fa-plus"></i></button>
+      </div> %>

@@ -10,7 +10,6 @@
   font-size: 1.5em;
   color: $text !important;
   text-decoration: none !important;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,6 +21,10 @@
   &:focus {
     outline: none;
   }
+}
+
+@mixin call-button-enabled($base) {
+  cursor: pointer;
 
   &:active {
     background: lighten($base, 7) !important;
@@ -32,6 +35,17 @@
   }
 }
 
+@mixin call-button-disabled {
+  cursor: default;
+}
+
+
+@mixin call-button-offset {
+  position: absolute;
+  bottom: 0;
+  right: 25%;
+}
+
 .call-action {
   position: relative;
   padding-bottom: 10px;
@@ -39,12 +53,22 @@
 
 .call-button-end {
   @include call-button($red);
+  @include call-button-enabled($red);
 }
 
 .call-button-start {
   @include call-button($green);
-  position: absolute;
+  @include call-button-enabled($green);
+  @include call-button-offset;
+}
 
-  bottom: 0;
-  right: 25%;
+
+.call-button-offline {
+  @include call-button($medium-light-gray);
+  @include call-button-disabled;
+  @include call-button-offset;
+
+  i {
+    font-size: 1em !important;
+  }
 }

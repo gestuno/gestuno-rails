@@ -1,0 +1,117 @@
+<div class="profile-page ">
+  <div class="profile-page sidebar-collapse">
+    <%= render 'shared/page_banner' %>
+      <div class="main main-raised">
+        <div class="profile-content">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 ml-auto mr-auto">
+                <div class="profile">
+                  <div class="avatar gu-avatar-container">
+
+                    <%= render 'shared/avatar', user: @user, scale: :large, classes: "img-raised img-fluid gu-raised-avatar" %>
+                      <!-- margin: -110px 0 20px 0; -->
+                  </div>
+                  <div class="name">
+                    <h3><%= @user.name %></h3>
+                    <h6><%= @user.role.capitalize %></h6>
+                    <a href="#" class="btn btn-just-icon btn-link btn-dribbble"><i class="fab fa-dribbble"></i></a>
+                    <a href="#" class="btn btn-just-icon btn-link btn-twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-just-icon btn-link btn-pinterest"><i class="fab fa-pinterest"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="description text-center">
+              <p><%= @user.bio %></p>
+              <!-- <p>An artist of considerable range, Chet Faker &#x2014; the name taken by Melbourne-raised, Brooklyn-based Nick Murphy &#x2014; writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p> -->
+            </div>
+            <div class="row">
+              <div class="col-md-6 ml-auto mr-auto">
+                <div class="profile-tabs">
+                  <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                    <li class="nav-item">
+                        <p>Languages</p>
+                        <p><%= @user.language %></p>
+                    </li>
+                    <% if @user.interpreter? %>
+                      <li class="nav-item">
+                        <p>Certifications</p>
+                        <p><%= @user.certifications %></p>
+                        </a>
+                      </li>
+                    <% end %>
+                    <li class="nav-item">
+                      <p>Gender</p>
+                      <p><%= @user.gender %></p>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div id="nav-tabs">
+            <h3>User Dashboard</h3>
+            <div class="row">
+              <div class="col-md-10 ">
+                <h3>
+                  <small>Check the cards</small>
+                </h3>
+                <!-- Tabs with icons on Card -->
+                <div class="card card-nav-tabs">
+                  <div class="card-header card-header-primary">
+                    <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                    <div class="nav-tabs-navigation">
+                      <div class="nav-tabs-wrapper">
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                          <li class="nav-item">
+                            <a class="nav-link active" href="#profile" data-toggle="tab">
+                              <i class="material-icons">face</i> Profile
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#payments" data-toggle="tab">
+                              <i class="material-icons">chat</i> Payments
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#historical" data-toggle="tab">
+                              <i class="material-icons">build</i> History
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#blank" data-toggle="tab">
+                              <i class="material-icons">build</i> blank
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body ">
+                    <div class="tab-content text-center">
+                      <div class="tab-pane active" id="profile">
+                        <%= render 'shared/edit_profile' %>
+                      </div>
+                      <div class="tab-pane" id="payments">
+                        <%= render 'shared/payment' %>
+                      </div>
+                      <div class="tab-pane" id="historical">
+                        <%= render 'shared/history' %>
+                      </div>
+                      <div class="tab-pane" id="blank">
+                        <p></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Tabs with icons on Card -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

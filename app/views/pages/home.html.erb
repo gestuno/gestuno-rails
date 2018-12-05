@@ -1,18 +1,23 @@
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('https://res.cloudinary.com/dyocdwgu9/image/upload/v1543550218/gestuno/bck.jpg')">
+
+<%= render 'shared/page_banner', bg_img: 'https://res.cloudinary.com/dyocdwgu9/image/upload/v1543550218/gestuno/bck.jpg', height: '100vh' do %>
+
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-xs-12 col-sm-12 col-md-12">
         <h1 class="title">Anytime, Anywhere</h1>
         <h4>Find an interpreter</h4>
         <br>
         <%# <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
           <i class="fa fa-play"></i> Watch video
         </a> %>
-        <%= link_to "I want an interpreter", new_user_registration_path + '?user_type=customer', class: "btn btn-primary btn-lg"  %>
-        <%= link_to "I am an interpreter", new_user_registration_path + '?user_type=interpreter', class: "btn btn-warning btn-link"  %>
+        <%= link_to "I want an interpreter", "#{new_user_registration_path}?user_type=customer", class: "btn btn-primary btn-xl"  %>
+        <%= link_to "I am an interpreter", "#{new_user_registration_path}?user_type=interpreter", class: "btn btn-xl"  %>
       </div>
     </div>
   </div>
+
+<% end %>
+
 </div>
 <div class="main main-raised">
   <div class="container">

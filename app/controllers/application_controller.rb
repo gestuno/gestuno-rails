@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :set_cookies
+
   # include Pundit
 
   # # Pundit: white-list approach.
@@ -22,6 +24,14 @@ class ApplicationController < ActionController::Base
   #   devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   # end
 
+  # def current_user_2
+  #   return unless session[:user_id]
+  #   @current_user ||= User.find(session[:user_id])
+  # end
+
+  def set_cookies
+    cookies.signed[:user_id] = current_user ? current_user.id : nil
+  end
 
   protected
 

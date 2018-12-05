@@ -1,5 +1,7 @@
 <div class="profile-page sidebar-collapse">
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549512/gestuno/bkg2.jpg');"></div>
+
+  <%= render 'shared/page_banner' %>
+
   <div class="main main-raised">
     <div class="profile-content">
       <div class="container">
@@ -12,12 +14,19 @@
 
     <!-- margin: -110px 0 20px 0; -->
 
-                <%= form_tag(controller: :calls, action: :create, method: :post, recipient: @user) do %>
-                  <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
-                    <i class="fas fa-phone"></i>
+                <% if @user.interpreter? %>
+                  <% if @user.online? %>
+                    <%= form_tag(controller: :calls, action: :create, method: :post, recipient: @user) do %>
+                      <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
+                        <i class="fas fa-phone"></i>
+                      <% end %>
+                    <% end %>
+                  <% else %>
+                    <div class='call-button-offline' title='Offline'>
+                      <i class="material-icons">do_not_disturb</i>
+                    </div>
                   <% end %>
-                <% end -%>
-
+                <% end %>
 
               </div>
 
