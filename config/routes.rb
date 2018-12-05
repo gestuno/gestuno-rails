@@ -30,4 +30,12 @@ Rails.application.routes.draw do
 
   get 'endcall', to: 'calls#end_call'
 
+  #Reviews
+  resources :users do
+    resources :reviews, only: [:new, :create]
+  end
+    resources :reviews, only: [ :show, :edit ]
+
+
+
 end

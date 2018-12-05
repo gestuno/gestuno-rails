@@ -5,6 +5,11 @@
     <p><strong><%= @interlocutor.name %></strong></p>
 
     <%= render 'shared/avatar', user: @interlocutor, scale: :large %>
+    <p>Please rate the interpreter's service :</p>  <!-- Review -->
+     <%simple_form_for [@interpreter, @review] do |f| %>
+      <%= f.input :rating %>
+      <%= f.submit "add a review", class: "btn btn-primary" %>
+    <% end %>
 
     <p><strong>Your call details</strong></p>
     <!-- TODO un-hardcode duration -->

@@ -7,8 +7,12 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true
+  validates :rating, inclusion: { in: [1, 2, 3, 4, 5] }
 
   has_and_belongs_to_many :received_calls, class_name: 'Call'
+
+  #Reviews for interpreters
+  has_many :reviews
 
   def interpreter?
     interpreter
