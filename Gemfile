@@ -29,12 +29,9 @@ gem 'cloudinary', '1.9.0'
 gem 'carrierwave', '~> 1.2'
 gem 'rest-client', '>= 2'
 
-<<<<<<< HEAD
 # STRIPE INTEGRATION
 gem 'stripe'
-=======
 gem 'rails-assets-sweetalert2', source: 'https://rails-assets.org'
->>>>>>> master
 
 group :development do
   gem 'web-console', '>= 3.3.0'
