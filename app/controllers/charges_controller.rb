@@ -23,7 +23,7 @@ class ChargesController < ApplicationController
       customer.source = params[:stripeSource]
       customer.save
     end
-    # TODO SOPHIE redirect_to dashboard_path
+    redirect_to dashboard_path
   end
 
 
@@ -52,7 +52,7 @@ class ChargesController < ApplicationController
       "Oops! This was not paid yet. Still owing #{@cost}"
     end
     # TODO SOPHIE TO FIX PATHS
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
 

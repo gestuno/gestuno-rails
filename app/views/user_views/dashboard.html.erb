@@ -1,8 +1,6 @@
 <div class="profile-page sidebar-collapse">
-
   <%= render 'shared/page_banner' %>
   <%= render 'shared/profile', user: current_user do %>
-  
     <div id="nav-tabs">
       <h3>User Dashboard</h3>
       <div class="row">
@@ -25,7 +23,7 @@
                     <li class="nav-item">
                       <a class="nav-link" href="#payments" data-toggle="tab">
                         <i class="material-icons">chat</i>
-                         <% if current_user.interpreter? %>
+                        <% if current_user.interpreter? %>
                           Payments
                         <% else %>
                           History
@@ -45,7 +43,7 @@
                   <% if current_user.interpreter? %>
                     <%= render 'shared/history', user: current_user %>
                   <% else %>
-                    <%= render 'shared/payment', user: current_user %>
+                    <%= render 'charges/new', user: current_user %>
                   <% end %>
                 </div>
               </div>
@@ -56,11 +54,4 @@
       </div>
     </div>
   <% end  %>
-
 </div>
-  
-
-
-
-
-
