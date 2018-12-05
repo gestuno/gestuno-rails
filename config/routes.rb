@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'start', to: 'calls#start'
   get 'join', to: 'calls#join'
 
+  get 'about', to: 'pages#aboutus'
+
   resources :calls, only: [:create]
 
   patch 'calls/:call_id/attachtwiliosid', to: 'calls#attach_twilio_sid'
