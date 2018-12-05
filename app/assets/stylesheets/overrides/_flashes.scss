@@ -32,11 +32,13 @@
     overflow: hidden;
   }
 
-  -webkit-animation: fadeinout 5s forwards; /* Safari, Chrome and Opera > 12.1 */
-     -moz-animation: fadeinout 5s forwards; /* Firefox < 16 */
-      -ms-animation: fadeinout 5s forwards; /* Internet Explorer */
-       -o-animation: fadeinout 5s forwards; /* Opera < 12.1 */
-          animation: fadeinout 5s forwards;
+  $anim: fadeinout 3.5s forwards;
+
+  -webkit-animation: $anim; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: $anim; /* Firefox < 16 */
+      -ms-animation: $anim; /* Internet Explorer */
+       -o-animation: $anim; /* Opera < 12.1 */
+          animation: $anim;
 
 }
 
@@ -50,8 +52,8 @@
 
 @keyframes fadeinout {
   0% { opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
   100% { opacity: 0; display: none; }
 }
 

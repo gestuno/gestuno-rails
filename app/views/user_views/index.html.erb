@@ -1,33 +1,18 @@
 <div class="profile-page sidebar-collapse">
   <%= render 'shared/page_banner', height: '200px' %>
-  <%# <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h1 class="title">Let's get started</h1>
-          <h4>To get started, you will need to choose a plan for your needs. You can opt in for the monthly of annual options and go with one fo the three listed below.</h4>
-        </div>
-    </div>
-  </div> %>
   <div class="main main-raised">
     <div class="profile-content">
       <div class="container">
-        <div class="row">
-          <div class="description text-center">
-            <% if @users.count == 0 %>
-              <div class="terp-button styled-dark">
-                <h3>There are no <%= @user_type %>s available online.</h3>
-              </div>
-            <% else %>
-              <div class="terp-button styled-darker">
-                <i class="fas fa-circle"></i>
-                <h3> <%= @users.count %> <%= @user_type %>s available now</h3>
-              </div>
-          </div>
-        </div>
-        <div class="row">
+        <br>
+        <br>
+        <% if @users.count == 0 %>
+          <h3 class='text-center'>There are no <%= @user_type %>s available online.</h3>
+        <% else %>
+          <h3 class='text-center'><%= @users.count %> <%= @user_type %>s available now.</h3>
+          <br>
           <%= render 'shared/table' %>
-          <% end %>
-        </row>
+        <% end %>
+        <br>
       </div>
     </div>
   </div>

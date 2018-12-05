@@ -7,9 +7,6 @@
         <h1 class="title">Anytime, Anywhere</h1>
         <h5>Instantly and conveniently connecting deaf people and sign-language users with professionally certified interpreters.</h5>
         <br>
-        <%# <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
-          <i class="fa fa-play"></i> Watch video
-        </a> %>
         <%= link_to "I want an interpreter", "#{new_user_registration_path}?user_type=customer", class: "btn btn-primary btn-xl"  %>
         <%= link_to "I am an interpreter", "#{new_user_registration_path}?user_type=interpreter", class: "btn btn-xl"  %>
       </div>
@@ -66,8 +63,8 @@
           <div class="col-md-4">
             <div class="team-player">
               <div class="card card-plain">
-                <div class="col-md-6 ml-auto mr-auto">
-                  <img src="https://res.cloudinary.com/dyocdwgu9/image/upload/v1543981743/gestuno/profile5.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                <div>
+                  <%= render 'shared/avatar', img: 'https://res.cloudinary.com/dyocdwgu9/image/upload/v1543981743/gestuno/profile5.jpg', scale: :large, custom_styles: 'background-position: -107px 0px; background-size: 353px;' %>
                 </div>
                 <h4 class="card-title">Bill Hill
                   <br>
@@ -87,8 +84,8 @@
           <div class="col-md-4">
             <div class="team-player">
               <div class="card card-plain">
-                <div class="col-md-6 ml-auto mr-auto">
-                  <img src="https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549137/gestuno/profile3.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                <div>
+                  <%= render 'shared/avatar', img: 'https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549137/gestuno/profile3.jpg', scale: :large %>
                 </div>
                 <h4 class="card-title">Alice Powell
                   <br>
@@ -107,8 +104,8 @@
           <div class="col-md-4">
             <div class="team-player">
               <div class="card card-plain">
-                <div class="col-md-6 ml-auto mr-auto">
-                  <img src="https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549137/gestuno/profile2.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                <div>
+                  <%= render 'shared/avatar', img: 'https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549137/gestuno/profile2.jpg', scale: :large %>
                 </div>
                 <h4 class="card-title">Indra Rizal
                   <br>
