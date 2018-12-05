@@ -13,19 +13,19 @@
                     <div class="col-md-5">
                     <div class="form-group">
                         <%# <label class="bmd-label-floating">Name</label> %>
-                        <%= form.text_field :name %>
+                        <%= form.input :name %>
                     </div>
                     </div>
                     <div class="col-md-5">
                     <div class="form-group">
                         <%# <label class="bmd-label-floating">Email address</label> %>
-                        <%= form.text_field :email, disabled: true, hint: 'You cannot change your username.' %>
+                        <%= form.input :email, disabled: true, hint: 'You cannot change your username.' %>
                     </div>
                     </div>
                     <div class="col-md-2">
                     <div class="form-group">
                         <%# <label class="bmd-label-floating">Gender</label> %>
-                        <%= form.select :gender, collection: ["Male", "Female", "Other"] %>
+                        <%= form.input :gender, collection: ["Male", "Female", "Other"] %>
                     </div>
                     </div>
                 </div>
@@ -33,13 +33,13 @@
                     <div class="col-md-6">
                     <div class="form-group">
                         <%# <label class="bmd-label-floating">Language</label> %>
-                        <%= form.select :language, collection: ["Auslan", "ASL"]%>
+                        <%= form.input :language, collection: ["Auslan", "ASL"]%>
                     </div>
                     </div>
                     <div class="col-md-6">
                     <div class="form-group">
                         <%# <label class="bmd-label-floating">Certification</label> %>
-                        <%= form.select :certifications, collection: ["NAATI Level 2", "NAATI Level 3"] %>
+                        <%= form.input :certifications, collection: ["NAATI Level 2", "NAATI Level 3"] %>
                     </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                     <div class="col-md-12">
                     <div class="form-group">
                         <%# <label class="bmd-label-floating">About me</label> %>
-                        <%= form.text_field :bio, placeholder: "A few words on your work experience" %>
+                        <%= form.input :bio, placeholder: "A few words on your work experience" %>
                     </div>
                     </div>
                 </div>
