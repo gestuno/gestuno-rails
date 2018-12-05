@@ -39,7 +39,7 @@ class CallsController < ApplicationController
     @call = Call.find(session[:call_id])
 
     @current_user = current_user
-    @interlocutor = current_user.interpreter? ? @call.recipients.first
+    @interlocutor = @current_user.customer? ? @call.recipients.first : @call.sender
 
     @duration = 5 # TODO un-hardcode duration
     @price = @duration * 1.5
