@@ -27,6 +27,15 @@ class User < ApplicationRecord
     # TODO shorten time period by several orders of magnitude
   end
 
+  def stars
+    if self.interpreter?
+      digest = Digest::SHA256.hexdigest(self.name).to_i(16)
+      (Random.new(digest).rand * 3) + 2
+    else
+      nil
+    end
+  end
+
   private
 
   def interpreter # must be checked with question mark

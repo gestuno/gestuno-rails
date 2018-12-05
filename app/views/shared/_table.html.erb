@@ -3,10 +3,12 @@
     <table class="table table-shopping">
       <thead>
         <tr>
-        <th class="text-center"></th>
-        <th>Name</th>
-        <th class="th-description">Language</th>
-        <th class="th-description">Rating</th>
+          <th class="text-center"></th>
+          <th>Name</th>
+          <th class="th-description">Language</th>
+          <% if @user_type == :interpreter %>
+            <th class="th-description">Rating</th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -27,11 +29,9 @@
             <td>
               <%= user.language %>
             </td>
-            <td>
-              <i class="fas fa-star checked"></i>
-              <i class="fas fa-star checked"></i>
-              <i class="fas fa-star checked"></i>
-            </td>
+            <% if @user_type == :interpreter %>
+              <td><%= render 'shared/stars', user: user %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

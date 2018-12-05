@@ -30,4 +30,6 @@ Rails.application.routes.draw do
 
   get 'endcall', to: 'calls#end_call'
 
+  get "icons/star_:pct", to: "icons#star", format: :svg
+
 end
