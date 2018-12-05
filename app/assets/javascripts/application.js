@@ -68,7 +68,7 @@ function browserRequestPermission() {
 function promptAndRequestPermission() {
   swal({
     title: 'Call notifications',
-    text: 'Please accept your browserʼs request to get notifications when someone calls you.'
+    text: 'Please accept your browser’s request to get notifications when someone calls you.'
   })
   .then(action => {
     browserRequestPermission();
@@ -81,7 +81,7 @@ function displayPrivateModeMessage() {
   if (!sessionStorage.privateModeMsgAlreadyShown) {
     swal({
       title: 'Private mode',
-      text: 'It looks like youʼre browsing in private mode. To receive notifications, please switch to normal mode.'
+      text: 'It looks like you’re browsing in private mode. To receive notifications, please switch to normal mode.'
     });
     sessionStorage.setItem('privateModeMsgAlreadyShown', true);
   }
