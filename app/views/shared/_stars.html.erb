@@ -1,0 +1,15 @@
+<%
+  stars = user.stars
+
+  5.times do |n|
+    pct_ttl = stars * 20
+    prev_pct = n * 20
+    raw_val = pct_ttl - prev_pct
+    if raw_val < 0
+      pct = 0
+    elsif raw_val > 20
+      pct = 100
+    else
+      pct = (raw_val * 5).to_i
+    end
+%><img src="/icons/star_<%= pct %>.svg" alt="<%= stars %> stars" style="width: 20px"><% end %>
