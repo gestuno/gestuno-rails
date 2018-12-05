@@ -1,16 +1,30 @@
 <div class="container">
   <div class="call-card">
-    <h3>Thank you for calling!</h3>
-    <p>Your interpreter was</p>
-    <p><strong><%= @interlocutor.name %></strong></p>
 
-    <%= render 'shared/avatar', user: @interlocutor, scale: :large %>
+    <% if @current_user.customer? %>
 
-    <p><strong>Your call details</strong></p>
-    <!-- TODO un-hardcode duration -->
-    <p>Call duration: <%= @duration %> minutes</p>
-    <!-- TODO un-hardcode duration -->
-    <p>You paid: <%= number_to_currency @price %></p>
-    <%= link_to "Home", :root, class: "btn-blue"  %>
+      <h3>Thank you for calling!</h3>
+      <p>Your interpreter was</p>
+      <p><strong><%= @interlocutor.name %></strong></p>
+
+      <%= render 'shared/avatar', user: @interlocutor, scale: :large %>
+
+      <p><strong>Your call details</strong></p>
+      <!-- TODO un-hardcode duration -->
+      <p>Call duration: <%= @duration %> minutes</p>
+      <!-- TODO un-hardcode duration -->
+      <p>You paid: <%= number_to_currency @price %></p>
+      <%= link_to "Home", :root, class: "btn-blue"  %>
+
+    <% else %>
+
+      <h3>Call with <%= @interlocutor.name %> finished!</h3>
+
+      <p>Call duration: <%= @duration %> minutes</p>
+      <p>You earned: <%= number_to_currency @earnings %></p>
+      <%= link_to "Home", :root, class: "btn-blue"  %>
+
+    <% end %>
+
   </div>
 </div>
