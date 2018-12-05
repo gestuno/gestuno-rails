@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "Gestuno"
+meta_title: "Gestuno — Find Your Sign-Language Interpreter"
+meta_description: "Relevant description"
+meta_image: "cover.png"                       # should exist in `app/assets/images/`
+twitter_account: "@gestuno"   # required for Twitter Cards
