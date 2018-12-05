@@ -4,11 +4,9 @@
   <%= render 'shared/profile', user: current_user do %>
   
     <div id="nav-tabs">
-      <h3>User Dashboard</h3>
       <div class="row">
-        <div class="col-md-10 ">
+        <div class="col-md-10 ml-auto mr-auto">
           <h3>
-            <small>Check the cards</small>
           </h3>
           <!-- Tabs with icons on Card -->
           <div class="card card-nav-tabs">
@@ -19,16 +17,16 @@
                   <ul class="nav nav-tabs" data-tabs="tabs">
                     <li class="nav-item">
                       <a class="nav-link active" href="#profile" data-toggle="tab">
-                        <i class="material-icons">face</i> Profile
+                        <i class="material-icons">face</i> Edit Profile
                       </a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="#payments" data-toggle="tab">
                         <i class="material-icons">chat</i>
                          <% if current_user.interpreter? %>
-                          Payments
-                        <% else %>
                           History
+                        <% else %>
+                          Payment details
                         <% end %>
                       </a>
                     </li>
