@@ -5,12 +5,7 @@
     <p><strong><%= @interlocutor.name %></strong></p>
     <%= render 'shared/avatar', user: @interlocutor, scale: :large %>
     <p><strong>Your call details</strong></p>
-    <!-- STRIPE TO REPLACE ALL OF THIS  -->
-    <!-- TODO un-hardcode duration -->
-    <!-- <p>Call duration: <%= @duration %> minutes</p> -->
-    <!-- TODO un-hardcode duration -->
-    <!-- <p>You paid: <%= number_to_currency @price %></p> -->
-    <div>Price: $<%= Call::RATE %></div>
+    <%= render 'charges/create' %>
     <%= link_to "Home", :root, class: "btn-blue"  %>
   </div>
 </div>

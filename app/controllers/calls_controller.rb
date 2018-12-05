@@ -31,16 +31,26 @@ class CallsController < ApplicationController
 
   def join # TODO - handle call already finished
     @call = Call.find_by(room_name: params[:room])
+    @call.start_time = Time.now
+    @call.save
     session[:call_id] = @call.id
     @interlocutor = @call.sender
   end
 
   def end_call
     @call = Call.find(session[:call_id])
-    @interlocutor = @call.recipients.first
-    # TODO - commenting this out to test STRIPE
-    # @duration = 5 # TODO un-hardcode duration
-    # @price = @duration * 1.5
+    @call.end_time = Time.now
+    @call.save
+    @interlocutor = @call.interpreter
+
+    if @call.duration
+      @duration = @call.duration # TODO check convertion of duration (seconds?)
+      @cost = @duration * 1.5
+      redirect_to charge_path
+    else
+      redirect_to interpreters_path
+    end
+
   end
 
   # def update

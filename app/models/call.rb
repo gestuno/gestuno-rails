@@ -12,6 +12,9 @@ class Call < ApplicationRecord
 
   # # GLOBAL VARIABLE - STRIPE now charges AUD$1.50 flat rate
   # RATE = 150
+  def interpreter
+    recipients.first
+  end
 
   def broadcast
     data = {
@@ -25,6 +28,14 @@ class Call < ApplicationRecord
 
     # ActionCable.server.broadcast "notifications_#{recipients.first}", data
 
+  end
+
+  def duration
+    if end_time && start_time
+      return end_time - start_time
+    else
+      return false
+    end
   end
 
 end

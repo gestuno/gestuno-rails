@@ -209,13 +209,14 @@
 
 .example.example2 .success .reset path {
   fill: #24b47e;
-=======
+}
 
 .stripe-scoper {
 
   #main.checkout:not(.success):not(.error) {
     width: calc(100% - 450px);
   }
+}
 
   /* Payment Request */
 
@@ -649,7 +650,6 @@
     margin-top: -20px;
   }
 
-
   /* Media Queries */
 
   @media only screen and (max-width: 1024px) {
@@ -752,4 +752,3 @@
       text-align: center;
     }
   }
-}
