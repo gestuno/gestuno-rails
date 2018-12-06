@@ -1,7 +1,8 @@
 <%
   var_hash = {
     roomName: @call.room_name,
-    interlocutor: @interlocutor
+    interlocutor: @interlocutor,
+    currentUserIsInterpreter: @current_user.interpreter?
   }
 %>
 <script id='vars' data-vars="<%= JSON.generate(var_hash) %>"></script>

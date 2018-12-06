@@ -1,5 +1,4 @@
 module Utils
-
   class << self
 
     # def email_to_name(email)
@@ -30,9 +29,18 @@ module Utils
     end
 
     def format_aud_cents(price)
-      number_to_currency(price / 100.0, unit: "AU$")
+      ActionController::Base.helpers.number_to_currency(price / 100.0, unit: "AU$")
+    end
+
+    def format_hhmmss(seconds)
+      h = (seconds / 60 / 60).floor
+      m = ((seconds / 60) - (h * 60)).floor
+      s = (seconds - (m * 60) - (h * 60 * 60)).floor
+
+      all = h.positive? ? [h, m, s] : [m, s]
+
+      all.map { |n| n.to_s.rjust(2, '0') } .join(':')
     end
 
   end
-
 end
