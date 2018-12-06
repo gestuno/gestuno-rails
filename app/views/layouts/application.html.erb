@@ -14,17 +14,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <script src="https://js.stripe.com/v3/"></script>
   </head>
   <body>
-      <%= render 'shared/navbar' %>
-      <%= render 'shared/flashes' %>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
     <main>
       <%= yield %>
     </main>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <script>SubscribeChannel();</script>
+    <script>
+      SubscribeChannel();
+    </script>
     <%# <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script> %>
   </body>
 </html>

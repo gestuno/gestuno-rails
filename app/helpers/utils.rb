@@ -29,6 +29,10 @@ module Utils
       }
     end
 
+    def format_aud_cents(price)
+      number_to_currency(price / 100.0, unit: "AU$")
+    end
+
   end
 
 end
