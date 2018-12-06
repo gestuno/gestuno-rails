@@ -17,8 +17,13 @@ class CallsController < ApplicationController
   end
 
   def start # TODO - handle call already finished
-    @call = Call.find(session[:call_id])
-    @interlocutor = @call.recipients.first
+    if current_user.customer? && !current_user.stripe_id.nil?
+      @call = Call.find(session[:call_id])
+      @interlocutor = @call.recipients.first
+    else
+
+      redirect_to dashboard_path
+    end
   end
 
   # def update # TODO - add recipient to call, then redirect to join
@@ -49,13 +54,14 @@ class CallsController < ApplicationController
     if @call.duration
       @duration = @call.duration # TODO check conversion of duration (seconds?)
       @cost = @duration * 1.5
+      # TODO SOPHIE to link to interpreter & customer view endcall page
+      @price = @duration * 1.5
+      @earnings = @duration * 1.25
+
       redirect_to charge_path
     else
       redirect_to interpreters_path
     end
-
-    @price = @duration * 1.5
-    @earnings = @duration * 1.25
 
   end
 

@@ -5,15 +5,13 @@
         <div class="col-md-6 ml-auto mr-auto">
           <div class="profile">
             <div class="avatar gu-avatar-container">
-
               <%= render 'shared/avatar', user: user, scale: :large, classes: "img-raised img-fluid gu-raised-avatar" %>
-
               <!-- margin: -110px 0 20px 0; -->
-
               <% if user.interpreter? %>
                 <% if user.online? %>
+                  <% js = current_user.stripe_id.nil? ? "event.preventDefault();payNow();" : ""   %>
                   <%= form_tag(controller: :calls, action: :create, method: :post, recipient: user) do %>
-                    <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
+                    <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call', onclick: js do %>
                       <i class="fas fa-phone"></i>
                     <% end %>
                   <% end %>
@@ -23,17 +21,13 @@
                   </div>
                 <% end %>
               <% end %>
-
             </div>
-
             <div class="name">
               <h3><%= user.name %></h3>
               <h5><%= user.role.capitalize %></h5>
-
               <% language_taglines = [user.language.capitalize]
                  language_taglines << user.certifications if user.interpreter?
               %>
-
               <h6><%= language_taglines.join(' | ') %></h6>
             </div>
           </div>

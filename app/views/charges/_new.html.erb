@@ -3,6 +3,7 @@
   <div class="cell example example2">
     <div class="container-lg">
       <%= form_with model: current_user, id: "payment-form", method: "post", url: add_payment_path, local:true do %>
+        <div id="card-errors"></div>
         <div data-locale-reversible="">
           <div class="row">
             <div class="field">
@@ -44,12 +45,12 @@
       function getInfo(){
         // to test live on page,
         // console.log(getInfo());
-
+      
         var address_1 = document.getElementById('example2-address').value;
         var city = document.getElementById('example2-city').value;
         var state = document.getElementById('example2-state');
         var postal_code = document.getElementById('example2-zip').value;
-
+      
         var userInfo = {
           owner: {
             name: '<%= current_user.name %>',
@@ -71,7 +72,7 @@
           hiddenInput.setAttribute('name', 'stripeSource');
           hiddenInput.setAttribute('value', source.id);
           form.appendChild(hiddenInput);
-
+      
           // Submit the form
           form.submit();
       }
@@ -79,7 +80,7 @@
     <script>
       var form = document.getElementById('payment-form');
       var stripe = Stripe("<%= ENV['STRIPE_PUBLIC_KEY'] %>"),
-
+      
           elements = stripe.elements({
             fonts: [
               {
@@ -88,9 +89,9 @@
             ],
             locale: window.__exampleLocale
           }),
-
-
-
+      
+      
+      
           elementStyles = {
             base: {
               color: '#32325D',
@@ -98,7 +99,7 @@
               fontFamily: 'Source Code Pro, Consolas, Menlo, monospace',
               fontSize: '16px',
               fontSmoothing: 'antialiased',
-
+      
               '::placeholder': {
                 color: '#CFD7DF',
               },
@@ -108,29 +109,30 @@
             },
             invalid: {
               color: '#E25950',
-
+      
               '::placeholder': {
                 color: '#FFCCA5',
               },
             },
           },
-
+      
           elementClasses = {
             focus: 'focused',
             empty: 'empty',
             invalid: 'invalid',
           };
-
+      
           // Create an instance of the card Element.
         var card = elements.create('card', {style: elementStyles, class: elementClasses});
-
+      
         // Add an instance of the card Element into the `card-element` <div>.
         card.mount('#card-element');
-
+      
         // EVENT LISTENERS
-
+      
         var  inputs = document.querySelectorAll('.cell.example.example2 .input');
           Array.prototype.forEach.call(inputs, function(input) {
+            console.log('IN HERE!')
             input.addEventListener('focus', function() {
               input.classList.add('focused');
             });
@@ -145,7 +147,7 @@
               }
             });
           });
-
+      
       card.addEventListener('change', function(event) {
         var displayError = document.getElementById('card-errors');
         if (event.error) {
@@ -154,12 +156,12 @@
           displayError.textContent = '';
         }
       });
-
-
+      
+      
       form.addEventListener('submit', function(event) {
         event.preventDefault();
         var ownerInfo = getInfo();
-
+      
         stripe.createSource(card, ownerInfo).then(function(result) {
           if (result.error) {
       // Inform the user if there was an error
@@ -171,17 +173,6 @@
           }
         });
       });
-
-        // elements = stripe.elements(),
-        // style = {
-        //   base: {
-        //     // Add your base input styles here. For example:
-        //     fontSize: '16px',
-        //     color: "#32325d",
-        //   }
-        // };
-
-        // stripeForm();
     </script>
   </div>
 </div>
