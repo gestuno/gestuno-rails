@@ -59,9 +59,11 @@ end
 
 test_interpreter = User.create!(name: 'Alan Watts', email: 'test@interpreter.com', password: '123123', interpreter: true, last_seen: Time.now, bio:  Faker::Lorem.sentences(rand(3..5)), gender: 'male', language: 'Auslan', certifications: 'Naati level 2')
 
+test_aaron = User.create!(name: 'Aaron Hallett', email: 'aaron@interpreter.com', password: '123123', interpreter: true, last_seen: Time.now, bio:  Faker::Lorem.sentences(rand(3..5)), gender: 'male', language: 'Auslan', certifications: 'Naati level 2', avatar: Rails.root.join("db/seed_data/images/Aaron.jpg").open )
+
 test_customer = User.create!(name: 'Alice Glass', email: 'test@customer.com', password: '123123', language: 'Auslan')
 
-test_accounts = [test_interpreter, test_customer]
+test_accounts = [test_interpreter, test_customer, test_aaron]
 
 puts_para "created #{User.count} users, including #{User.where(interpreter: false).count} customer profiles and #{User.where(interpreter: true).count} interpreter profiles."
 puts_para "your test accounts:\n#{test_accounts.map { |acc| "#{acc.email} | #{acc.password}" }.join("\n")}"
