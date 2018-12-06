@@ -1,4 +1,4 @@
 <!-- STRIPE - PAYMENT SUCCESS MESSAGE -->
 
-<p>Call duration: <%= duration %> minutes</p>
-<p>You paid: <%= format_aud_cents price %></p>
+<p>Call duration: <%= Utils.format_hhmmss(duration) %></p>
+<p>You paid: <%= Utils.format_aud_cents(price) %></p>

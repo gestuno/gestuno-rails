@@ -1,33 +1,40 @@
-<div class="container">
-  <div class="call-card">
-    <% if @current_user.customer? %>
 
-      <h3>Thank you for calling!</h3>
-      <p>Your interpreter was</p>
-      <p><strong><%= @interlocutor.name %></strong></p>
+<%= render 'devise/shared/centered_form', page_title: 'Call Ended', bg_img: 'https://res.cloudinary.com/drgdpdviq/image/upload/v1544067229/Gestuno/pexels-photo-1509426.jpg' do %>
+  <div class="container">
+    <br>
+    <div class="call-card">
+      <% if @current_user.customer? %>
+        <div class="description">
+          <h3>Thank you for calling!</h3>
+        </div>
+        <p>Your interpreter was</p>
+        <p><strong><%= @interlocutor.name %></strong></p>
 
-      <%= render 'shared/avatar', user: @interlocutor, scale: :large %>
+        <%= render 'shared/avatar', user: @interlocutor, scale: :large %>
 
-      <p><strong>Your call details</strong></p>
+        <p><strong>Your call details</strong></p>
 
-      <%= render 'charges/show', duration: @duration, price: @price %>
+        <%= render 'charges/show', duration: @duration, price: @price %>
 
-      <%# <p>Please rate your interpreter’s service:</p> %>
-       <%# <% simple_form_for [@interpreter, @review] do |f| %>
-        <%#= f.input :rating %>
-        <%#= f.submit "add a review", class: "btn btn-primary" %>
-      <%# end %>
-      <!-- TODO: test -->
+        <%# <p>Please rate your interpreter’s service:</p> %>
+         <%# <% simple_form_for [@interpreter, @review] do |f| %>
+          <%#= f.input :rating %>
+          <%#= f.submit "add a review", class: "btn btn-primary" %>
+        <%# end %>
+      <% else %>
 
-    <% else %>
+        <div class="description">
+          <h3>Thank you for your service!</h3>
+        </div>
 
-      <h3>Call with <%= @interlocutor.name %> finished!</h3>
+        <%= render 'charges/show_earnings', duration: @duration, earnings: @earnings %>
 
-      <%= render 'charges/show_earnings', duration: @duration, earnings: @earnings %>
-
-    <% end %>
-
-    <%= link_to "Home", :root, class: "btn-blue"  %>
-
+      <% end %>
+      <br>
+      <br>
+      <div class="card-footer justify-content-center">
+        <%= link_to "Home", :root, class: "btn btn-primary"  %>
+      </div>
+    </div>
   </div>
-</div>
+<%end%>

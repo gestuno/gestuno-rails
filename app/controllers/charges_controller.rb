@@ -28,7 +28,6 @@ class ChargesController < ApplicationController
     redirect_to dashboard_path
   end
 
-
   def create_charge
     # AFTER CALL: POST to create_charge w/ duration & call id
     # CALCULATE COST
