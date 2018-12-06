@@ -6,6 +6,12 @@ Rails.application.routes.draw do
 
   root to: 'homes#home' # redirects to other pages depending on user type/login status
 
+  # TODO -- STRIPE ROUTE -- needs to be re-config'ed with Customers routes
+  resources :charges, only: [:new]
+
+  post '/charge', to: "charges#create_charge", as: 'charge'
+  post '/add-payment', to: 'charges#create_source', as: 'add_payment'
+
   devise_for :users, controllers: { registrations: 'user/registrations' }  # includes [edit, new, create, update, destroy] for all types of profile
 
   get 'interpreters', to: 'user_views#index'

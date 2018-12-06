@@ -2,6 +2,7 @@
 //= require popper
 //= require bootstrap
 //= require material-kit
+//= require charge
 
 //= require rails-ujs
 //= require_tree .

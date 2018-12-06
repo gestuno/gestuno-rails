@@ -10,6 +10,12 @@ class Call < ApplicationRecord
 
   validates :twilio_sid, uniqueness: true, allow_nil: true # can find all other twilio info using this
 
+  # # GLOBAL VARIABLE - STRIPE now charges AUD$1.50 flat rate
+  # RATE = 150
+  def interpreter
+    recipients.first
+  end
+
   def broadcast
     data = {
       senderName: sender.name,
@@ -23,6 +29,15 @@ class Call < ApplicationRecord
     # ActionCable.server.broadcast "notifications_#{recipients.first}", data
 
   end
+
+  def duration
+    if end_time && start_time
+      end_time - start_time
+    else
+      nil
+    end
+  end
+
 end
 
 # user = User.find(params[:id])
