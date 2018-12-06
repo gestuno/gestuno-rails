@@ -1,38 +1,34 @@
+
+  <%= render 'devise/shared/centered_form', page_title: 'End Call', bg_img: 'https://res.cloudinary.com/drgdpdviq/image/upload/v1544067229/Gestuno/pexels-photo-1509426.jpg' do %>
+
 <div class="container">
+  <br>
   <div class="call-card">
     <% if @current_user.customer? %>
+    <div class="description">
+      <h3>Thank you!</h3>
+    </div>
+      <h5><strong>Your call lasted:</strong> <%= @duration %> minutes</h5>
+      <h5><strong>You paid:</strong> <%= number_to_currency @price %></h5>
 
-      <h3>Thank you for calling!</h3>
-      <p>Your interpreter was</p>
-      <p><strong><%= @interlocutor.name %></strong></p>
-
-      <%= render 'shared/avatar', user: @interlocutor, scale: :large %>
-
-      <p><strong>Your call details</strong></p>
-      <!-- TODO un-hardcode duration -->
-      <p>Call duration: <%= @duration %> minutes</p>
-      <!-- TODO un-hardcode duration -->
-      <p>You paid: <%= number_to_currency @price %></p>
-
-      <p>Please rate your interpreter’s service:</p>  <!-- Review -->
+     <!--  <p>Please rate your interpreter’s service:</p>  <! -->
        <%# <% simple_form_for [@interpreter, @review] do |f| %>
         <%#= f.input :rating %>
         <%#= f.submit "add a review", class: "btn btn-primary" %>
       <%# end %>
-      <!-- TODO: test -->
-
     <% else %>
 
-      <h3>Call with <%= @interlocutor.name %> finished!</h3>
-
-      <p>Call duration: <%= @duration %> minutes</p>
-      <p>You earned: <%= number_to_currency @earnings %></p>
-
+    <div class="description">
+      <h3>Thank you for your service!</h3>
+    </div>
+      <h5><strong>Your call lasted:</strong> <%= @duration %> minutes</h5>
+      <h5><strong>You earned:</strong> <%= number_to_currency @earnings %></h5>
     <% end %>
-
-    <%= link_to "Home", :root, class: "btn-blue"  %>
-
+    <br>
+    </div>
+    <br>
+    <div class="card-footer justify-content-center">
+      <%= link_to "Home", :root, class: "btn btn-primary"  %>
+    </div>
   </div>
-</div>
-
-
+<%end%>
