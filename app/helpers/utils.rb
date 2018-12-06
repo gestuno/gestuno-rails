@@ -28,8 +28,8 @@ module Utils
       }
     end
 
-    def format_aud_cents(price)
-      ActionController::Base.helpers.number_to_currency(price / 100.0, unit: "AU$")
+    def format_aud_cents(aud_cents_price)
+      ActionController::Base.helpers.number_to_currency(aud_cents_price / 100.0, unit: "AU$")
     end
 
     def format_hhmmss(seconds)
@@ -37,7 +37,9 @@ module Utils
       m = ((seconds / 60) - (h * 60)).floor
       s = (seconds - (m * 60) - (h * 60 * 60)).floor
 
-      all = h.positive? ? [h, m, s] : [m, s]
+      all = []
+      all << h if h.positive?
+      all += [m, s]
 
       all.map { |n| n.to_s.rjust(2, '0') } .join(':')
     end

@@ -4,6 +4,7 @@ class ChargesController < ApplicationController
   before_action :stripe_params, only: [:create_source, :retrieve, :create_charge]
 
   include ChargesHelper
+  include Utils
 
   def new
   end
@@ -48,9 +49,9 @@ class ChargesController < ApplicationController
     flash[:error] = e.message
     redirect_to new_charge_path
     if charge.status == "succeeded"
-      "Payment was successful! You paid #{@aud_cents_cost}"
+      "Payment was successful! You paid #{Utils.format_aud_cents(@aud_cents_cost)}."
     else
-      "Oops! This was not paid yet. Still owing #{@aud_cents_cost}"
+      "Oops! This was not paid yet. Still owing #{Utils.format_aud_cents(@aud_cents_cost)}."
     end
     # TODO SOPHIE TO FIX PATHS
     redirect_to dashboard_path
