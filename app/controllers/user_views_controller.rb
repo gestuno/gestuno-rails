@@ -1,4 +1,3 @@
-
 class UserViewsController < ApplicationController
 
   def show
@@ -20,4 +19,26 @@ class UserViewsController < ApplicationController
     @max_page_idx = ((results.count - 1).to_f / per_page).floor
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def dashboard
+
+  end
+
+  def update
+    @user = current_user
+    @user.update(user_params)
+    redirect_to dashboard_path
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :gender, :language, :certifications, :bio, :email)
+  end
+
 end
+
+
