@@ -43,6 +43,7 @@
           <p><%= user.bio %></p>
           <% if user.interpreter? %>
             <p><%= render 'shared/stars', rating: user.stars %></p>
+            <p><%= user.reviews.length %> users rated this interpreter</p>
             <br>
           <% end %>
         </div>
