@@ -5,9 +5,13 @@ def puts_para(str)
   puts "#{str}\n\n"
 end
 
-users = JSON.parse(File.read(File.join(__dir__, 'seed_data/users.json')), symbolize_names: true)[:results]
+def gen_fake_review(props)
+  stars = props[:base_stars] + rand(1..(5 - props[:base_stars]))
 
-# user_images = JSON.parse(File.read(File.join(__dir__, 'seed_data/user_images.json')), symbolize_names: true)
+  Review.create!(interpreter: props[:interpreter], reviewer: props[:reviewer], rating: stars)
+end
+
+users = JSON.parse(File.read(File.join(__dir__, 'seed_data/users.json')), symbolize_names: true)[:results]
 
 puts_para "destroying all your stuff, buckle up!"
 
@@ -20,12 +24,8 @@ puts_para "creating new stuff"
 
   gender = u_data[:gender]
 
-  names = []
-  names << u_data[:name][:first].capitalize
-  # names << Faker::Name.middle_name.capitalize if rand > 0.8
-  names << u_data[:name][:last].capitalize
+  name = "#{u_data[:name][:first].capitalize} #{u_data[:name][:last].capitalize}"
 
-  name = names.join(' ')
   email = u_data[:email]
 
   user = User.new(
@@ -43,14 +43,23 @@ puts_para "creating new stuff"
 
   if user.interpreter?
     user.update!(bio: Faker::Lorem.sentence, gender: gender, certifications: "Naati level #{[2, 3].sample}")
+
+    num_of_reviewers = rand(0..10)
+    base_stars = rand(0..3)
+
+    num_of_reviewers.times do
+      reviewer = User.all_customers.sample
+      gen_fake_review(interpreter: user, reviewer: reviewer, base_stars: base_stars)
+    end
+
   end
 end
 
 # test accounts must come last
 
-test_interpreter = User.create!(name: 'Interpreter', email: 'test@interpreter.com', password: '123123', interpreter: true, last_seen: Time.now, bio: "fake bio", gender: 'female', language: 'Auslan', certifications: 'Naati level 2')
+test_interpreter = User.create!(name: 'Alan Watts', email: 'test@interpreter.com', password: '123123', interpreter: true, last_seen: Time.now, bio:  Faker::Lorem.sentence, gender: 'male', language: 'Auslan', certifications: 'Naati level 2')
 
-test_customer = User.create!(name: 'Customer', email: 'test@customer.com', password: '123123', language: "Auslan")
+test_customer = User.create!(name: 'Alice Glass', email: 'test@customer.com', password: '123123', language: 'Auslan')
 
 test_accounts = [test_interpreter, test_customer]
 

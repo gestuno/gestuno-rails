@@ -37,10 +37,13 @@ class CallsController < ApplicationController
 
   def end_call
     @call = Call.find(session[:call_id])
-    @interlocutor = @call.recipients.first
+
+    @current_user = current_user
+    @interlocutor = @current_user.customer? ? @call.recipients.first : @call.sender
 
     @duration = 5 # TODO un-hardcode duration
     @price = @duration * 1.5
+    @earnings = @duration * 1.25
   end
 
   # def update

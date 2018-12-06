@@ -39,11 +39,11 @@ function blast(options={}) {
           window.open(url, '_blank');
         }
       } else {
-        alert(text);
+        // alert(text); //sweetalert is already used as backup
       }
     });
   } else {
-    alert(text);
+    // alert(text); //sweetalert is already used as backup
   }
 }
 
