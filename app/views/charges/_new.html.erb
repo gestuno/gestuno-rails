@@ -1,0 +1,187 @@
+<script src="https://js.stripe.com/v3/"></script>
+<div class="stripe-center">
+  <div class="cell example example2">
+    <div class="container-lg">
+      <%= form_with model: current_user, id: "payment-form", method: "post", url: add_payment_path, local:true do %>
+        <div data-locale-reversible="">
+          <div class="row">
+            <div class="field">
+              <input id="example2-address" data-tid="elements_examples.form.address_placeholder" class="input empty" type="text" placeholder="185 Berry St" required="">
+              <label for="example2-address" data-tid="elements_examples.form.address_label">Address</label>
+              <div class="baseline"></div>
+            </div>
+          </div>
+          <div class="row" data-locale-reversible="">
+            <div class="field half-width">
+              <input id="example2-city" data-tid="elements_examples.form.city_placeholder" class="input empty" type="text" placeholder="San Francisco" required="">
+              <label for="example2-city" data-tid="elements_examples.form.city_label">City</label>
+              <div class="baseline"></div>
+            </div>
+            <div class="field quarter-width">
+              <input id="example2-state" data-tid="elements_examples.form.state_placeholder" class="input empty" type="text" placeholder="CA" required="">
+              <label for="example2-state" data-tid="elements_examples.form.state_label">State</label>
+              <div class="baseline"></div>
+            </div>
+            <div class="field quarter-width">
+              <input id="example2-zip" data-tid="elements_examples.form.postal_code_placeholder" class="input empty" type="text" placeholder="94107" required="">
+              <label for="example2-zip" data-tid="elements_examples.form.postal_code_label">ZIP</label>
+              <div class="baseline"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <br>
+            <div id="card-element"><label for="example2-card-element" data-tid="elements_examples.form.card_label">Card Number</label></div>
+            <div class="baseline"></div>
+          </div>
+        </div>
+        <button type="submit" data-tid="elements_examples.form.pay_button">Save card details</button>
+        <div class="error" role="alert"></div>
+      <% end %>
+    </div>
+    <script>
+      function getInfo(){
+        // to test live on page,
+        // console.log(getInfo());
+
+        var address_1 = document.getElementById('example2-address').value;
+        var city = document.getElementById('example2-city').value;
+        var state = document.getElementById('example2-state');
+        var postal_code = document.getElementById('example2-zip').value;
+
+        var userInfo = {
+          owner: {
+            name: '<%= current_user.name %>',
+            address: {
+              line1: address_1,
+              city: city,
+              postal_code: postal_code,
+                },
+                email: '<%= current_user.email %>'
+              },
+          };
+          return userInfo;
+        }
+      function stripeSourceHandler(source) {
+          // Insert the source ID into the form so it gets submitted to the server
+          var form = document.getElementById('payment-form');
+          var hiddenInput = document.createElement('input');
+          hiddenInput.setAttribute('type', 'hidden');
+          hiddenInput.setAttribute('name', 'stripeSource');
+          hiddenInput.setAttribute('value', source.id);
+          form.appendChild(hiddenInput);
+
+          // Submit the form
+          form.submit();
+      }
+    </script>
+    <script>
+      var form = document.getElementById('payment-form');
+      var stripe = Stripe("<%= ENV['STRIPE_PUBLIC_KEY'] %>"),
+
+          elements = stripe.elements({
+            fonts: [
+              {
+                cssSrc: 'https://fonts.googleapis.com/css?family=Source+Code+Pro',
+              },
+            ],
+            locale: window.__exampleLocale
+          }),
+
+
+
+          elementStyles = {
+            base: {
+              color: '#32325D',
+              fontWeight: 500,
+              fontFamily: 'Source Code Pro, Consolas, Menlo, monospace',
+              fontSize: '16px',
+              fontSmoothing: 'antialiased',
+
+              '::placeholder': {
+                color: '#CFD7DF',
+              },
+              ':-webkit-autofill': {
+                color: '#e39f48',
+              },
+            },
+            invalid: {
+              color: '#E25950',
+
+              '::placeholder': {
+                color: '#FFCCA5',
+              },
+            },
+          },
+
+          elementClasses = {
+            focus: 'focused',
+            empty: 'empty',
+            invalid: 'invalid',
+          };
+
+          // Create an instance of the card Element.
+        var card = elements.create('card', {style: elementStyles, class: elementClasses});
+
+        // Add an instance of the card Element into the `card-element` <div>.
+        card.mount('#card-element');
+
+        // EVENT LISTENERS
+
+        var  inputs = document.querySelectorAll('.cell.example.example2 .input');
+          Array.prototype.forEach.call(inputs, function(input) {
+            input.addEventListener('focus', function() {
+              input.classList.add('focused');
+            });
+            input.addEventListener('blur', function() {
+              input.classList.remove('focused');
+            });
+            input.addEventListener('keyup', function() {
+              if (input.value.length === 0) {
+                input.classList.add('empty');
+              } else {
+                input.classList.remove('empty');
+              }
+            });
+          });
+
+      card.addEventListener('change', function(event) {
+        var displayError = document.getElementById('card-errors');
+        if (event.error) {
+          displayError.textContent = event.error.message;
+        } else {
+          displayError.textContent = '';
+        }
+      });
+
+
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var ownerInfo = getInfo();
+
+        stripe.createSource(card, ownerInfo).then(function(result) {
+          if (result.error) {
+      // Inform the user if there was an error
+      var errorElement = document.getElementById('card-errors');
+      errorElement.textContent = result.error.message;
+          } else {
+          // Send the source to your server
+          stripeSourceHandler(result.source);
+          }
+        });
+      });
+
+        // elements = stripe.elements(),
+        // style = {
+        //   base: {
+        //     // Add your base input styles here. For example:
+        //     fontSize: '16px',
+        //     color: "#32325d",
+        //   }
+        // };
+
+        // stripeForm();
+    </script>
+  </div>
+</div>

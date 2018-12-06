@@ -1,52 +1,52 @@
 <div class="main main-raised">
-    <div class="profile-content">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 ml-auto mr-auto">
-            <div class="profile">
-              <div class="avatar gu-avatar-container">
+  <div class="profile-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 ml-auto mr-auto">
+          <div class="profile">
+            <div class="avatar gu-avatar-container">
 
-                <%= render 'shared/avatar', user: user, scale: :large, classes: "img-raised img-fluid gu-raised-avatar" %>
+              <%= render 'shared/avatar', user: user, scale: :large, classes: "img-raised img-fluid gu-raised-avatar" %>
 
-                <!-- margin: -110px 0 20px 0; -->
+              <!-- margin: -110px 0 20px 0; -->
 
-                <% if user.interpreter? %>
-                  <% if user.online? %>
-                    <%= form_tag(controller: :calls, action: :create, method: :post, recipient: user) do %>
-                      <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
-                        <i class="fas fa-phone"></i>
-                      <% end %>
+              <% if user.interpreter? %>
+                <% if user.online? %>
+                  <%= form_tag(controller: :calls, action: :create, method: :post, recipient: user) do %>
+                    <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>
+                      <i class="fas fa-phone"></i>
                     <% end %>
-                  <% else %>
-                    <div class='call-button-offline' title='Offline'>
-                      <i class="material-icons">do_not_disturb</i>
-                    </div>
                   <% end %>
+                <% else %>
+                  <div class='call-button-offline' title='Offline'>
+                    <i class="material-icons">do_not_disturb</i>
+                  </div>
                 <% end %>
+              <% end %>
 
-              </div>
+            </div>
 
-              <div class="name">
-                <h3><%= user.name %></h3>
-                <h5><%= user.role.capitalize %></h5>
+            <div class="name">
+              <h3><%= user.name %></h3>
+              <h5><%= user.role.capitalize %></h5>
 
-                <% language_taglines = [user.language.capitalize]
-                   language_taglines << user.certifications if user.interpreter?
-                %>
+              <% language_taglines = [user.language.capitalize]
+                 language_taglines << user.certifications if user.interpreter?
+              %>
 
-                <h6><%= language_taglines.join(' | ') %></h6>
-              </div>
+              <h6><%= language_taglines.join(' | ') %></h6>
             </div>
           </div>
         </div>
-        <div class="description text-center">
-          <p><%= user.bio %></p>
-          <% if user.interpreter? %>
-            <p><%= render 'shared/stars', rating: user.stars %></p>
-            <br>
-          <% end %>
-        </div>
-        <%= yield %>
       </div>
+      <div class="description text-center">
+        <p><%= user.bio %></p>
+        <% if user.interpreter? %>
+          <p><%= render 'shared/stars', rating: user.stars %></p>
+          <br>
+        <% end %>
+      </div>
+      <%= yield %>
     </div>
   </div>
+</div>

@@ -1,8 +1,6 @@
 <div class="profile-page sidebar-collapse">
-
   <%= render 'shared/page_banner' %>
   <%= render 'shared/profile', user: current_user do %>
-  
     <div id="nav-tabs">
       <div class="row">
         <div class="col-md-10 ml-auto mr-auto">
@@ -23,10 +21,10 @@
                     <li class="nav-item">
                       <a class="nav-link" href="#payments" data-toggle="tab">
                         <i class="material-icons">chat</i>
-                         <% if current_user.interpreter? %>
-                          History
+                        <% if current_user.interpreter? %>
+                          Payments
                         <% else %>
-                          Payment details
+                          Payment Details
                         <% end %>
                       </a>
                     </li>
@@ -39,11 +37,11 @@
                 <div class="tab-pane active" id="profile">
                   <%= render 'shared/edit_profile', user: current_user %>
                 </div>
-                <div class="tab-pane" id="payments">
+                <div class="tab-pane stripe-scoper" id="payments">
                   <% if current_user.interpreter? %>
                     <%= render 'shared/history', user: current_user %>
                   <% else %>
-                    <%= render 'shared/payment', user: current_user %>
+                    <%= render 'charges/new', user: current_user %>
                   <% end %>
                 </div>
               </div>
@@ -54,11 +52,4 @@
       </div>
     </div>
   <% end  %>
-
 </div>
-  
-
-
-
-
-

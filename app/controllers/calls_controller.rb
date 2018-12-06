@@ -31,6 +31,8 @@ class CallsController < ApplicationController
 
   def join # TODO - handle call already finished
     @call = Call.find_by(room_name: params[:room])
+    @call.start_time = Time.now
+    @call.save
     session[:call_id] = @call.id
     @interlocutor = @call.sender
   end
@@ -38,12 +40,23 @@ class CallsController < ApplicationController
   def end_call
     @call = Call.find(session[:call_id])
 
+    @call.end_time = Time.now # TODO: get duration from Twilio instead
+    @call.save
+
     @current_user = current_user
     @interlocutor = @current_user.customer? ? @call.recipients.first : @call.sender
 
-    @duration = 5 # TODO un-hardcode duration
+    if @call.duration
+      @duration = @call.duration # TODO check conversion of duration (seconds?)
+      @cost = @duration * 1.5
+      redirect_to charge_path
+    else
+      redirect_to interpreters_path
+    end
+
     @price = @duration * 1.5
     @earnings = @duration * 1.25
+
   end
 
   # def update

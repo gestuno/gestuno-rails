@@ -9,12 +9,10 @@
       <%= render 'shared/avatar', user: @interlocutor, scale: :large %>
 
       <p><strong>Your call details</strong></p>
-      <!-- TODO un-hardcode duration -->
-      <p>Call duration: <%= @duration %> minutes</p>
-      <!-- TODO un-hardcode duration -->
-      <p>You paid: <%= number_to_currency @price %></p>
 
-      <p>Please rate your interpreter’s service:</p>  <!-- Review -->
+      <%= render 'charges/show', duration: @duration, price: @price %>
+
+      <%# <p>Please rate your interpreter’s service:</p> %>
        <%# <% simple_form_for [@interpreter, @review] do |f| %>
         <%#= f.input :rating %>
         <%#= f.submit "add a review", class: "btn btn-primary" %>
@@ -25,8 +23,7 @@
 
       <h3>Call with <%= @interlocutor.name %> finished!</h3>
 
-      <p>Call duration: <%= @duration %> minutes</p>
-      <p>You earned: <%= number_to_currency @earnings %></p>
+      <%= render 'charges/show_earnings', duration: @duration, earnings: @earnings %>
 
     <% end %>
 
@@ -34,5 +31,3 @@
 
   </div>
 </div>
-
-
