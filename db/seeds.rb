@@ -42,7 +42,7 @@ puts_para "creating new stuff"
   user.save!
 
   if user.interpreter?
-    user.update!(bio: Faker::Lorem.sentence, gender: gender, certifications: "Naati level #{[2, 3].sample}")
+    user.update!(bio: Faker::Lorem.sentences(rand(3..5)), gender: gender, certifications: "Naati level #{[2, 3].sample}")
 
     num_of_reviewers = rand(0..10)
     base_stars = rand(0..3)
@@ -57,7 +57,7 @@ end
 
 # test accounts must come last
 
-test_interpreter = User.create!(name: 'Alan Watts', email: 'test@interpreter.com', password: '123123', interpreter: true, last_seen: Time.now, bio:  Faker::Lorem.sentence, gender: 'male', language: 'Auslan', certifications: 'Naati level 2')
+test_interpreter = User.create!(name: 'Alan Watts', email: 'test@interpreter.com', password: '123123', interpreter: true, last_seen: Time.now, bio:  Faker::Lorem.sentences(rand(3..5)), gender: 'male', language: 'Auslan', certifications: 'Naati level 2')
 
 test_customer = User.create!(name: 'Alice Glass', email: 'test@customer.com', password: '123123', language: 'Auslan')
 
