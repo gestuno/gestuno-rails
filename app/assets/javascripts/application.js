@@ -10,23 +10,27 @@
 
 //= require sweetalert2
 
+navigator.serviceWorker.register('/sw.js');
+
 function getCookie(cookieName) {
   const value = '; ' + document.cookie;
   const parts = value.split('; ' + cookieName + '=');
   if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
+function showNotification(title, options) {
+  navigator.serviceWorker.ready.then((registration) => {
+    registration.showNotification(title, options);
+  });
+}
+
 // `blast` displays a web push notification to a user and allows them to click on it to join the room
-function blast(options={}) {
-  const text = options['text']
-  const url = options['url']
+function blast(title, options = {}) {
 
   if (window.Notification && Notification.permission === 'granted') {
-    const n = new Notification(text);
-    n.onclick = function(event) {
-      event.preventDefault();
-      window.open(url, '_blank'); //url is the actual url of the conference room
-    }
+
+    showNotification(title, options);
+
   } else if (window.Notification && Notification.permission !== 'denied') {
     Notification.requestPermission(function (status) {
       if (Notification.permission !== status) {
@@ -34,17 +38,15 @@ function blast(options={}) {
       }
 
       if (status === 'granted') {
-        const n = new Notification(text);
-        n.onclick = function(event) {
-          event.preventDefault();
-          window.open(url, '_blank');
-        }
+
+        showNotification(title, options);
+
       } else {
-        // alert(text); //sweetalert is already used as backup
+        // noop - sweetalert is already used as backup
       }
     });
   } else {
-    // alert(text); //sweetalert is already used as backup
+    // noop - sweetalert is already used as backup
   }
 }
 
@@ -106,15 +108,34 @@ function authorize() {
   });
 }
 
+// navigator.serviceWorker.addEventListener('message', e => {
+//   if (e.data.tag === 'incomingCall') {
+//     window.open(`/join?room=${e.data.otherData.roomName}`, '_blank');
+//   }
+// });
+
 function SubscribeChannel() {
   App.cable.subscriptions.create({ channel: 'NotificationsChannel' },
   {
     received: data => {
 
-      blast({
-        text: `Incoming call from ${data.senderName}. Click to accept`,
-        url: `/join?room=${data.roomName}`
-      });
+      blast(`Incoming call from ${data.senderName}. Click to accept`,
+        {
+          tag: 'incomingCall',
+          // requireInteraction: true, // TODO dismiss only after user interaction with either notification or swal
+          vibrate: [
+            1000, 1000, 1000, 3000,
+            1000, 1000, 1000, 3000,
+            1000, 1000, 1000, 3000,
+            1000, 1000, 1000, 3000,
+            1000, 1000, 1000, 3000,
+            1000, 1000, 1000, 3000
+          ],
+          data: {
+            url: `/join?room=${data.roomName}`
+          }
+        }
+      );
 
       swal({
         title: 'Incoming call',

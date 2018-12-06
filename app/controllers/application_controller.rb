@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_action :set_cookies
 
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+
   # include Pundit
 
   # # Pundit: white-list approach.
