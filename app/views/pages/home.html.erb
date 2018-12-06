@@ -1,27 +1,22 @@
-
 <%= render 'shared/page_banner', bg_img: 'https://res.cloudinary.com/dyocdwgu9/image/upload/v1543550218/gestuno/bck.jpg', height: '100vh' do %>
-
   <div class="container">
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6">
         <h1 class="title">Anytime, Anywhere</h1>
-        <h5>Instantly and conveniently connecting deaf people and sign-language users with professionally certified interpreters.</h5>
+        <h5>Connect online with professional & certified sign language interpreters today.</h5>
         <br>
         <%= link_to "I want an interpreter", "#{new_user_registration_path}?user_type=customer", class: "btn btn-primary btn-xl"  %>
         <%= link_to "I am an interpreter", "#{new_user_registration_path}?user_type=interpreter", class: "btn btn-xl"  %>
       </div>
     </div>
   </div>
-
 <% end %>
-
 <div class="main main-raised">
   <div class="container">
     <div class="section text-center">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
-          <h2 class="title">Have a voice</h2>
-          <h5 class="description">Worldwide, over 70 million deaf people use sign language as a their primary means of communication. Our service helps provide users with a voice at times of urgency and need.</h5>
+          <h5 class="description">Over 70 million deaf people worldwide use sign language. Gestuno helps connect deaf people with available sign language interpreters any time and anywhere in the world.</h5>
         </div>
       </div>
       <div class="features">
@@ -32,7 +27,7 @@
                 <i class="material-icons">voice_chat</i>
               </div>
               <h4 class="info-title">Instant video-chat</h4>
-              <p><strong>No more waiting lists!</strong> In just a few click you will be connected to a professional certifed interpreter to help you.</p>
+              <p><strong>No more waiting!</strong>In a few clicks, you can connect to a professionally certifed interpreter in your language.</p>
             </div>
           </div>
           <div class="col-md-4">
@@ -41,7 +36,7 @@
                 <i class="material-icons">monetization_on</i>
               </div>
               <h4 class="info-title">Pay per minute</h4>
-              <p><strong>No more minimum booking periods!</strong> Pay for the actual time you engage with the interpreter, and only that.</p>
+              <p><strong>No more minimum booking time!</strong>Pay for the actual time you engage with the interpreter, and only that.</p>
             </div>
           </div>
           <div class="col-md-4">
@@ -50,14 +45,14 @@
                 <i class="material-icons">verified_user</i>
               </div>
               <h4 class="info-title">Verified Interpreters</h4>
-              <p>We verify all of our interpreters’ credentials and certifications before we approve them, ensuring you consistently get the best service and assistance.</p>
+              <p>Gestuno verifies each interpreter's credentials and certifications, ensuring you can access the best service on our platform.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="section text-center">
-      <h2 class="title">Meet Interpreters</h2>
+      <h2 class="title">Meet the Interpreters</h2>
       <div class="team">
         <div class="row">
           <div class="col-md-4">
@@ -71,94 +66,94 @@
                   <small class="card-description text-muted">Auslan NAATI 2</small>
                 </h4>
                 <div class="card-body">
-                  <p class="card-description">I am a professional Auslan NAATI level 2 interpreter based in Melbourne. I believe that a good interpreter never stops learning and improving their skills. Throughout my life I have seen the importance of mastering sign language for effective relations, interpersonal and cross-cultural communication and overcoming barriers.
-                </div>
-                <div class="card-footer justify-content-center">
-                  <a href="#" class="btn btn-link btn-just-icon"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="btn btn-link btn-just-icon btn-instagram"><i class="fab fa-instagram"></i></a>
-                  <a href="#" class="btn btn-link btn-just-icon"><i class="fab fa-facebook-square"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="team-player">
-              <div class="card card-plain">
-                <div>
-                  <%= render 'shared/avatar', img: 'https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549137/gestuno/profile3.jpg', scale: :large %>
-                </div>
-                <h4 class="card-title">Alice Powell
-                  <br>
-                  <small class="card-description text-muted">Auslan NAATI 3</small>
-                </h4>
-                <div class="card-body">
-                  <p class="card-description">I started interpreting to help the Deaf community when I was about 20 years old after an incident I witnessed while on call at the hospital. I am a registered nurse and a interpret in my free time as a freelance.</p>
-                </div>
-                <div class="card-footer justify-content-center">
-                  <a href="#" class="btn btn-link btn-just-icon"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="btn btn-link btn-just-icon"><i class="fab fa-linkedin"></i></a>
+                  <p class="card-description">I am a professional Auslan NAATI Level 2 interpreter based in Melbourne. I believe that a good interpreter never stops learning and improving their skills. Throughout my life I have seen the importance of mastering sign language for effective relations, interpersonal and cross-cultural communication and overcoming barriers.
+                  </div>
+                  <div class="card-footer justify-content-center">
+                    <a href="#" class="btn btn-link btn-just-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-link btn-just-icon btn-instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="btn btn-link btn-just-icon"><i class="fab fa-facebook-square"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="team-player">
-              <div class="card card-plain">
-                <div>
-                  <%= render 'shared/avatar', img: 'https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549137/gestuno/profile2.jpg', scale: :large %>
+            <div class="col-md-4">
+              <div class="team-player">
+                <div class="card card-plain">
+                  <div>
+                    <%= render 'shared/avatar', img: 'https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549137/gestuno/profile3.jpg', scale: :large %>
+                  </div>
+                  <h4 class="card-title">Alice Powell
+                    <br>
+                    <small class="card-description text-muted">Auslan NAATI 3</small>
+                  </h4>
+                  <div class="card-body">
+                    <p class="card-description">I started interpreting to help the Deaf community when I was about 20 years old after an incident I witnessed while on call at the hospital. I am a registered nurse and an interpreter in my free time.</p>
+                  </div>
+                  <div class="card-footer justify-content-center">
+                    <a href="#" class="btn btn-link btn-just-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-link btn-just-icon"><i class="fab fa-linkedin"></i></a>
+                  </div>
                 </div>
-                <h4 class="card-title">Indra Rizal
-                  <br>
-                  <small class="card-description text-muted">Auslan NAATI 2</small>
-                </h4>
-                <div class="card-body">
-                  <p class="card-description">I migrated to Australia along with my family when I was a child. Before moving to Australia I lived in my native Bangladesh region where Deaf people have no support. Growing up I wanted to make a difference in the Deaf community and travel yearly to Bangladesh to help those les fortunte then me.</p>
-                </div>
-                <div class="card-footer justify-content-center">
-                  <a href="#" class="btn btn-link btn-just-icon"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="btn btn-link btn-just-icon"><i class="fab fa-instagram"></i></a>
-                  <a href="#" class="btn btn-link btn-just-icon"><i class="fab fa-facebook-square"></i></a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="team-player">
+                <div class="card card-plain">
+                  <div>
+                    <%= render 'shared/avatar', img: 'https://res.cloudinary.com/dyocdwgu9/image/upload/v1543549137/gestuno/profile2.jpg', scale: :large %>
+                  </div>
+                  <h4 class="card-title">Indra Rizal
+                    <br>
+                    <small class="card-description text-muted">Auslan NAATI 2</small>
+                  </h4>
+                  <div class="card-body">
+                    <p class="card-description">I migrated to Australia along with my family when I was a child. Before moving to Australia I lived in my native Bangladesh region where Deaf people have no support. Growing up I wanted to make a difference in the Deaf community and travel yearly to Bangladesh and keep connected with their deaf community.</p>
+                  </div>
+                  <div class="card-footer justify-content-center">
+                    <a href="#" class="btn btn-link btn-just-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-link btn-just-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="btn btn-link btn-just-icon"><i class="fab fa-facebook-square"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="section section-contacts">
-      <div class="row">
-        <div class="col-md-8 ml-auto mr-auto">
-          <h2 class="text-center title">Get in Touch</h2>
-          <h4 class="text-center description">Write a few lines, we will get back to you in a couple of hours.</h4>
-          <form class="contact-form">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="bmd-label-floating">Your Name</label>
-                  <input type="email" class="form-control">
+      <div class="section section-contacts">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <h2 class="text-center title">Get in Touch</h2>
+            <h4 class="text-center description">Write a few lines, we will get back to you in a couple of hours.</h4>
+            <form class="contact-form">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Your Name</label>
+                    <input type="email" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Your Email</label>
+                    <input type="email" class="form-control">
+                  </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="bmd-label-floating">Your Email</label>
-                  <input type="email" class="form-control">
+              <div class="form-group">
+                <label for="exampleMessage" class="bmd-label-floating">Your Message</label>
+                <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
+              </div>
+              <div class="row">
+                <div class="col-md-4 ml-auto mr-auto text-center">
+                  <button class="btn btn-primary btn-raised">
+                    Send Message
+                  </button>
                 </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label for="exampleMessage" class="bmd-label-floating">Your Message</label>
-              <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
-            </div>
-            <div class="row">
-              <div class="col-md-4 ml-auto mr-auto text-center">
-                <button class="btn btn-primary btn-raised">
-                  Send Message
-                </button>
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>

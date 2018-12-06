@@ -106,6 +106,19 @@ function authorize() {
   });
 }
 
+function payNow() {
+  swal({
+        title: 'Oops!',
+        text: 'You need to save your payment details',
+        showCancelButton: true,
+        confirmButtonText: 'Go to Dashboard',
+        cancelButtonText: 'Cancel'
+      })
+      .then(action => {
+         if (action.value) {window.location = '/dashboard'};
+      });
+}
+
 function SubscribeChannel() {
   App.cable.subscriptions.create({ channel: 'NotificationsChannel' },
   {
