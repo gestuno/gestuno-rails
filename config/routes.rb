@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'user_views#dashboard', as: 'dashboard'
   patch 'dashboard', to: 'user_views#update', as: 'dash_update'
 
+  get 'about', to: 'pages#aboutus'
+
   resources :calls, only: [:create]
 
   patch 'calls/:call_id/attachtwiliosid', to: 'calls#attach_twilio_sid'
