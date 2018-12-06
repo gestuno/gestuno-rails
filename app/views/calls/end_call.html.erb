@@ -1,6 +1,5 @@
 <div class="container">
   <div class="call-card">
-
     <% if @current_user.customer? %>
 
       <h3>Thank you for calling!</h3>
@@ -14,7 +13,13 @@
       <p>Call duration: <%= @duration %> minutes</p>
       <!-- TODO un-hardcode duration -->
       <p>You paid: <%= number_to_currency @price %></p>
-      <%= link_to "Home", :root, class: "btn-blue"  %>
+
+      <p>Please rate your interpreter’s service:</p>  <!-- Review -->
+       <%# <% simple_form_for [@interpreter, @review] do |f| %>
+        <%#= f.input :rating %>
+        <%#= f.submit "add a review", class: "btn btn-primary" %>
+      <%# end %>
+      <!-- TODO: test -->
 
     <% else %>
 
@@ -22,9 +27,12 @@
 
       <p>Call duration: <%= @duration %> minutes</p>
       <p>You earned: <%= number_to_currency @earnings %></p>
-      <%= link_to "Home", :root, class: "btn-blue"  %>
 
     <% end %>
 
+    <%= link_to "Home", :root, class: "btn-blue"  %>
+
   </div>
 </div>
+
+

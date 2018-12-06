@@ -30,7 +30,7 @@
               <%= user.language %>
             </td>
             <% if @user_type == :interpreter %>
-              <td><%= render 'shared/stars', user: user %></td>
+              <td><%= render 'shared/stars', rating: user.stars, label: "Average rating: #{user.stars}" %></td>
             <% end %>
           </tr>
         <% end %>

@@ -8,7 +8,7 @@
         <% if @users.count == 0 %>
           <h3 class='text-center'>There are no <%= @user_type %>s available online.</h3>
         <% else %>
-          <h3 class='text-center'><%= @users.count %> <%= @user_type %>s available now.</h3>
+          <h3 class='text-center'><%= @users.count %> <%= @user_type %>s <%= @user_type == :interpreter ? 'available' : 'online' %> now.</h3>
           <br>
           <%= render 'shared/table' %>
         <% end %>

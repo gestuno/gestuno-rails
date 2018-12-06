@@ -43,7 +43,7 @@
         <div class="description text-center">
           <p><%= @user.bio %></p>
           <% if @user.interpreter? %>
-            <p><%= render 'shared/stars', user: @user %></p>
+            <p><%= render 'shared/stars', rating: @user.stars, label: "Average rating: #{@user.stars}" %></p>
           <% end %>
         </div>
         <div class="row">
