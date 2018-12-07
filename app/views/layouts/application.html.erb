@@ -28,12 +28,16 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= favicon_link_tag %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-    <%# <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous"> %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"> -->
+    <%= render 'local_libs/bootstrap_v4.1.1_css' %>
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <%#= render 'local_libs/material_icons_css' %>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <script src="https://js.stripe.com/v3/"></script>
+    <%#= render 'local_libs/fontawesome_v5.0.10_css' %>
+
   </head>
   <body>
     <%= render 'shared/navbar' %>
@@ -48,5 +52,9 @@
       SubscribeChannel();
     </script>
     <%# <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script> %>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <%#= render 'local_libs/stripe_v3_js' %>
+
   </body>
 </html>
