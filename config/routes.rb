@@ -43,6 +43,7 @@ Rails.application.routes.draw do
 
   get "icons/star_:pct", to: "icons#star", format: :svg
 
+  get 'home', to: 'pages#home'
 
   #Reviews TODO
   resources :users do
