@@ -1,19 +1,14 @@
 .call-card {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
   text-align: center;
   align-items: center;
-  border: 1px solid rgba(0,0,0,0.3);
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
-  padding: 20px;
+  // border: 1px solid rgba(0,0,0,0.3);
+  // box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
 }
 
-.call-avatar {
-  margin: 10px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+.call-card .gu-avatar {
+  margin: 20px 0;
 }
 
 .call-card p {

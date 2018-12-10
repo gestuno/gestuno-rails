@@ -1,7 +1,10 @@
+<% container_custom_styles ||= '' %>
+<%# TODO: remove horrible CSS hack %>
+
 <div>
   <%= render 'shared/page_banner', bg_img: bg_img, height: '100vh', parallax: false do %>
 
-    <div class="container">
+    <div class="container" style="<%= container_custom_styles %>">
       <div class="row">
         <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 ml-auto mr-auto">
           <div class="card card-login">

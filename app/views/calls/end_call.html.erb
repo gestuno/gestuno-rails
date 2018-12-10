@@ -1,8 +1,10 @@
 
-<%= render 'devise/shared/centered_form', page_title: 'Call Ended', bg_img: 'https://res.cloudinary.com/drgdpdviq/image/upload/v1544067229/Gestuno/pexels-photo-1509426.jpg' do %>
+<%= render 'devise/shared/centered_form', container_custom_styles: 'margin-top: 100px', page_title: 'Call Ended', bg_img: 'https://res.cloudinary.com/drgdpdviq/image/upload/v1544067229/Gestuno/pexels-photo-1509426.jpg' do %>
+
   <div class="container">
     <br>
     <div class="call-card">
+
       <% if @current_user.customer? %>
         <div class="description">
           <h3>Thank you for calling!</h3>
