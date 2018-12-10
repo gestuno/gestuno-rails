@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'registrations_disabled', to: 'pages#registrations_disabled', as: :edit_user_registration
+  get 'registrations_disabled', to: 'pages#registrations_disabled', as: :new_user_registration
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount ActionCable.server => '/cable'
 

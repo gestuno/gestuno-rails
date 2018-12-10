@@ -6,11 +6,12 @@
           <div class="profile">
             <div class="avatar gu-avatar-container">
 
+
               <%= render 'shared/avatar', user: user, scale: :large, classes: "img-raised img-fluid gu-raised-avatar" %>
 
               <!-- margin: -110px 0 20px 0; -->
 
-              <% if user.interpreter? %>
+              <% if user.interpreter? && user != current_user %>
                 <% if user.online? %>
                   <%= form_tag(controller: :calls, action: :create, method: :post, recipient: user) do %>
                     <%= button_tag type: 'submit', class: 'call-button-start', title: 'Start call' do %>

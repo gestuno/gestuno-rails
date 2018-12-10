@@ -74,6 +74,7 @@
     joinRoom();
 
     function joinRoom() {
+
       const roomName = vars.roomName;
 
       log("Joining room '" + roomName + "'...");
@@ -140,6 +141,10 @@
 
     // When a Participant joins the Room, log the event.
     room.on('participantConnected', function(participant) {
+
+      document.querySelector('#local-media').classList.remove('hidden');
+      document.querySelector('#before-call').classList.add('hidden');
+
       log("Joining: '" + participant.identity + "'");
     });
 
