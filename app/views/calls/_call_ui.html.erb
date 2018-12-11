@@ -4,7 +4,7 @@
       <% if current_user.customer? %>
           <%= render 'shared/avatar', custom_styles: 'position: absolute; top: 50%; left: 33%; transform: translate(-100% , -50%); border-radius: 0; opacity: 1', user: current_user %>
           <%= render 'loading_dots' %>
-          <%= render 'shared/avatar', custom_styles: 'position: absolute; top: 50%; right: 33%; transform: translate(100%, -50%); border-radius: 0; opacity: 0.35', user: @interlocutor %>
+          <%= render 'shared/avatar', custom_styles: 'position: absolute; top: 50%; right: 33%; transform: translate(100%, -50%); border-radius: 0; opacity: 0.5', user: @interlocutor %>
       <% end %>
     </div>
   </div>
